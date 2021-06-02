@@ -36,7 +36,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "echo Here we go again..."
+      "pre-commit": "echo git hooks are awesome!"
     }
   },
   "devDependencies": {
