@@ -4,9 +4,8 @@
   "description": "Chrome extension with VTEX utils",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve",
-    "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve || npx tururu",
+    "build": "webpack --progress"
   },
   "keywords": [
     "vtex",
@@ -15,7 +14,14 @@
     "api",
     "ecommerce"
   ],
-  "author": "Raphael Barbosa Rodrigues",
+  "author": {
+    "name": "Raphael Barbosa Rodrigues",
+    "email": "raphaelbarbosa.rodrigues@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RaphaelBRodrigues/vtex_utils_extension"
+  },
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.14.3",
@@ -28,5 +34,12 @@
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
   },
-  "devDependencies": {}
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo Here we go again..."
+    }
+  },
+  "devDependencies": {
+    "husky": "^6.0.0"
+  }
 }
