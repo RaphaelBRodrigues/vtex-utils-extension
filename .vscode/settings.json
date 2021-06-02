@@ -8,6 +8,8 @@
     "**/dist": true,
     "**/.vscode": true,
     "**/yarn*": true,
+    "**/.husky": true,
     "**/node_modules*": true,
+    "**/*.lock*": true
   }
 }
