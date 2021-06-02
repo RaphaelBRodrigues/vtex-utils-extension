@@ -1,0 +1,32 @@
+{
+  "name": "vtex_utils_extension",
+  "version": "1.0.0",
+  "description": "Chrome extension with VTEX utils",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vtex",
+    "chrome",
+    "javascript",
+    "api",
+    "ecommerce"
+  ],
+  "author": "Raphael Barbosa Rodrigues",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.6",
+    "html-webpack-plugin": "^5.3.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "devDependencies": {}
+}
