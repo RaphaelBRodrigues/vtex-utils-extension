@@ -7,9 +7,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PORT = 8080;
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src', 'index.js'),
+  entry: {
+    main: path.resolve(__dirname, 'src', 'main.js'),
+    background: path.resolve(__dirname, 'src', 'background.js'),
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   target: 'web',
@@ -34,7 +37,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(jpg|png|jpeg|svg|gif)/i,
+        test: /\.(jpg|png|jpeg|svg|gif|ico)/i,
         exclude: /node_modules/,
         loader: 'file-loader',
         options: {

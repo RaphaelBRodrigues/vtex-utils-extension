@@ -4,8 +4,8 @@
   "description": "Chrome extension with VTEX utils",
   "scripts": {
     "clean": "rimraf dist/* || rm -rf dist/*",
-    "start": "webpack serve --mode=development || npx tururu",
-    "build": "npm run clean && webpack --progress --mode=production",
+    "start": "npm run clean && webpack serve --open --mode=development || npx tururu",
+    "build": "npm run clean && webpack --progress --mode=production || npx tururu",
     "postinstall": "husky install"
   },
   "keywords": [
