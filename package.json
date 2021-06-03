@@ -4,7 +4,7 @@
   "description": "Chrome extension with VTEX utils",
   "scripts": {
     "clean": "rimraf dist/* || rm -rf dist/*",
-    "start": "npm run clean && webpack serve --mode=development || npx tururu",
+    "start": "npm run clean && webpack serve --open --mode=development || npx tururu",
     "build": "npm run clean && webpack --mode production  || npx tururu",
     "postinstall": "husky install"
   },
@@ -48,5 +48,8 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^12.1.4",
     "husky": "^6.0.0"
+  },
+  "browser": {
+    "[module-name]": false   
   }
 }

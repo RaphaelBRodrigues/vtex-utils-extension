@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "description": "Chrome extension with VTEX utils",
   "browser_action": {
-    "default_popup": "./dist/index.html"
+    "default_popup": "./dist/index.html",
+    "default_icon": "./src/assets/icons/vtex-16x16.png"
   },
   "manifest_version": 2,
   "default_locale": "pt_BR",
   "author": "raphaelbarbosa.rodrigues@gmail.com",
   "icons": {
-    "16": "./src/assets/icons/vtex-16x16.ico",
-    "32": "./src/assets/icons/vtex-32x32.ico",
-    "48": "./src/assets/icons/vtex-48x48.ico",
-    "128": "./src/assets/icons/vtex-128x128.ico"
+    "16": "./src/assets/icons/vtex-16x16.png",
+    "32": "./src/assets/icons/vtex-32x32.png",
+    "48": "./src/assets/icons/vtex-48x48.png",
+    "128": "./src/assets/icons/vtex-128x128.png"
   },
   "background": {
     "scripts": ["./dist/background.js"]

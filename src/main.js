@@ -1,5 +1,4 @@
-import './index.scss';
+import './main.scss';
+import init from './js/index';
 
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('tessadteSs2');
-});
+document.addEventListener('DOMContentLoaded', init);

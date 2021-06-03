@@ -1,0 +1,29 @@
+body {
+  font-family: Calibri;
+}
+
+.x-app {
+  background-color: $lightgray;
+  width: 400px;
+  position: relative;
+  overflow-x: hidden;
+
+  button {
+    background-color: transparent;
+    border: 0;
+  }
+
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $pink;
+  }
+
+}

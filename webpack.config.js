@@ -5,7 +5,7 @@ const PUBLIC_DIR = 'public';
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HTMLWebpackLiveReloadPlugin = require('html-webpack-live-reload-plugin');
-const PORT = 8080;
+const PORT = 3000;
 
 module.exports = {
   entry: {
@@ -66,9 +66,16 @@ module.exports = {
   ],
   devtool: 'source-map',
   devServer: {
-    // hot: true,
     writeToDisk: true,
     contentBase: path.join(__dirname, PUBLIC_DIR),
     port: PORT,
+  },
+  resolve: {
+    alias: {
+      '@Elements': path.resolve(__dirname, 'src', 'js', 'elements'),
+      '@Constants': path.resolve(__dirname, 'src', 'js', 'constants'),
+      '@Services': path.resolve(__dirname, 'src', 'js', 'services'),
+      '@Utils': path.resolve(__dirname, 'src', 'js', 'utils'),
+    },
   },
 };
