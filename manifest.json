@@ -1,0 +1,10 @@
+{
+  "manifest_version": 1,
+  "name": "VTEX Utils",
+  "version": "1.0.0",
+
+  "default_locale": "pt",
+  "description": "Chrome extension with VTEX utils",
+
+  "author": "raphaelbarbosa.rodrigues@gmail.com"
+}

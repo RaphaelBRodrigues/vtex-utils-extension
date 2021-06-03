@@ -11,6 +11,6 @@
     "**/.husky": true,
     "**/node_modules*": true,
     "**/*.lock*": true,
-    "**/*lint*": true
+    "**/commitlint.config.js*": true
   }
 }
