@@ -1,5 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const PUBLIC_DIR = 'public';
 
@@ -28,6 +29,10 @@ module.exports = {
         test: /\.js$/,
       },
       {
+        test: /.json/,
+        type: 'asset/resource',
+      },
+      {
         exclude: /node_modules/,
         test: /\.(sa|sc|c)ss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
@@ -54,6 +59,21 @@ module.exports = {
     ],
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: './manifest.json',
+        },
+        {
+          from: './src/assets/icons/',
+          to: './images',
+        },
+        {
+          from: './_locales',
+          to: './_locales',
+        },
+      ],
+    }),
     new HTMLWebpackPlugin({
       template: path.resolve(__dirname, PUBLIC_DIR, 'index.html'),
       title: 'VTEX Utils',
