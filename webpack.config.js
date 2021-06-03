@@ -2,8 +2,9 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const PUBLIC_DIR = 'public';
+
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PORT = 8080;
-const MODE = 'development';
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.js'),
@@ -12,28 +13,33 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   target: 'web',
-  mode: MODE,
   module: {
     rules: [
       {
         exclude: /node_modules/,
         loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+        },
         test: /\.js$/,
       },
       {
         exclude: /node_modules/,
-        test: /\.scss$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-            },
-          },
-        ],
+        test: /\.(sa|sc|c)ss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+      {
+        exclude: /node_modules/,
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(jpg|png|jpeg|svg|gif)/i,
+        exclude: /node_modules/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+        },
       },
     ],
   },
@@ -42,6 +48,9 @@ module.exports = {
       template: path.resolve(__dirname, PUBLIC_DIR, 'index.html'),
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
+    }),
   ],
   devServer: {
     hot: true,

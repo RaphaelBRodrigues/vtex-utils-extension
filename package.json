@@ -2,10 +2,10 @@
   "name": "vtex_utils_extension",
   "version": "1.0.0",
   "description": "Chrome extension with VTEX utils",
-  "main": "index.js",
   "scripts": {
-    "start": "webpack serve || npx tururu",
-    "build": "webpack --progress",
+    "clean": "rimraf dist/* || rm -rf dist/*",
+    "start": "webpack serve --mode=development || npx tururu",
+    "build": "npm run clean && webpack --progress --mode=production",
     "postinstall": "husky install"
   },
   "keywords": [
@@ -29,7 +29,11 @@
     "@babel/preset-env": "^7.14.4",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.6.0",
+    "node-sass": "^6.0.0",
+    "sass-loader": "^12.0.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",
