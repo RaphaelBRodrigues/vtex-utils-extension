@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const PUBLIC_DIR = 'public';
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HTMLWebpackLiveReloadPlugin = require('html-webpack-live-reload-plugin');
 const PORT = 8080;
 
 module.exports = {
@@ -37,26 +38,36 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(jpg|png|jpeg|svg|gif|ico)/i,
+        test: /\.(jpe?g|png|svg|gif|ico)/i,
         exclude: /node_modules/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-        },
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: './images',
+              esModule: false,
+            },
+          },
+        ],
       },
     ],
   },
   plugins: [
     new HTMLWebpackPlugin({
       template: path.resolve(__dirname, PUBLIC_DIR, 'index.html'),
+      title: 'VTEX Utils',
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new HTMLWebpackLiveReloadPlugin(),
     new MiniCssExtractPlugin({
       filename: 'styles.css',
     }),
   ],
+  devtool: 'source-map',
   devServer: {
-    hot: true,
+    // hot: true,
+    writeToDisk: true,
     contentBase: path.join(__dirname, PUBLIC_DIR),
     port: PORT,
   },

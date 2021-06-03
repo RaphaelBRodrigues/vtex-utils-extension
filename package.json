@@ -4,8 +4,8 @@
   "description": "Chrome extension with VTEX utils",
   "scripts": {
     "clean": "rimraf dist/* || rm -rf dist/*",
-    "start": "npm run clean && webpack serve --open --mode=development || npx tururu",
-    "build": "npm run clean && webpack --progress --mode=production || npx tururu",
+    "start": "npm run clean && webpack serve --mode=development || npx tururu",
+    "build": "npm run clean && webpack --mode production  || npx tururu",
     "postinstall": "husky install"
   },
   "keywords": [
@@ -30,6 +30,7 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
     "file-loader": "^6.2.0",
+    "html-webpack-live-reload-plugin": "^1.0.8",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.6.0",
     "node-sass": "^6.0.0",

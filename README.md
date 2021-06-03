@@ -2,12 +2,10 @@
 <h1 align="center"> VTEX UTILS CHROME EXTENSION</h1>
 
 ## About the project
-Is a chrome extension with VTEX utils that is help those who work with the plataform
+Is a chrome extension with VTEX utils that will help those who work with the plataform
 
 ## Contributing
 That is how you can start contributing to the project
-
-<br>
 
 ### Prerequisite
 
@@ -15,7 +13,6 @@ That is how you can start contributing to the project
 * [node](https://nodejs.org/en/)
 * [git](https://git-scm.com/)
 
-<br>
 
 ### Installation
 
@@ -28,8 +25,6 @@ That is how you can start contributing to the project
 ```sh
   npm install
 ```
-
-<br>
 
 
 ### Git flow
@@ -57,6 +52,5 @@ That is how you can start contributing to the project
 
 ### Links
 
-<br>
 
 ##### [Repo link](https://github.com/RaphaelBRodrigues/vtex_utils_extension)
