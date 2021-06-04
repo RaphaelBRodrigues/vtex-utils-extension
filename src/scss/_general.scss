@@ -9,8 +9,12 @@ body {
   overflow-x: hidden;
 
   button {
-    background-color: transparent;
+    background-color: $pink;
+    color: $white;
+    border-radius: 5px;
+    padding: 15px 25px;
     border: 0;
+    cursor: pointer;
   }
 
 
@@ -25,5 +29,4 @@ body {
   &::-webkit-scrollbar-thumb {
     background: $pink;
   }
-
 }

@@ -1,10 +1,11 @@
 import CacheSelector from '../__cache-selector';
 import showElement from '@Elements/content/utils/displayContent';
 
-const { $menuItems } = {
+const { $menuItems, $menu } = {
   ...CacheSelector.header,
   ...CacheSelector.menu,
 };
+
 function removeActiveFromMenuItem() {
   [...$menuItems].forEach(($item) => {
     $item.classList.remove('is--active');

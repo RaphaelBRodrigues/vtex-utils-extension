@@ -1,1 +1,11 @@
-{}
+{
+  "appName": {
+    "message": "VTEX Utils",
+
+    "description": "The title of the application, displayed in the web store."
+  },
+  "appDesc": {
+    "message": "Extensão do chrome com funções úteis para os usuários da plataforma VTEX",
+    "description": "The description of the application, displayed in the web store."
+  }
+}
