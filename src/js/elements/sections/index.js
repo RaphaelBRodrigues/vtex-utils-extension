@@ -1,5 +1,5 @@
 import Initial from './_initial';
-import LocalLogin from './_initial';
+import LocalLogin from './_localLogin';
 
 function init() {
   Initial();

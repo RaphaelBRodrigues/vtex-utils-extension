@@ -17,6 +17,56 @@ body {
     cursor: pointer;
   }
 
+  input {
+    border: 0;
+    border: 1px solid $pink;
+    border-right: 0;
+    color: $black;
+    padding: 15px 25px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 85%;
+    transition-duration: 0.6s;
+    color: $lightgray;
+    border-radius: 5px;
+
+
+
+    &::placeholder {
+      opacity: 0.7;
+      color: $lightgray;
+    }
+  }
+
+  label {
+    display: block;
+    padding: 15px 25px;
+
+    span {
+      width: 100%;
+      color: $black;
+      font-family: Calibri;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      position: relative;
+      color: gray;
+    }
+
+    >div {
+      display: flex;
+      align-items: flex-end;
+
+      button {
+        height: 100%;
+        position: relative;
+        left: -5px;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+    }
+  }
+
 
   &::-webkit-scrollbar {
     width: 5px;

@@ -3,7 +3,7 @@
  * @description Show the selected content on main element
  */
 
-function showElement(selectedSection) {
+function activeSection(selectedSection) {
   const $sections = document.querySelectorAll('section');
 
   $sections.forEach(($section) => {
@@ -17,4 +17,4 @@ function showElement(selectedSection) {
   $selectedSection?.classList.add('is--active');
 }
 
-export default showElement;
+export default activeSection;

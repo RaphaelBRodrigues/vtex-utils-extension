@@ -1,5 +1,5 @@
 import CacheSelector from '../__cache-selector';
-import activeSection from '@Utils/activeSection';
+import { activeSection } from '@Utils';
 
 const { $menuItems, $menu } = {
   ...CacheSelector.header,

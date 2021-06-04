@@ -9,6 +9,10 @@ const CacheSelector = {
   initial: {
     $buttons: document.querySelectorAll('.x-main__initial button'),
   },
+  localLogin: {
+    $input: document.querySelector('.x-main__local-login input'),
+    $button: document.querySelector('.x-main__local-login button'),
+  },
 };
 
 export default CacheSelector;

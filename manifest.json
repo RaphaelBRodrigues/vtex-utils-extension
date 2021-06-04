@@ -24,7 +24,8 @@
     "webNavigation",
     "webRequest",
     "storage",
-    "activeTab"
+    "activeTab",
+    "management"
   ],
   "host_permissions": ["*://*/*"]
 }
