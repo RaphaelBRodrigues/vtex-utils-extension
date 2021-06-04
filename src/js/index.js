@@ -1,4 +1,5 @@
 import Events from './elements/_events';
+
 function init() {
   Events.init();
 }

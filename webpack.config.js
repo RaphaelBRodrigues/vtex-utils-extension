@@ -1,11 +1,12 @@
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const webpack = require('webpack');
-const PUBLIC_DIR = 'public';
 
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HTMLWebpackLiveReloadPlugin = require('html-webpack-live-reload-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
+
+const PUBLIC_DIR = 'views';
 const PORT = 3000;
 
 module.exports = {

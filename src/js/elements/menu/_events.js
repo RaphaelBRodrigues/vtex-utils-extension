@@ -1,5 +1,5 @@
 import CacheSelector from '../__cache-selector';
-import showElement from '@Elements/content/utils/displayContent';
+import activeSection from '@Utils/activeSection';
 
 const { $menuItems, $menu } = {
   ...CacheSelector.header,
@@ -18,7 +18,7 @@ function bindMenuItem() {
       if (![...e.target.classList].includes('is--active')) {
         removeActiveFromMenuItem();
         const contentToShow = $item.getAttribute('data-content');
-        showElement(contentToShow);
+        activeSection(contentToShow);
         $item.classList.remove('is--active');
         e.target.classList.add('is--active');
       }

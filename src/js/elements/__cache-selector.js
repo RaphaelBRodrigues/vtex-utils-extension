@@ -6,6 +6,9 @@ const CacheSelector = {
     $menu: document.querySelector('.x-nav'),
     $menuItems: document.querySelectorAll('.x-nav__menu-item'),
   },
+  initial: {
+    $buttons: document.querySelectorAll('.x-main__initial button'),
+  },
 };
 
 export default CacheSelector;

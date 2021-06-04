@@ -29,4 +29,12 @@ body {
   &::-webkit-scrollbar-thumb {
     background: $pink;
   }
+
+  section {
+    display: none;
+
+    &.is--active {
+      display: block;
+    }
+  }
 }

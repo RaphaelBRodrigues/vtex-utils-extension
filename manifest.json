@@ -18,5 +18,13 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["tabs", "activeTab"]
+  "permissions": [
+    "cookies",
+    "tabs",
+    "webNavigation",
+    "webRequest",
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": ["*://*/*"]
 }
