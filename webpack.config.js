@@ -23,6 +23,11 @@ module.exports = {
     rules: [
       {
         exclude: /node_modules/,
+        loader: "ts-loader",
+        test: /\.tsx?$/
+      },
+      {
+        exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
           presets: ['@babel/preset-env'],

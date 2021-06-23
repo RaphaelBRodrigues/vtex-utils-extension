@@ -1,4 +1,4 @@
-&__local-login {
+&__custom-fetch {
   width: 100%;
   height: 100%;
   display: flex;
@@ -31,10 +31,6 @@
     }
   }
 
-  input {
-    border-right: 0;
-  }
-
 
   button {
     font-weight: bold;
@@ -42,4 +38,16 @@
     width: 45%;
     margin: 0;
   }
+
+  &--methods {
+    display: flex;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
 }

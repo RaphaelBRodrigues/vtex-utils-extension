@@ -13,6 +13,21 @@ const CacheSelector = {
     $input: document.querySelector('.x-main__local-login input'),
     $button: document.querySelector('.x-main__local-login button'),
   },
+  customFetch: {
+    $methodsRadios: document.querySelectorAll(
+      '.x-main__custom-fetch input[name="methods"]',
+    ),
+    $endpointInput: document.querySelector(
+      '.x-main__custom-fetch input[name="endpoint"]',
+    ),
+    $bodyInput: document.querySelector(
+      '.x-main__custom-fetch input[name="body"]',
+    ),
+    $queryInput: document.querySelector(
+      '.x-main__custom-fetch input[name="query"]',
+    ),
+    $button: document.querySelector('.x-main__custom-fetch button'),
+  },
 };
 
 export default CacheSelector;
