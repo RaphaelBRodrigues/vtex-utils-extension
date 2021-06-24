@@ -1,9 +1,4 @@
-type Cookie = {
-  url: string;
-  name: string;
-  value: string | boolean | number;
-  expirationDate?: number | null | undefined;
-};
+import { Cookie } from './types';
 
 /**
  * @param {String} url - The tab url that the cookie will be set

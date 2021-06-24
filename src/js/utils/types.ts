@@ -4,8 +4,14 @@ export type StripedURL = {
   query?: string;
 };
 
-// Window.chrome types
+export type Cookie = {
+  url: string;
+  name: string;
+  value: string | boolean | number;
+  expirationDate?: number | null | undefined;
+};
 
+// Window.chrome types
 export type ChromeTabQuery = {
   tab: object;
   url: string;
