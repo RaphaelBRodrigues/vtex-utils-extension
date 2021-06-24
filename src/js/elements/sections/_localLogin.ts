@@ -1,19 +1,18 @@
 import CacheSelector from '../__cache-selector';
-import { setCookie, currentTab } from '@Utils';
-import stripURL from '../../utils/stripURL';
+import { setCookie, currentTab, stripURL } from '@Utils';
 
 const { $input, $button } = {
   ...CacheSelector.localLogin,
 };
 
 function bindLoginButton() {
-  $button.addEventListener('click', () => {
+  $button?.addEventListener('click', () => {
     const token = $input.value;
     login(token);
   });
 }
 
-function login(token) {
+function login(token: string) {
   currentTab((tab) => {
     const stripedURL = stripURL(tab.url);
     const rootURL = `${stripedURL.protocol}://${stripedURL.domain}`;
@@ -24,7 +23,7 @@ function login(token) {
       name: 'VtexIdclientAutCookie',
     });
 
-    chrome.tabs.reload(tab.id);
+    window.chrome.tabs.reload(tab.id);
   });
 }
 

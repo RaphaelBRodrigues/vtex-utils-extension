@@ -1,4 +1,10 @@
 import './main.scss';
 import init from './js/index';
-alert();
+
+declare global {
+  interface Window {
+    chrome: any;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', init);

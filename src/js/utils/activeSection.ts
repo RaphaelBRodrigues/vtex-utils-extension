@@ -3,7 +3,7 @@
  * @description Show the selected content on main element
  */
 
-function activeSection(selectedSection) {
+function activeSection(selectedSection: string | null) {
   const $sections = document.querySelectorAll('section');
 
   $sections.forEach(($section) => {

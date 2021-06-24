@@ -11,7 +11,7 @@ const PORT = 3000;
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, 'src', 'main.js'),
+    main: path.resolve(__dirname, 'src', 'main.ts'),
     background: path.resolve(__dirname, 'src', 'background.js'),
   },
   output: {
@@ -97,6 +97,7 @@ module.exports = {
     port: PORT,
   },
   resolve: {
+    extensions: [".ts", ".js"],
     alias: {
       '@Elements': path.resolve(__dirname, 'src', 'js', 'elements'),
       '@Constants': path.resolve(__dirname, 'src', 'js', 'constants'),

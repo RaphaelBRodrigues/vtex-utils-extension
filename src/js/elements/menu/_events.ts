@@ -14,13 +14,13 @@ function removeActiveFromMenuItem() {
 
 function bindMenuItem() {
   [...$menuItems].forEach(($item) => {
-    $item.addEventListener('click', (e) => {
-      if (![...e.target.classList].includes('is--active')) {
+    $item?.addEventListener('click', (e) => {
+      if (![...$item?.classList].includes('is--active')) {
         removeActiveFromMenuItem();
         const contentToShow = $item.getAttribute('data-content');
         activeSection(contentToShow);
         $item.classList.remove('is--active');
-        e.target.classList.add('is--active');
+        $item.classList.add('is--active');
       }
     });
   });

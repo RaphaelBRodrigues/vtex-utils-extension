@@ -1,11 +1,18 @@
+type Cookie = {
+  url: string;
+  name: string;
+  value: string | boolean | number;
+  expirationDate?: number | null | undefined;
+};
+
 /**
  * @param {String} url - The tab url that the cookie will be set
  * @param {String} name - The name of the cookie
  * @param {String} value - The value of the cookit
  * @description Set a cookie on client browser
  */
-function setCookie({ url, name, value, expirationDate = null }) {
-  chrome.cookies.set({
+function setCookie({ url, name, value, expirationDate = null }: Cookie) {
+  window.chrome.cookies.set({
     url,
     name,
     value,

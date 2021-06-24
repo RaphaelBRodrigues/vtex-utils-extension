@@ -7,7 +7,8 @@ const { $buttons } = {
 function bindButtons() {
   [...$buttons].forEach(($button) => {
     $button.addEventListener('click', () => {
-      const selectedSection = $button.getAttribute('data-content');
+      const selectedSection: string | null =
+        $button.getAttribute('data-content');
       activeSection(selectedSection);
     });
   });

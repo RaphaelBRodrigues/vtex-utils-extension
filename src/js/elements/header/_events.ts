@@ -6,12 +6,12 @@ const { $menuButton, $menu } = {
 };
 
 function bindMenuButton() {
-  $menuButton.addEventListener('click', () => {
-    if ([...$menu.classList].includes('is--active')) {
-      $menu.classList.remove('is--active');
+  $menuButton?.addEventListener('click', () => {
+    if ([...($menu?.classList || [])].includes('is--active')) {
+      $menu?.classList.remove('is--active');
       $menuButton.classList.remove('is--active');
     } else {
-      $menu.classList.add('is--active');
+      $menu?.classList.add('is--active');
       $menuButton.classList.add('is--active');
     }
   });
