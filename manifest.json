@@ -18,5 +18,6 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["cookies", "tabs"]
+  "permissions": ["cookies", "tabs"],
+  "host_permissions": ["*://*/*"]
 }
