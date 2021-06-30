@@ -23,7 +23,7 @@ function login(token: string) {
       name: 'VtexIdclientAutCookie',
     });
 
-    window.chrome.tabs.reload(tab.id);
+    window.chrome.tabs.reload();
   });
 }
 

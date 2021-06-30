@@ -5,10 +5,10 @@ import { ChromeTabQuery, ChromeCurrentTabCallback } from './types';
  * @description Get current tab data
  */
 
-function currentTab<T>(callback: ChromeCurrentTabCallback): T {
+function currentTab(callback: ChromeCurrentTabCallback): void {
   return window.chrome.tabs.query(
     { active: true, currentWindow: true },
-    (tabs: ChromeTabQuery[]) => {
+    (tabs: chrome.tabs.Tab[]) => {
       return callback(tabs[0]);
     },
   );

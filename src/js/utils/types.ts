@@ -1,3 +1,5 @@
+export type Nullish = undefined | null;
+
 export type StripedURL = {
   protocol?: string;
   domain?: string;
@@ -7,7 +9,7 @@ export type StripedURL = {
 export type Cookie = {
   url: string;
   name: string;
-  value: string | boolean | number;
+  value: string | undefined;
   expirationDate?: number | null | undefined;
 };
 
@@ -18,4 +20,4 @@ export type ChromeTabQuery = {
   id: string;
 };
 
-export type ChromeCurrentTabCallback = (obj: ChromeTabQuery) => void;
+export type ChromeCurrentTabCallback = (obj: chrome.tabs.Tab) => void;

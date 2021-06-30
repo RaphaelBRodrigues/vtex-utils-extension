@@ -5,12 +5,16 @@ import currentTab from './currentTab';
 /**
  * @returns {String} Store url
  */
-function getStoreURL() {
-  const url = currentTab<string>((tab: ChromeTabQuery) => tab.url);
+function getStoreURL(): string {
+  let storeURL = '';
 
-  const { protocol = '', domain = '' } = stripURL(url);
+  currentTab(({ url }: chrome.tabs.Tab) => {
+    const { protocol = '', domain = '' } = stripURL(url);
 
-  return `${protocol}://${domain}`;
+    storeURL = `${protocol}://${domain}`;
+  });
+
+  return storeURL;
 }
 
 export default getStoreURL;
