@@ -4,7 +4,9 @@ const CacheSelector = {
   },
   menu: {
     $menu: document.querySelector<HTMLDivElement>('.x-nav'),
-    $menuItems: document.querySelectorAll('.x-nav__menu-item'),
+    $menuItems: document.querySelectorAll(
+      '.x-nav__menu-item:not([data-disabled])',
+    ),
   },
   initial: {
     $buttons: document.querySelectorAll('.x-main__initial button'),
@@ -28,6 +30,8 @@ const CacheSelector = {
     $queryInput: <HTMLInputElement>(
       document.querySelector('.x-main__custom-fetch input[name="query"]')
     ),
+    $error: document.querySelector('.x-main__custom-fetch--error'),
+    $result: document.querySelector('.x-main__custom-fetch--result'),
     $button: document.querySelector('.x-main__custom-fetch button'),
   },
 };

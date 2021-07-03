@@ -1,4 +1,4 @@
-import { Cookie } from './types';
+import { Cookie } from '@Types';
 
 /**
  * @param {String} url - The tab url that the cookie will be set
@@ -9,14 +9,12 @@ import { Cookie } from './types';
 function setCookie({ url, name, value, expirationDate = null }: Cookie) {
   console.log({ url, name, value, expirationDate });
 
-  window.chrome.cookies
-    .set({
-      url,
-      name,
-      value,
-      expirationDate: expirationDate ?? new Date().getTime() / 1000 + 300000,
-    })
-    .then((res) => console.log({ res }));
+  window.chrome.cookies.set({
+    url,
+    name,
+    value,
+    expirationDate: expirationDate ?? new Date().getTime() / 1000 + 300000,
+  });
 }
 
 export default setCookie;

@@ -26,6 +26,15 @@ That is how you can start contributing to the project
   npm install
 ```
 
+### Run the project
+
+* Start the project
+```
+  npm start
+``
+
+* See in the browser http://localhost:3000/
+
 
 ### Git flow
 

@@ -14,7 +14,7 @@ function removeActiveFromMenuItem() {
 
 function bindMenuItem() {
   [...$menuItems].forEach(($item) => {
-    $item?.addEventListener('click', (e) => {
+    $item?.addEventListener('click', () => {
       if (![...$item?.classList].includes('is--active')) {
         removeActiveFromMenuItem();
         const contentToShow = $item.getAttribute('data-content');

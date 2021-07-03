@@ -1,4 +1,3 @@
-import { ChromeTabQuery } from './types';
 import stripURL from './stripURL';
 import currentTab from './currentTab';
 

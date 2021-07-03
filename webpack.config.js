@@ -103,6 +103,7 @@ module.exports = {
       '@Constants': path.resolve(__dirname, 'src', 'js', 'constants'),
       '@Services': path.resolve(__dirname, 'src', 'js', 'services'),
       '@Utils': path.resolve(__dirname, 'src', 'js', 'utils'),
+      '@Types': path.resolve(__dirname, 'src', 'js', 'types'),
     },
   },
 };

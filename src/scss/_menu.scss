@@ -22,6 +22,11 @@
       cursor: pointer;
       transition-duration: 0.6s;
 
+      &[data-disabled] {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
       &:hover,
       &.is--active {
         background-color: $pink;

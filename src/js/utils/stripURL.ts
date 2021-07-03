@@ -1,4 +1,4 @@
-import { Nullish, StripedURL } from './types';
+import { Nullish, StripedURL } from '@Types';
 
 /**
  *
