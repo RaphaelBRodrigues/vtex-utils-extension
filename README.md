@@ -29,9 +29,9 @@ That is how you can start contributing to the project
 ### Run the project
 
 * Start the project
-```
+```sh
   npm start
-``
+```
 
 * See in the browser http://localhost:3000/
 
@@ -62,4 +62,6 @@ That is how you can start contributing to the project
 ### Links
 
 
-##### [Repo link](https://github.com/RaphaelBRodrigues/vtex_utils_extension)
+##### [Repository](https://github.com/RaphaelBRodrigues/vtex_utils_extension)
+
+##### [Google store](https://chrome.google.com/webstore/detail/vtex-utils/pbeccppphodgankmbikfdlodceghmmgo)
