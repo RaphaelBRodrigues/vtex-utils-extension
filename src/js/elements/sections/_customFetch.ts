@@ -38,14 +38,15 @@ function submitRequest() {
 
 function showResult(responseList: Array<Object>) {
   responseList.forEach((response) => {
-    const $details = document.createElement('details');
+    const $details = Object.assign(document.createElement('details'), {
+      open: true,
+    });
     const $summary = document.createElement('summary');
 
     if (responseList.length === 1) {
       $summary.innerText = 'Response';
 
       Object.keys(response).forEach((key: string) => {
-        console.log({ response, key });
         const $key = Object.assign(document.createElement('p'), {
           innerHTML: `<span>${key}</span>: <input disabled value="${
             (<any>response)[key]
