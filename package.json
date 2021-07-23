@@ -5,7 +5,8 @@
   "scripts": {
     "clean": "rimraf dist/* || rm -rf dist/*",
     "start": "npm run clean && webpack serve --open --mode=development || npx tururu",
-    "build": "npm run clean && webpack --mode production  ",
+    "prebuild": "npm run test",
+    "build": "npm run clean && webpack --mode production",
     "postinstall": "husky install",
     "test": "jest --config ./jest.config.ts"
   },
