@@ -90,7 +90,7 @@ module.exports = {
       filename: 'styles.css',
     }),
   ],
-  devtool: 'source-map',
+  // devtool: 'source-map',
   devServer: {
     writeToDisk: true,
     contentBase: path.join(__dirname, PUBLIC_DIR),
