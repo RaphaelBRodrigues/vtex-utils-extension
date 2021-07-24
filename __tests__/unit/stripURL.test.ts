@@ -7,21 +7,32 @@ describe('Strip URL', () => {
     expect(stripedURL).toBeInstanceOf(Object);
   });
 
-  it('the value of the protocol should be https', () => {
+  it('should return the protocol', () => {
     const { protocol } = stripURL('https://raphaelbr.dev?protocol=false');
 
     expect(protocol).toBe('https');
+    expect(typeof protocol).toBe('string');
   });
 
-  it('the value of the domain should be raphaelbr.dev', () => {
+  it('should return the domain', () => {
     const { domain } = stripURL('https://raphaelbr.dev/test');
 
     expect(domain).toBe('raphaelbr.dev');
+    expect(typeof domain).toBe('string');
   });
 
-  it('the value of the query should be ?test=true', () => {
+  it('should return the query params', () => {
     const { query } = stripURL('https://raphaelbr.dev?test=true');
 
     expect(query).toBe('?test=true');
+    expect(typeof query).toBe('string');
+  });
+
+  it('should return a empty object', () => {
+    const stripedURL = stripURL('justatest');
+
+    const { length } = Object.entries(stripedURL);
+
+    expect(length).toBe(0);
   });
 });
