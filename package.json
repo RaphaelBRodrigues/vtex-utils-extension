@@ -19,13 +19,15 @@
   ],
   "author": {
     "name": "Raphael Barbosa Rodrigues",
-    "email": "raphaelbarbosa.rodrigues@gmail.com"
+    "email": "raphaelbarbosa.rodrigues@gmail.com",
+    "url": "https://raphaelbr.dev"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/RaphaelBRodrigues/vtex_utils_extension"
+    "url": "https://github.com/RaphaelBRodrigues/vtex_utils_extension.git"
   },
-  "license": "ISC",
+  "homepage": "https://chrome.google.com/webstore/detail/vtex-utils/pbeccppphodgankmbikfdlodceghmmgo",
+  "license": "GPL-3.0",
   "dependencies": {
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
@@ -65,5 +67,8 @@
   },
   "browser": {
     "[module-name]": false
+  },
+  "engines": {
+    "node": "14.15.1"
   }
 }
