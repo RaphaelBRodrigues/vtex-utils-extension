@@ -4,6 +4,7 @@ export type StripedURL = {
   protocol?: string;
   domain?: string;
   query?: string;
+  params?: string;
 };
 
 export type Cookie = {

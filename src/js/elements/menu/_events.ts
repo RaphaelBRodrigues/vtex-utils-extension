@@ -1,7 +1,7 @@
 import CacheSelector from '../__cache-selector';
 import { activeSection } from '@Utils';
 
-const { $menuItems, $menu } = {
+const { $menuItems, $menu, $menuButton } = {
   ...CacheSelector.header,
   ...CacheSelector.menu,
 };
@@ -21,6 +21,12 @@ function bindMenuItem() {
         activeSection(contentToShow);
         $item.classList.remove('is--active');
         $item.classList.add('is--active');
+
+        setTimeout(() => {
+          $menu?.classList.remove('is--active');
+          $menuButton?.classList.remove('is--active');
+        }, 500)
+
       }
     });
   });

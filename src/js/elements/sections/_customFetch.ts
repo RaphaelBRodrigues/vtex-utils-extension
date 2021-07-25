@@ -1,5 +1,5 @@
 import CacheSelector from '../__cache-selector';
-import { getStoreURL } from '@Utils';
+import { getStoreURL, stripURL } from '@Utils';
 
 const { $button, $endpointInput, $methodsRadios, $error, $result } = {
   ...CacheSelector.customFetch,
@@ -10,7 +10,11 @@ function submitRequest() {
     const method =
       (<HTMLButtonElement>e?.target).getAttribute('data-method') || 'GET';
     const endpoint = $endpointInput.value;
-    const url = endpoint ?? getStoreURL();
+
+    const { protocol = "", domain, params, query = "" } = stripURL(endpoint);
+
+
+    const url = !!domain ? `${protocol}://${domain}${params}${query}` : endpoint;
 
     const options: RequestInit = {
       method,
@@ -25,38 +29,46 @@ function submitRequest() {
       const json = await resp.json();
       $error?.classList.remove('is--active');
 
-      if (Array.isArray(json)) {
-        showResult(json);
-      } else {
-        showResult([json]);
-      }
+      const result = Array.isArray(json) ? json : [json];
+
+      if ($result) $result.innerHTML = "";
+      renderResult(result)
+
     } catch {
+      if ($result) $result.innerHTML = "";
       $error?.classList.add('is--active');
     }
   }) as EventListener);
 }
 
-function showResult(responseList: Array<Object>) {
+function renderResult(responseList: Array<Object>, $elementList = $result, label = "Response", open = true) {
   responseList.forEach((response) => {
     const $details = Object.assign(document.createElement('details'), {
-      open: true,
+      open,
     });
     const $summary = document.createElement('summary');
 
-    if (responseList.length === 1) {
-      $summary.innerText = 'Response';
+    if (responseList.length === 1 && $elementList) {
+      $summary.innerText = label;
 
       Object.keys(response).forEach((key: string) => {
-        const $key = Object.assign(document.createElement('p'), {
-          innerHTML: `<span>${key}</span>: <input disabled value="${
-            (<any>response)[key]
-          }" />`,
-        });
-        $details.append($key);
+        const value = (<any>response)[key];
+        const isObject = typeof value === "object";
+
+        if (isObject) {
+          const result = Array.isArray(value) ? value : [value];
+          renderResult(result, $details, key, false);
+        } else {
+          const $key = Object.assign(document.createElement('p'), {
+            innerHTML: `<span>${key}</span>: <input disabled value="${(<any>response)[key]
+              }" />`,
+          });
+          $details.append($key);
+        }
       });
 
       $details.append($summary);
-      $result?.append($details);
+      $elementList.append($details);
     } else {
       console.log(response);
     }

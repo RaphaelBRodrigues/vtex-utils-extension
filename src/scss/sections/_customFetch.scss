@@ -7,6 +7,7 @@
   flex-direction: column;
   padding: 25px 0;
 
+
   h2 {
     padding: 5px 25px;
     color: $black;
@@ -42,6 +43,11 @@
     p {
       margin: 15px 0;
     }
+
+    input {
+      background-color: transparent;
+
+    }
   }
 
 
@@ -54,6 +60,15 @@
   }
 
   &--methods {
+    input {
+      background-color: green;
+
+      &:focus,
+      &:active {
+        box-shadow: 0 0 0 transparent !important;
+      }
+    }
+
     div {
       display: flex;
       justify-content: center;
@@ -61,6 +76,8 @@
       label {
         text-align: center;
       }
+
+
     }
   }
 
