@@ -21,11 +21,14 @@ const CacheSelector = {
     $methodsRadios: document.querySelectorAll<HTMLInputElement>(
       '.x-main__custom-fetch input[name="methods"]',
     ),
+    $bodyLabel: document.querySelectorAll<HTMLInputElement>(
+      '.x-main__custom-fetch > label',
+    )[1],
     $endpointInput: <HTMLInputElement>(
       document.querySelector('.x-main__custom-fetch input[name="endpoint"]')
     ),
-    $bodyInput: <HTMLInputElement>(
-      document.querySelector('.x-main__custom-fetch input[name="body"]')
+    $bodyInput: <HTMLTextAreaElement>(
+      document.querySelector('.x-main__custom-fetch textarea[name="body"]')
     ),
     $queryInput: <HTMLInputElement>(
       document.querySelector('.x-main__custom-fetch input[name="query"]')

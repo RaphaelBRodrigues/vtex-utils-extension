@@ -3,25 +3,24 @@
     <h2>Custom Fetch</h2>
     <div class="x-main__custom-fetch--methods">
       <div>
-
         <label>
           GET
           <input value="GET" name="methods" type="radio" checked>
         </label>
         <label>
           POST
-          <input disabled value="POST" name="methods" type="radio">
+          <input value="POST" name="methods" type="radio">
         </label>
         <label>
           PUT
-          <input disabled value="PUT" name="methods" type="radio">
+          <input value="PUT" name="methods" type="radio">
         </label>
       </div>
       <div>
 
         <label>
           PATCH
-          <input disabled value="PATCH" name="methods" type="radio">
+          <input value="PATCH" name="methods" type="radio">
         </label>
         <label>
           DELETE
@@ -29,12 +28,22 @@
         </label>
       </div>
     </div>
-    <label>
+    <label class="is--active">
       <span>
         Endpoint
       </span>
-      <input placeholder="/api/catalog_system/pvt/products/productgetbyrefid/refId" class="x-main__custom-fetch--input" name="endpoint">
+      <input placeholder="/api/catalog_system/pvt/products/productgetbyrefid/refId" class="x-main__custom-fetch--input " name="endpoint">
       <small class="x-main__custom-fetch--error">Erro: Falha ao realizar a requisição</small>
+    </label>
+    <label>
+      <span>
+        Body
+      </span>
+      <textarea class="x-main__custom-fetch--input" rows="7" name="body">
+{
+  "exemple":true
+}
+      </textarea>
     </label>
     <button>Enviar</button>
     <div class="x-main__custom-fetch--result"></div>

@@ -7,6 +7,16 @@
   flex-direction: column;
   padding: 25px 0;
 
+  >label {
+    display: none;
+
+    &.is--active {
+      display: block;
+    }
+
+    width: 85%;
+  }
+
 
   h2 {
     padding: 5px 25px;
@@ -46,7 +56,6 @@
 
     input {
       background-color: transparent;
-
     }
   }
 
@@ -61,7 +70,6 @@
 
   &--methods {
     input {
-      background-color: green;
 
       &:focus,
       &:active {

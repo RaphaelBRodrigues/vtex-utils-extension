@@ -26,7 +26,8 @@ body {
     }
   }
 
-  input {
+  input,
+  textarea {
     border: 0;
     border: 1px solid $pink;
     color: $black;

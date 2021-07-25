@@ -1,7 +1,14 @@
 import CacheSelector from '../__cache-selector';
-import { getStoreURL, stripURL } from '@Utils';
+import { stripURL } from '@Utils';
 
-const { $button, $endpointInput, $methodsRadios, $error, $result } = {
+const {
+  $button,
+  $endpointInput,
+  $methodsRadios,
+  $error,
+  $result,
+  $bodyInput,
+  $bodyLabel } = {
   ...CacheSelector.customFetch,
 };
 
@@ -10,6 +17,7 @@ function submitRequest() {
     const method =
       (<HTMLButtonElement>e?.target).getAttribute('data-method') || 'GET';
     const endpoint = $endpointInput.value;
+
 
     const { protocol = "", domain, params, query = "" } = stripURL(endpoint);
 
@@ -20,9 +28,9 @@ function submitRequest() {
       method,
     };
 
-    if (method !== 'GET') {
-      options.body = JSON.stringify({});
-    }
+
+    if (!["GET", "DELETE"].includes(method)) options.body = $bodyInput.value;
+
 
     try {
       const resp = await fetch(url, options);
@@ -42,13 +50,14 @@ function submitRequest() {
 }
 
 function renderResult(responseList: Array<Object>, $elementList = $result, label = "Response", open = true) {
+
   responseList.forEach((response) => {
     const $details = Object.assign(document.createElement('details'), {
       open,
     });
     const $summary = document.createElement('summary');
 
-    if (responseList.length === 1 && $elementList) {
+    if (responseList.length !== 0 && $elementList) {
       $summary.innerText = label;
 
       Object.keys(response).forEach((key: string) => {
@@ -79,6 +88,14 @@ function changeMethod() {
   [...$methodsRadios].forEach(($methodRadio) => {
     $methodRadio.addEventListener('click', ((e) => {
       const method = (<HTMLInputElement>e.target).value;
+
+      const showBodyTextArea = ["POST", "PUT", "PATCH"].includes(method)
+
+      if (showBodyTextArea) {
+        $bodyLabel.classList.add("is--active");
+      } else {
+        $bodyLabel.classList.remove("is--active");
+      }
 
       $button?.setAttribute('data-method', method);
     }) as EventListener);
