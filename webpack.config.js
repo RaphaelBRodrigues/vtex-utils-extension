@@ -23,8 +23,8 @@ module.exports = {
     rules: [
       {
         exclude: /node_modules/,
-        loader: "ts-loader",
-        test: /\.tsx?$/
+        loader: 'ts-loader',
+        test: /\.tsx?$/,
       },
       {
         exclude: /node_modules/,
@@ -41,11 +41,7 @@ module.exports = {
       {
         exclude: /node_modules/,
         test: /\.(sa|sc|c)ss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         exclude: /node_modules/,
@@ -94,14 +90,14 @@ module.exports = {
       filename: 'styles.css',
     }),
   ],
-  // devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
   devServer: {
     writeToDisk: true,
     contentBase: path.join(__dirname, PUBLIC_DIR),
     port: PORT,
   },
   resolve: {
-    extensions: [".ts", ".js"],
+    extensions: ['.ts', '.js'],
     alias: {
       '@Elements': path.resolve(__dirname, 'src', 'js', 'elements'),
       '@Constants': path.resolve(__dirname, 'src', 'js', 'constants'),

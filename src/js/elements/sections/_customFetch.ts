@@ -8,7 +8,10 @@ const {
   $error,
   $result,
   $bodyInput,
-  $bodyLabel } = {
+  $bodyLabel,
+  $jsonLink,
+  $csvLink
+} = {
   ...CacheSelector.customFetch,
 };
 
@@ -41,6 +44,10 @@ function submitRequest() {
 
       if ($result) $result.innerHTML = "";
       renderResult(result)
+      setDownloadButtons(result);
+
+      if (!resp.ok) throw new Error("Error on fetching")
+
 
     } catch {
       if ($result) $result.innerHTML = "";
@@ -82,6 +89,33 @@ function renderResult(responseList: Array<Object>, $elementList = $result, label
       console.log(response);
     }
   });
+}
+
+function setDownloadButtons(result: Object[]) {
+
+  var jsonURL = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(result));
+  let csvURL = "";
+
+  if (typeof result[0] === "object") {
+    const csvHeader = Object.keys(result[0]).join(",");
+    const csvBody = result.map((item) => {
+      return Object.values(item).map((value) => {
+        return JSON.stringify(value);
+      }).join(",");
+    }).join("\n");
+
+
+    const csvContent = `${csvHeader}\n${csvBody}`;
+
+    csvURL = "data:text/csv;charset=utf-8," + encodeURIComponent(csvContent);
+  }
+
+
+  $jsonLink?.setAttribute("href", jsonURL)
+  $csvLink?.setAttribute("href", csvURL)
+
+  $jsonLink?.classList.add("is--active");
+  $csvLink?.classList.add("is--active");
 }
 
 function changeMethod() {

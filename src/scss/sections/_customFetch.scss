@@ -60,12 +60,30 @@
   }
 
 
+
+
   button {
     font-weight: bold;
     font-size: 16px;
     width: 45%;
     margin: 0;
     margin-top: 10px;
+  }
+
+  &--download {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    margin-top: 5px;
+
+    a {
+      font-size: 16px;
+      display: none;
+
+      &.is--active {
+        display: block;
+      }
+    }
   }
 
   &--methods {
