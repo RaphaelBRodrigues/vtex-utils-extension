@@ -22,9 +22,11 @@ describe('Strip URL', () => {
   });
 
   it('should return the query params', () => {
-    const { query } = stripURL('https://raphaelbr.dev?test=true');
+    const { query } = stripURL(
+      'https://www.exemple.com.br/api/catalog_system/pub/products/search?fq=skuId:1939&test=true',
+    );
 
-    expect(query).toBe('?test=true');
+    expect(query).toBe('?fq=skuId:1939&test=true');
     expect(typeof query).toBe('string');
   });
 

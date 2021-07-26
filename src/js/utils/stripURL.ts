@@ -7,7 +7,7 @@ import { Nullish, StripedURL } from '@Types';
  */
 function stripURL(url: string | Nullish): StripedURL {
   const urlPattern =
-    /(?<protocol>(\w)+(?=:))(?:\:\/\/)(?<domain>((\w+)(\.?))+)(?<params>((\/)(\w?-?\d?)+)+)?(?<query>\?((\w?_?\d?)+=(\w?_?\d?)+&?)+)?/gi;
+    /(?<protocol>(\w)+(?=:))(?:\:\/\/)(?<domain>((\w+)(\.?))+)(?<params>((\/)(\w?-?\d?)+)+)?(?<query>\?((\w?_?\d?)+=(\w?:?_?\d?)+&?)+)?/gi;
 
   if (url) {
     const stripedURL = urlPattern.exec(url);

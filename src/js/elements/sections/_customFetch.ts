@@ -10,7 +10,7 @@ const {
   $bodyInput,
   $bodyLabel,
   $jsonLink,
-  $csvLink
+  $csvLink,
 } = {
   ...CacheSelector.customFetch,
 };
@@ -21,19 +21,18 @@ function submitRequest() {
       (<HTMLButtonElement>e?.target).getAttribute('data-method') || 'GET';
     const endpoint = $endpointInput.value;
 
+    const { protocol = '', domain, params, query = '' } = stripURL(endpoint);
 
-    const { protocol = "", domain, params, query = "" } = stripURL(endpoint);
-
-
-    const url = !!domain ? `${protocol}://${domain}${params}${query}` : endpoint;
+    console.log({ query });
+    const url = !!domain
+      ? `${protocol}://${domain}${params}${query}`
+      : endpoint;
 
     const options: RequestInit = {
       method,
     };
 
-
-    if (!["GET", "DELETE"].includes(method)) options.body = $bodyInput.value;
-
+    if (!['GET', 'DELETE'].includes(method)) options.body = $bodyInput.value;
 
     try {
       const resp = await fetch(url, options);
@@ -42,22 +41,24 @@ function submitRequest() {
 
       const result = Array.isArray(json) ? json : [json];
 
-      if ($result) $result.innerHTML = "";
-      renderResult(result)
+      if ($result) $result.innerHTML = '';
+      renderResult(result);
       setDownloadButtons(result);
 
-      if (!resp.ok) throw new Error("Error on fetching")
-
-
+      if (!resp.ok) throw new Error('Error on fetching');
     } catch {
-      if ($result) $result.innerHTML = "";
+      if ($result) $result.innerHTML = '';
       $error?.classList.add('is--active');
     }
   }) as EventListener);
 }
 
-function renderResult(responseList: Array<Object>, $elementList = $result, label = "Response", open = true) {
-
+function renderResult(
+  responseList: Array<Object>,
+  $elementList = $result,
+  label = 'Response',
+  open = true,
+) {
   responseList.forEach((response) => {
     const $details = Object.assign(document.createElement('details'), {
       open,
@@ -69,15 +70,16 @@ function renderResult(responseList: Array<Object>, $elementList = $result, label
 
       Object.keys(response).forEach((key: string) => {
         const value = (<any>response)[key];
-        const isObject = typeof value === "object";
+        const isObject = typeof value === 'object';
 
         if (isObject) {
           const result = Array.isArray(value) ? value : [value];
           renderResult(result, $details, key, false);
         } else {
           const $key = Object.assign(document.createElement('p'), {
-            innerHTML: `<span>${key}</span>: <input disabled value="${(<any>response)[key]
-              }" />`,
+            innerHTML: `<span>${key}</span>: <input disabled value="${
+              (<any>response)[key]
+            }" />`,
           });
           $details.append($key);
         }
@@ -92,30 +94,33 @@ function renderResult(responseList: Array<Object>, $elementList = $result, label
 }
 
 function setDownloadButtons(result: Object[]) {
+  var jsonURL =
+    'data:text/json;charset=utf-8,' +
+    encodeURIComponent(JSON.stringify(result));
+  let csvURL = '';
 
-  var jsonURL = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(result));
-  let csvURL = "";
-
-  if (typeof result[0] === "object") {
-    const csvHeader = Object.keys(result[0]).join(",");
-    const csvBody = result.map((item) => {
-      return Object.values(item).map((value) => {
-        return JSON.stringify(value);
-      }).join(",");
-    }).join("\n");
-
+  if (typeof result[0] === 'object') {
+    const csvHeader = Object.keys(result[0]).join(',');
+    const csvBody = result
+      .map((item) => {
+        return Object.values(item)
+          .map((value) => {
+            return JSON.stringify(value);
+          })
+          .join(',');
+      })
+      .join('\n');
 
     const csvContent = `${csvHeader}\n${csvBody}`;
 
-    csvURL = "data:text/csv;charset=utf-8," + encodeURIComponent(csvContent);
+    csvURL = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
   }
 
+  $jsonLink?.setAttribute('href', jsonURL);
+  $csvLink?.setAttribute('href', csvURL);
 
-  $jsonLink?.setAttribute("href", jsonURL)
-  $csvLink?.setAttribute("href", csvURL)
-
-  $jsonLink?.classList.add("is--active");
-  $csvLink?.classList.add("is--active");
+  $jsonLink?.classList.add('is--active');
+  $csvLink?.classList.add('is--active');
 }
 
 function changeMethod() {
@@ -123,12 +128,12 @@ function changeMethod() {
     $methodRadio.addEventListener('click', ((e) => {
       const method = (<HTMLInputElement>e.target).value;
 
-      const showBodyTextArea = ["POST", "PUT", "PATCH"].includes(method)
+      const showBodyTextArea = ['POST', 'PUT', 'PATCH'].includes(method);
 
       if (showBodyTextArea) {
-        $bodyLabel.classList.add("is--active");
+        $bodyLabel.classList.add('is--active');
       } else {
-        $bodyLabel.classList.remove("is--active");
+        $bodyLabel.classList.remove('is--active');
       }
 
       $button?.setAttribute('data-method', method);
