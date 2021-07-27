@@ -2,7 +2,9 @@ import { StoreInfoKeysT } from '@Types';
 
 export const keysToShow: StoreInfoKeysT[] = [
   'accountName',
-  'pageUrl',
+  'account',
+  'url',
   'productBrandName',
   'sellerId',
+  'plataformType',
 ];

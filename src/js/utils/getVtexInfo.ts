@@ -1,8 +1,8 @@
 import { Callback, StoreInfo } from '@Types';
-import triggerGetVtexInfo from './triggerGetVtexInfo';
+import dispatchVtexInfo from './dispatchVtexInfo';
 
 function getVtexInfo(callback: Callback<StoreInfo>) {
-  triggerGetVtexInfo();
+  dispatchVtexInfo();
 
   chrome.runtime.onMessage.addListener(
     ({ action, vtexInfo }: { action: string; vtexInfo: StoreInfo }) => {

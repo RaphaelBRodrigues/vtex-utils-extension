@@ -22,7 +22,8 @@ body {
 
     transition-duration: 0.4s;
 
-    &:active {
+    &:active,
+    &:hover {
       opacity: 0.7;
     }
   }

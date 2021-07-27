@@ -9,8 +9,8 @@ const { $list } = {
 
 async function setStoreData() {
   getVtexInfo((vtexInfo) => {
-    console.log({ vtexInfo });
     keysToShow.forEach((key) => {
+      if (!vtexInfo![key]) return;
       const $div = document.createElement('div');
 
       const $span = Object.assign(document.createElement('span'), {
