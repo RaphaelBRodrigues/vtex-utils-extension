@@ -4,13 +4,16 @@ import currentTab from './currentTab';
 /**
  * @returns {String} Store url
  */
-function getStoreURL(): string {
+async function getStoreURL() {
   let storeURL = '';
 
-  currentTab(({ url }: chrome.tabs.Tab) => {
-    const { protocol = '', domain = '' } = stripURL(url);
+  await new Promise((resolve) => {
+    currentTab(({ url }) => {
+      const { protocol = '', domain = '' } = stripURL(url);
+      storeURL = `${protocol}://${domain}`;
 
-    storeURL = `${protocol}://${domain}`;
+      resolve(() => {});
+    });
   });
 
   return storeURL;

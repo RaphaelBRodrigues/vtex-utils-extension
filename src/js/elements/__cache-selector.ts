@@ -36,10 +36,16 @@ const CacheSelector = {
     $error: document.querySelector('.x-main__custom-fetch--error'),
     $result: document.querySelector('.x-main__custom-fetch--result'),
     $button: document.querySelector('.x-main__custom-fetch button'),
-    $csvLink: document.querySelector('.x-main__custom-fetch a[data-type="csv"]'),
-    $jsonLink: document.querySelector('.x-main__custom-fetch a[data-type="json"]'),
+    $csvLink: document.querySelector(
+      '.x-main__custom-fetch a[data-type="csv"]',
+    ),
+    $jsonLink: document.querySelector(
+      '.x-main__custom-fetch a[data-type="json"]',
+    ),
   },
-  storeInfo: {}
+  storeInfo: {
+    $list: document.querySelector('.x-main__store-info--list'),
+  },
 };
 
 export default CacheSelector;

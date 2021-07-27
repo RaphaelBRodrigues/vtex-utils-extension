@@ -1,0 +1,26 @@
+&__store-info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 25px 0;
+
+
+
+  h2 {
+    padding: 5px 25px;
+    color: $black;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+
+  &--list {
+    >div {
+      margin: 15px 0;
+    }
+  }
+}

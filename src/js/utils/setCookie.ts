@@ -7,8 +7,6 @@ import { Cookie } from '@Types';
  * @description Set a cookie on client browser
  */
 function setCookie({ url, name, value, expirationDate = null }: Cookie) {
-  console.log({ url, name, value, expirationDate });
-
   window.chrome.cookies.set({
     url,
     name,

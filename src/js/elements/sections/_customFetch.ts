@@ -23,7 +23,6 @@ function submitRequest() {
 
     const { protocol = '', domain, params, query = '' } = stripURL(endpoint);
 
-    console.log({ query });
     const url = !!domain
       ? `${protocol}://${domain}${params}${query}`
       : endpoint;
@@ -76,7 +75,7 @@ function renderResult(
           const result = Array.isArray(value) ? value : [value];
           renderResult(result, $details, key, false);
         } else {
-          const $key = Object.assign(document.createElement('p'), {
+          const $key = Object.assign(document.createElement('div'), {
             innerHTML: `<span>${key}</span>: <input disabled value="${
               (<any>response)[key]
             }" />`,
