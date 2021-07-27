@@ -1,6 +1,5 @@
+import { Callback } from '@Types';
 import currentTab from './currentTab';
-
-type Callback = () => void;
 
 function runOnTab(callback: Callback) {
   currentTab((tab) => {

@@ -22,3 +22,5 @@ export type ChromeTabQuery = {
 };
 
 export type ChromeCurrentTabCallback = (obj: chrome.tabs.Tab) => void;
+
+export type Callback<T = undefined> = (param?: T) => void;
