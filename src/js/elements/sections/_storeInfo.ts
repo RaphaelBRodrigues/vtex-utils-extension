@@ -3,7 +3,7 @@ import { StoreInfoKeys, StoreInfo } from '@Types';
 import CacheSelector from '../__cache-selector';
 import { keysToShow } from '@Constants';
 
-const { $list } = {
+const { $list, $links } = {
   ...CacheSelector.storeInfo,
 };
 
@@ -27,6 +27,22 @@ async function setStoreData() {
 
       $list?.append($div);
     });
+
+    if (!!vtexInfo) setLinks(vtexInfo);
+  });
+}
+
+function setLinks({ accountName, account }: StoreInfo) {
+  const URLs = {
+    admin: `https://${accountName || account}.myvtex.com/admin`,
+    stable: `https://${accountName || account}.vtexcommercestable.com.br`,
+    beta: `https://${accountName || account}.vtexcommercebeta.com.br`,
+  };
+  [...$links].forEach(($link) => {
+    const linkType = <'admin' | 'stable' | 'beta'>(
+      $link.getAttribute('data-type')
+    );
+    $link.setAttribute('href', URLs[linkType]);
   });
 }
 

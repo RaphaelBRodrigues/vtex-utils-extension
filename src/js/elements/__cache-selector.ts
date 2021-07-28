@@ -45,6 +45,9 @@ const CacheSelector = {
   },
   storeInfo: {
     $list: document.querySelector('.x-main__store-info--list'),
+    $links: document.querySelectorAll(
+      '.x-main__store-info--links a[data-type]',
+    ),
   },
 };
 
