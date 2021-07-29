@@ -1,4 +1,4 @@
-import { getVtexInfo } from '@Utils';
+import { getVtexInfo, parseCookies } from '@Utils';
 import { StoreInfoKeys, StoreInfo } from '@Types';
 import CacheSelector from '../__cache-selector';
 import { keysToShow } from '@Constants';
@@ -11,6 +11,7 @@ async function setStoreData() {
   getVtexInfo((vtexInfo) => {
     keysToShow.forEach((key) => {
       if (!vtexInfo![key]) return;
+
       const $div = document.createElement('div');
 
       const $span = Object.assign(document.createElement('span'), {

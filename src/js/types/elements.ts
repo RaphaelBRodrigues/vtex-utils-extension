@@ -5,6 +5,7 @@ export enum StoreInfoKeys {
   productBrandName = 'Nome da marca',
   sellerId = 'Seller ID',
   plataformType = 'Tipo',
+  workspace = 'Workspace',
 }
 
 export type StoreInfoKeysT =
@@ -13,6 +14,7 @@ export type StoreInfoKeysT =
   | 'url'
   | 'productBrandName'
   | 'plataformType'
+  | 'workspace'
   | 'sellerId';
 
 export type StoreInfo = {
@@ -22,4 +24,5 @@ export type StoreInfo = {
   productBrandName: string;
   sellerId: string;
   plataformType: string;
+  workspace: string;
 };

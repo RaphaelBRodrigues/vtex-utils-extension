@@ -7,4 +7,5 @@ export const keysToShow: StoreInfoKeysT[] = [
   'productBrandName',
   'sellerId',
   'plataformType',
+  'workspace',
 ];

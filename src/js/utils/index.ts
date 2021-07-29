@@ -6,4 +6,6 @@ export { default as getStoreURL } from './getStoreURL';
 export { default as runOnTab } from './runOnTab';
 export { default as isPDP } from './isPDP';
 export { default as getVtexInfo } from './getVtexInfo';
-export { default as dispatchVtexInfo } from './dispatchVtexInfo';
+export { default as dispatchVtexInfo } from './dispatch/dispatchVtexInfo';
+export { default as createCSV } from './createCSV';
+export { default as parseCookies } from './parseCookies';

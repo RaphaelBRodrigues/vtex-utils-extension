@@ -1,5 +1,5 @@
 import CacheSelector from '../__cache-selector';
-import { stripURL } from '@Utils';
+import { createCSV, stripURL } from '@Utils';
 
 const {
   $button,
@@ -99,18 +99,7 @@ function setDownloadButtons(result: Object[]) {
   let csvURL = '';
 
   if (typeof result[0] === 'object') {
-    const csvHeader = Object.keys(result[0]).join(',');
-    const csvBody = result
-      .map((item) => {
-        return Object.values(item)
-          .map((value) => {
-            return JSON.stringify(value);
-          })
-          .join(',');
-      })
-      .join('\n');
-
-    const csvContent = `${csvHeader}\n${csvBody}`;
+    const csvContent = createCSV(result);
 
     csvURL = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
   }

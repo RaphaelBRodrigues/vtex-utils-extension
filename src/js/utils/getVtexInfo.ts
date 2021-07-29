@@ -1,5 +1,5 @@
 import { Callback, StoreInfo } from '@Types';
-import dispatchVtexInfo from './dispatchVtexInfo';
+import dispatchVtexInfo from './dispatch/dispatchVtexInfo';
 
 function getVtexInfo(callback: Callback<StoreInfo>) {
   dispatchVtexInfo();

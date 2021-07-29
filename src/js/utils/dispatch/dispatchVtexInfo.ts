@@ -1,4 +1,4 @@
-import runOnTab from './runOnTab';
+import runOnTab from '../runOnTab';
 
 function dispatchChromeEvent() {
   runOnTab(() => {
@@ -18,18 +18,15 @@ function dispatchChromeEvent() {
 
     const content = matchData.exec(html)?.groups;
 
-    console.clear();
-    console.log({ content, plataformType });
-
     if (!content?.vtexInfo) return;
 
     const vtexInfo = JSON.parse(content.vtexInfo);
-
     chrome.runtime.sendMessage({
       action: 'getVtexInfo',
       vtexInfo: {
         ...vtexInfo,
         plataformType,
+        cookies: document.cookie,
         url: window.location.href,
       },
     });
