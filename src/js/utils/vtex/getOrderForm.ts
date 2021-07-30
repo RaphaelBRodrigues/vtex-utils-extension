@@ -1,5 +1,5 @@
 import { Callback, OrderForm } from '@Types';
-import dispatchOrderForm from './dispatch/dispatchOrderForm';
+import dispatchOrderForm from '../dispatch/dispatchOrderForm';
 
 function getOrderForm(callback: Callback<OrderForm>) {
   dispatchOrderForm();

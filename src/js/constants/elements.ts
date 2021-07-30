@@ -1,4 +1,4 @@
-import { OrderFormKeysT, StoreInfoKeysT } from '@Types';
+import { ProductKeysT, OrderFormKeysT, StoreInfoKeysT } from '@Types';
 
 export const StoreKeysToShow: StoreInfoKeysT[] = [
   'accountName',
@@ -18,4 +18,11 @@ export const OrderFormKeysToShow: OrderFormKeysT[] = [
   'isCheckedIn',
   'storeId',
   'userProfileId',
+];
+
+export const ProductKeysToShow: ProductKeysT[] = [
+  'productId',
+  'productName',
+  'productReference',
+  'categoryId',
 ];

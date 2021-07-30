@@ -10,8 +10,6 @@ function createCSV(object: Object[]) {
     })
     .join('\n');
 
-  console.log({ csvBody });
-
   return `${csvHeader}\n${csvBody}`;
 }
 

@@ -97,3 +97,16 @@ export type OrderFormKeysT =
   | 'ratesAndBenefitsData'
   | 'subscriptionData'
   | 'itemsOrdination';
+
+export enum ProductKeys {
+  productId = 'Id do Produto',
+  productName = 'Nome do Produto',
+  productReference = 'Código de Referência do Produto',
+  categoryId = 'Id da Categoria',
+}
+
+export type ProductKeysT =
+  | 'productId'
+  | 'productName'
+  | 'productReference'
+  | 'categoryId';

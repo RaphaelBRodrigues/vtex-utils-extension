@@ -1,7 +1,7 @@
 import runOnTab from '../runOnTab';
 
-function dispatchVtexInfo() {
-  runOnTab(() => {
+function dispatchProductData() {
+  runOnTab(async () => {
     const html = document.documentElement.outerHTML;
     const $links = document.querySelectorAll('link');
 
@@ -17,21 +17,22 @@ function dispatchVtexInfo() {
         : /vtex.events.addData(?<=)\((?<vtexInfo>\{.+\})/gi;
 
     const content = matchData.exec(html)?.groups;
-
     if (!content?.vtexInfo) return;
 
     const vtexInfo = JSON.parse(content.vtexInfo);
+    const productId =
+      plataformType === 'IO' ? vtexInfo.route.params.id : vtexInfo.productId;
+
+    const resp = await fetch(
+      `/api/catalog_system/pub/products/search?fq=productId:${productId}`,
+    );
+    const [product] = await resp.json();
 
     chrome.runtime.sendMessage({
-      action: 'getVtexInfo',
-      vtexInfo: {
-        ...vtexInfo,
-        plataformType,
-        cookies: document.cookie,
-        url: window.location.href,
-      },
+      action: 'getProductData',
+      product: product,
     });
   });
 }
 
-export default dispatchVtexInfo;
+export default dispatchProductData;

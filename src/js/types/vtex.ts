@@ -33,3 +33,10 @@ export type OrderForm = {
   subscriptionData?: any;
   itemsOrdination?: any;
 };
+
+export type ProductData = {
+  productName?: String;
+  productId?: String;
+  productReference?: String;
+  categoryId?: Number;
+};

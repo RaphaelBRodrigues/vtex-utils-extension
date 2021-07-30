@@ -1,4 +1,4 @@
-import { getVtexInfo, parseCookies } from '@Utils';
+import { cleanNode, getVtexInfo } from '@Utils';
 import { StoreInfoKeys, StoreInfo } from '@Types';
 import CacheSelector from '../__cache-selector';
 import { StoreKeysToShow } from '@Constants';
@@ -9,6 +9,8 @@ const { $list, $links } = {
 
 async function setStoreData() {
   getVtexInfo((vtexInfo) => {
+    cleanNode($list);
+
     StoreKeysToShow.forEach((key) => {
       if (!vtexInfo![key]) return;
 

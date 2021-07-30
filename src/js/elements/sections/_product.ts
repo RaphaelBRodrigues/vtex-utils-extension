@@ -1,26 +1,26 @@
-import { OrderFormKeysToShow } from '@Constants';
-import { getOrderForm, createCSV, cleanNode } from '@Utils';
+import { ProductKeysToShow } from '@Constants';
+import { ProductKeys } from '@Types';
+import { cleanNode, createCSV, getProductData } from '@Utils';
 import CacheSelector from '../__cache-selector';
 
 const { $list, $jsonLink, $csvLink } = {
-  ...CacheSelector.orderForm,
+  ...CacheSelector.product,
 };
 
-async function setOrderForm() {
-  getOrderForm((orderForm) => {
+async function setProductData() {
+  getProductData((product) => {
     cleanNode($list);
-
-    OrderFormKeysToShow.forEach((key) => {
-      if (typeof orderForm?.[key] === 'object') return;
+    ProductKeysToShow.forEach((key) => {
+      if (typeof product?.[key] === 'object' || !product![key]) return;
 
       const $div = document.createElement('div');
 
       const $span = Object.assign(document.createElement('span'), {
-        innerText: key,
+        innerText: ProductKeys[key],
       });
 
       const $input = Object.assign(document.createElement('input'), {
-        value: orderForm![key],
+        value: product![key],
         disabled: true,
       });
 
@@ -30,19 +30,19 @@ async function setOrderForm() {
       $list?.append($div);
     });
 
-    if (!!orderForm) setDownloadLinks([orderForm]);
+    if (!!product) setDownloadLinks([product]);
   });
 }
 
-function setDownloadLinks(orderForm: Object[]) {
-  const csvContent = createCSV(orderForm);
+function setDownloadLinks(product: Object[]) {
+  const csvContent = createCSV(product);
 
   const csvURL =
     'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
 
   const jsonURL =
     'data:text/json;charset=utf-8,' +
-    encodeURIComponent(JSON.stringify(orderForm));
+    encodeURIComponent(JSON.stringify(product));
 
   $jsonLink?.setAttribute('href', jsonURL);
   $csvLink?.setAttribute('href', csvURL);
@@ -52,7 +52,7 @@ function setDownloadLinks(orderForm: Object[]) {
 }
 
 function init() {
-  setOrderForm();
+  setProductData();
 }
 
 export default init;
