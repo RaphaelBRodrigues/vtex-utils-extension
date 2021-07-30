@@ -26,3 +26,74 @@ export type StoreInfo = {
   plataformType: string;
   workspace: string;
 };
+
+export enum OrderFormKeys {
+  orderFormId = '',
+  salesChannel = '',
+  loggedIn = '',
+  isCheckedIn = '',
+  storeId = '',
+  checkedInPickupPointId = '',
+  allowManualPrice = '',
+  canEditData = '',
+  userProfileId = '',
+  userType = '',
+  ignoreProfileData = '',
+  value = '',
+  messages = '',
+  items = '',
+  selectableGifts = '',
+  totalizers = '',
+  shippingData = '',
+  clientProfileData = '',
+  paymentData = '',
+  marketingData = '',
+  sellers = '',
+  clientPreferencesData = '',
+  commercialConditionData = '',
+  storePreferencesData = '',
+  giftRegistryData = '',
+  openTextField = '',
+  invoiceData = '',
+  customData = '',
+  itemMetadata = '',
+  hooksData = '',
+  ratesAndBenefitsData = '',
+  subscriptionData = '',
+  itemsOrdination = '',
+}
+
+export type OrderFormKeysT =
+  | 'orderFormId'
+  | 'salesChannel'
+  | 'loggedIn'
+  | 'isCheckedIn'
+  | 'storeId'
+  | 'checkedInPickupPointId'
+  | 'allowManualPrice'
+  | 'canEditData'
+  | 'userProfileId'
+  | 'userType'
+  | 'ignoreProfileData'
+  | 'value'
+  | 'messages'
+  | 'items'
+  | 'selectableGifts'
+  | 'totalizers'
+  | 'shippingData'
+  | 'clientProfileData'
+  | 'paymentData'
+  | 'marketingData'
+  | 'sellers'
+  | 'clientPreferencesData'
+  | 'commercialConditionData'
+  | 'storePreferencesData'
+  | 'giftRegistryData'
+  | 'openTextField'
+  | 'invoiceData'
+  | 'customData'
+  | 'itemMetadata'
+  | 'hooksData'
+  | 'ratesAndBenefitsData'
+  | 'subscriptionData'
+  | 'itemsOrdination';

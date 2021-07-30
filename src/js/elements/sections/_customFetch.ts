@@ -93,19 +93,20 @@ function renderResult(
 }
 
 function setDownloadButtons(result: Object[]) {
-  var jsonURL =
+  const jsonURL =
     'data:text/json;charset=utf-8,' +
     encodeURIComponent(JSON.stringify(result));
-  let csvURL = '';
 
   if (typeof result[0] === 'object') {
     const csvContent = createCSV(result);
 
-    csvURL = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
+    const csvURL =
+      'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
+
+    $csvLink?.setAttribute('href', csvURL);
   }
 
   $jsonLink?.setAttribute('href', jsonURL);
-  $csvLink?.setAttribute('href', csvURL);
 
   $jsonLink?.classList.add('is--active');
   $csvLink?.classList.add('is--active');

@@ -1,7 +1,7 @@
 import { getVtexInfo, parseCookies } from '@Utils';
 import { StoreInfoKeys, StoreInfo } from '@Types';
 import CacheSelector from '../__cache-selector';
-import { keysToShow } from '@Constants';
+import { StoreKeysToShow } from '@Constants';
 
 const { $list, $links } = {
   ...CacheSelector.storeInfo,
@@ -9,7 +9,7 @@ const { $list, $links } = {
 
 async function setStoreData() {
   getVtexInfo((vtexInfo) => {
-    keysToShow.forEach((key) => {
+    StoreKeysToShow.forEach((key) => {
       if (!vtexInfo![key]) return;
 
       const $div = document.createElement('div');

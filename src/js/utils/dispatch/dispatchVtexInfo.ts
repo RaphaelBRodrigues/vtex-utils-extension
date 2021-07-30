@@ -1,6 +1,6 @@
 import runOnTab from '../runOnTab';
 
-function dispatchChromeEvent() {
+function dispatchVtexInfo() {
   runOnTab(() => {
     const html = document.documentElement.outerHTML;
     const $links = document.querySelectorAll('link');
@@ -21,6 +21,8 @@ function dispatchChromeEvent() {
     if (!content?.vtexInfo) return;
 
     const vtexInfo = JSON.parse(content.vtexInfo);
+    console.log({ vtexInfo });
+
     chrome.runtime.sendMessage({
       action: 'getVtexInfo',
       vtexInfo: {
@@ -33,4 +35,4 @@ function dispatchChromeEvent() {
   });
 }
 
-export default dispatchChromeEvent;
+export default dispatchVtexInfo;

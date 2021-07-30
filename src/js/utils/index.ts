@@ -8,4 +8,5 @@ export { default as isPDP } from './isPDP';
 export { default as getVtexInfo } from './getVtexInfo';
 export { default as dispatchVtexInfo } from './dispatch/dispatchVtexInfo';
 export { default as createCSV } from './createCSV';
+export { default as getOrderForm } from './getOrderForm';
 export { default as parseCookies } from './parseCookies';

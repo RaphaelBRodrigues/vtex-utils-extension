@@ -1,6 +1,6 @@
-import { StoreInfoKeysT } from '@Types';
+import { OrderFormKeysT, StoreInfoKeysT } from '@Types';
 
-export const keysToShow: StoreInfoKeysT[] = [
+export const StoreKeysToShow: StoreInfoKeysT[] = [
   'accountName',
   'account',
   'url',
@@ -8,4 +8,14 @@ export const keysToShow: StoreInfoKeysT[] = [
   'sellerId',
   'plataformType',
   'workspace',
+];
+
+export const OrderFormKeysToShow: OrderFormKeysT[] = [
+  'orderFormId',
+  'value',
+  'salesChannel',
+  'loggedIn',
+  'isCheckedIn',
+  'storeId',
+  'userProfileId',
 ];

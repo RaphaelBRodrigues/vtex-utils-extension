@@ -49,6 +49,18 @@ const CacheSelector = {
       '.x-main__store-info--links a[data-type]',
     ),
   },
+  orderForm: {
+    $list: document.querySelector('.x-main__orderForm--items'),
+    $links: document.querySelectorAll(
+      '.x-main__orderForm--download a[data-type]',
+    ),
+    $csvLink: document.querySelector(
+      '.x-main__orderForm--download a[data-type="csv"]',
+    ),
+    $jsonLink: document.querySelector(
+      '.x-main__orderForm--download a[data-type="json"]',
+    ),
+  },
 };
 
 export default CacheSelector;
