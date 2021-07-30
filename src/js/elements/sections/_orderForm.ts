@@ -42,7 +42,7 @@ function setDownloadLinks(orderForm: Object[]) {
 
   const jsonURL =
     'data:text/json;charset=utf-8,' +
-    encodeURIComponent(JSON.stringify(orderForm));
+    encodeURIComponent(JSON.stringify(orderForm, null, '\t'));
 
   $jsonLink?.setAttribute('href', jsonURL);
   $csvLink?.setAttribute('href', csvURL);

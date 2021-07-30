@@ -95,7 +95,7 @@ function renderResult(
 function setDownloadButtons(result: Object[]) {
   const jsonURL =
     'data:text/json;charset=utf-8,' +
-    encodeURIComponent(JSON.stringify(result));
+    encodeURIComponent(JSON.stringify(result, null, '\t'));
 
   if (typeof result[0] === 'object') {
     const csvContent = createCSV(result);
