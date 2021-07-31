@@ -6,16 +6,14 @@ function dispatchProductData() {
 
     const $links = document.querySelectorAll('link');
 
-    const isIO = [...$links].find(($link) =>
+    const isIO = [...$links].some(($link) =>
       $link.href.match(/\/pwa\/manifest.json/),
-    )
-      ? 'IO'
-      : 'CMS';
+    );
 
     const matchData =
       isIO
         ? /"mpn":"(?<productId>\d+)"/gi
-        : /vtex.events.addData(?<=)\((?<productId>\{.+\})/gi;
+        : /"productId":"(?<productId>\d+)"/gi;
 
     const content = matchData.exec(html)?.groups;
     const productId = content?.productId;
