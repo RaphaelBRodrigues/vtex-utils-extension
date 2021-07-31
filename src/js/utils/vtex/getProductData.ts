@@ -7,7 +7,6 @@ function getProductData(callback: Callback<ProductData>) {
   chrome.runtime.onMessage.addListener(
     ({ action, product }: { action: string; product: ProductData }) => {
       if (action == 'getProductData') {
-        console.log({ product });
         callback(product);
       }
     },
