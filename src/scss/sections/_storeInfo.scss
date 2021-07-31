@@ -7,25 +7,6 @@
   flex-direction: column;
   padding: 25px 0;
 
-
-
-  h2,
-  h3 {
-    padding: 5px 25px;
-    color: $black;
-    font-size: 28px;
-    font-weight: bold;
-    border-radius: 4px;
-    margin-bottom: 15px;
-  }
-
-  h3 {
-    font-size: 20px;
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
-
   &--list {
     >div {
       margin: 15px 0;

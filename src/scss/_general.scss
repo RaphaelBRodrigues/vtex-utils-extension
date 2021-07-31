@@ -8,9 +8,24 @@ body {
   position: relative;
   overflow-x: hidden;
   height: 600px;
-
   transition-duration: 0.3s;
 
+  h2,
+  h3 {
+    padding: 5px 25px;
+    color: $black;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
 
   button {
     background-color: $pink;
