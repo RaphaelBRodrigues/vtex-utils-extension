@@ -26,7 +26,6 @@ function dispatchProductData() {
       `/api/catalog_system/pub/products/search?fq=productId:${productId}`,
     );
     const [product] = await resp.json();
-    console.log({ productId, product })
 
 
     chrome.runtime.sendMessage({
