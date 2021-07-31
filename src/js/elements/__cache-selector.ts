@@ -73,6 +73,9 @@ const CacheSelector = {
       '.x-main__product--download a[data-type="json"]',
     ),
   },
+  vtexAPI: {
+    $list: document.querySelector('.x-main__vtex-api--list'),
+  },
 };
 
 export default CacheSelector;

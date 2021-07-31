@@ -1,11 +1,10 @@
 import CacheSelector from '../__cache-selector';
 
-const { $list, $links } = {
-  ...CacheSelector.storeInfo,
+const { } = {
+  ...CacheSelector.vtexAPI,
 };
 
 function showEndpoints() {
-
 }
 
 
