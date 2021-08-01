@@ -1,7 +1,7 @@
 
 # VTEX Utils
 
-[VTEX Utils]("http://vtex.raphaelbr.dev/") is a browser extension with some helpers that will make easier the life of those who work in the [VTEX](https://vtex.com/) Ecosystem
+[VTEX Utils]("http://vtex.raphaelbr.dev/") is a browser extension with some helpers that will make easier the life of those who work Ecosystem with the [VTEX](https://vtex.com/)
 
 ## Some Features:
 * Local Login: Set the cookie VtexIdclientAutCookie that is used to authenticate the user in the plataform
@@ -58,23 +58,23 @@ Now you can see it running on http://localhost:3000, but only some features are 
 Follow this steps to install the extension in your browser
 
 * Go to chrome://extensions/ or YOUR_BROWSER://extensions/
-<br />
-<br />
+
+
 ![Manage Extensions](https://raw.githubusercontent.com/RaphaelBRodrigues/vtex_utils_extension/master/docs/images/manage_extensions.png)
 
 * Active the Developer Mode
-<br />
-<br /> 
+
+
 ![Developer Mode](https://raw.githubusercontent.com/RaphaelBRodrigues/vtex_utils_extension/master/docs/images/developer_mode.png)
 
 * And select the dist folder generated in the root folder of the project in "Load Unpacked Extension" 
-<br />
-<br />
+
+
 ![Load unpacked extension](https://raw.githubusercontent.com/RaphaelBRodrigues/vtex_utils_extension/master/docs/images/load_unpacked.png)
 
 * Now you can code and the extension will be updated everytime a file is saved
-<br />
-<br />
+
+
 ![Installed extension](https://raw.githubusercontent.com/RaphaelBRodrigues/vtex_utils_extension/master/docs/images/installed_extension.png)
 
 ### Contributing
