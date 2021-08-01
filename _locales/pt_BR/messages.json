@@ -1,11 +1,10 @@
 {
   "appName": {
     "message": "VTEX Utils",
-
-    "description": "VTEX Utils."
+    "description": "VTEX Utils"
   },
   "appDesc": {
-    "message": "Extensão do chrome com funções úteis para os usuários da plataforma VTEX",
-    "description": "Extensão do chrome com funções úteis para os usuários da plataforma VTEX."
+    "message": "A extensão VTEX Utils possui vários helpers que irão facilitar a vida dos usuário que trabalham com o ecossistema VTEX",
+    "description": "A extensão VTEX Utils possui vários helpers que irão facilitar a vida dos usuário que trabalham com o ecossistema VTEX"
   }
 }
