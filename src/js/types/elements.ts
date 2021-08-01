@@ -4,7 +4,7 @@ export enum StoreInfoKeys {
   url = 'URL da Página',
   productBrandName = 'Nome da marca',
   sellerId = 'Seller ID',
-  plataformType = 'Tipo',
+  plataformType = 'Versão',
   workspace = 'Workspace',
 }
 

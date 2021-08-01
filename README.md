@@ -3,12 +3,20 @@
 
 [VTEX Utils]("http://vtex.raphaelbr.dev/") is a browser extension with some helpers that will make easier the life of those who work in the [VTEX](https://vtex.com/) Ecosystem
 
+## Some Features:
+* Local Login: Set the cookie VtexIdclientAutCookie that is used to authenticate the user in the plataform
+* Store Info: You can check some info about the store, like the account name, the version of the store(IO or CMS), the current workspace (IO), etc...
+* HTTP Request: You can make custom requests using some http methods (GET, POST, PUT, PATCH, DELETE), and save the response as .json or .csv
+* Product: You can check the current product info and save all as .json or .csv
+* Orderform: You can check some Orderform info and save all as .json or .csv
+* Public APIs (WIP): You will be able to get the data of some VTEX APIs only clicking in the one you want, and will be able do download it as a .json or .csv
+
 ## Stack
 * [TypeScript](https://www.typescriptlang.org/)
 * [SASS](https://sass-lang.com/)
 * [Jest](https://jestjs.io/pt-BR/)
 
-## Dependecies
+## Dependencies
 * [Webpack](https://webpack.js.org/)
 * [Babel](https://babeljs.io/)
 
@@ -56,7 +64,7 @@ Follow this steps to install the extension in your browser
 
 * Active the Developer Mode
 <br />
-<br />
+<br /> 
 ![Developer Mode](https://raw.githubusercontent.com/RaphaelBRodrigues/vtex_utils_extension/master/docs/images/developer_mode.png)
 
 * And select the dist folder generated in the root folder of the project in "Load Unpacked Extension" 
