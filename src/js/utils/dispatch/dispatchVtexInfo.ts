@@ -18,7 +18,10 @@ function dispatchVtexInfo() {
 
     const content = matchData.exec(html)?.groups;
 
-    if (!content?.vtexInfo) return;
+    if (!content?.vtexInfo) {
+      chrome.runtime.sendMessage({ action: "isNotVTEX" });
+      return;
+    }
 
     const vtexInfo = JSON.parse(content.vtexInfo);
 

@@ -12,3 +12,4 @@ export { default as getOrderForm } from './vtex/getOrderForm';
 export { default as getProductData } from './vtex/getProductData';
 export { default as parseCookies } from './parseCookies';
 export { default as cleanNode } from './cleanNode';
+export { default as isVTEX } from './isVTEX';

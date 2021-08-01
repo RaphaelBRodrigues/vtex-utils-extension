@@ -12,7 +12,7 @@ const PORT = 3000;
 module.exports = {
   entry: {
     main: path.resolve(__dirname, 'src', 'main.ts'),
-    background: path.resolve(__dirname, 'src', 'background.js'),
+    background: path.resolve(__dirname, 'src', 'background.ts'),
   },
   output: {
     filename: '[name].js',
@@ -104,6 +104,7 @@ module.exports = {
       '@Services': path.resolve(__dirname, 'src', 'js', 'services'),
       '@Utils': path.resolve(__dirname, 'src', 'js', 'utils'),
       '@Types': path.resolve(__dirname, 'src', 'js', 'types'),
+      '@Background': path.resolve(__dirname, 'src', 'js', 'background'),
     },
   },
 };
