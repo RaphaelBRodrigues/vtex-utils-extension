@@ -7,8 +7,12 @@ import { ChromeCurrentTabCallback } from '@Types';
 function currentTab(callback: ChromeCurrentTabCallback): void {
   chrome.tabs.query(
     { active: true, currentWindow: true },
-    (tabs: chrome.tabs.Tab[]) => {
-      callback(tabs[0]);
+    ([tab]: chrome.tabs.Tab[]) => {
+      if (!tab?.id) {
+        currentTab(callback);
+        return;
+      }
+      callback(tab);
     },
   );
 }

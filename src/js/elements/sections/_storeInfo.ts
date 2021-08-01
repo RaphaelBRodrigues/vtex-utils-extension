@@ -10,7 +10,6 @@ const { $list, $links } = {
 async function setStoreData() {
   getVtexInfo((vtexInfo) => {
     cleanNode($list);
-
     StoreKeysToShow.forEach((key) => {
       if (!vtexInfo![key]) return;
 

@@ -3,9 +3,11 @@ import currentTab from './currentTab';
 
 function runOnTab(callback: Callback) {
   currentTab((tab) => {
+    if (!tab?.id) return;
+
     chrome.scripting.executeScript({
       target: {
-        tabId: tab.id || 1,
+        tabId: tab.id,
       },
       function: callback,
     });

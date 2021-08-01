@@ -5,6 +5,11 @@ function dispatchVtexInfo() {
     const html = document.documentElement.outerHTML;
     const $links = document.querySelectorAll('link');
 
+    if (!html.match(/io.vtex.com.br/)) {
+      chrome.runtime.sendMessage({ action: "isNotVTEX" });
+      return;
+    }
+
     const plataformType = [...$links].find(($link) =>
       $link.href.match(/\/pwa\/manifest.json/),
     )
@@ -18,12 +23,10 @@ function dispatchVtexInfo() {
 
     const content = matchData.exec(html)?.groups;
 
-    if (!content?.vtexInfo) {
-      chrome.runtime.sendMessage({ action: "isNotVTEX" });
-      return;
-    }
+    if (!content?.vtexInfo) return;
 
     const vtexInfo = JSON.parse(content.vtexInfo);
+
 
     chrome.runtime.sendMessage({
       action: 'getVtexInfo',
