@@ -1,7 +1,7 @@
 
 # VTEX Utils
 
-[VTEX Utils]("http://vtex.raphaelbr.dev/") is a browser extension with some helpers that will make easier the life of those who work Ecosystem with the [VTEX](https://vtex.com/)
+[VTEX Utils](http://vtex.raphaelbr.dev/) is a browser extension with some helpers that will make easier the life of those who work with the [VTEX](https://vtex.com/) ecosystem.
 
 ## Some Features:
 * Local Login: Set the cookie VtexIdclientAutCookie that is used to authenticate the user in the plataform
@@ -21,7 +21,7 @@
 * [Babel](https://babeljs.io/)
 
 ## Enviroment
-This is the list softwares are necessaries to run this project
+This is the list of the softwares that are necessaries to run this project
 * [npm](https://www.npmjs.com/)
 * [node](https://nodejs.org/en/) (v14.15.1)
 

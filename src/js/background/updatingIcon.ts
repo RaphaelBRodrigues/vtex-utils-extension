@@ -3,7 +3,6 @@ import { dispatchVtexInfo } from "@Utils";
 
 
 chrome.runtime.onMessage.addListener(({ action }) => {
-  console.log({ action })
   if (action === "isNotVTEX") {
     updatingIcon(false);
   }
