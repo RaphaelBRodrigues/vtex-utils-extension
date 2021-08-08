@@ -5,18 +5,15 @@ import currentTab from './currentTab';
  * @returns {String} Store url
  */
 async function getStoreURL() {
-  let storeURL = '';
+	const storeURL = await new Promise((resolve) => {
+		currentTab(({ url }) => {
+			const { protocol = '', domain = '' } = stripURL(url);
 
-  await new Promise((resolve) => {
-    currentTab(({ url }) => {
-      const { protocol = '', domain = '' } = stripURL(url);
-      storeURL = `${protocol}://${domain}`;
+			resolve(`${protocol}://${domain}`);
+		});
+	});
 
-      resolve(() => {});
-    });
-  });
-
-  return storeURL;
+	return storeURL;
 }
 
 export default getStoreURL;

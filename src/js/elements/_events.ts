@@ -3,11 +3,11 @@ import Menu from './menu';
 import Sections from './sections';
 
 function init() {
-  Menu();
-  Header();
-  Sections();
+	Menu();
+	Header();
+	Sections();
 }
 
 export default {
-  init,
+	init,
 };

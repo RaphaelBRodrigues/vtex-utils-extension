@@ -35,8 +35,8 @@ export type OrderForm = {
 };
 
 export type ProductData = {
-  productName?: String;
-  productId?: String;
-  productReference?: String;
-  categoryId?: Number;
+  productName?: string;
+  productId?: string;
+  productReference?: string;
+  categoryId?: number;
 };

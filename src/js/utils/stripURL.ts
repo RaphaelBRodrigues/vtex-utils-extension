@@ -6,18 +6,18 @@ import { Nullish, StripedURL } from '@Types';
  * @returns An object with the url in parts
  */
 function stripURL(url: string | Nullish): StripedURL {
-  const urlPattern =
-    /(?<protocol>(\w)+(?=:))(?:\:\/\/)(?<domain>((\w+)(\.?))+)(?<params>((\/)(\w?-?\d?)+)+)?(?<query>\?((\w?_?\d?)+=(\w?:?_?\d?)+&?)+)?/gi;
+	const urlPattern =
+    /(?<protocol>(\w)+(?=:))(?::\/\/)(?<domain>((\w+)(\.?))+)(?<params>((\/)(\w?-?\d?)+)+)?(?<query>\?((\w?_?\d?)+=(\w?:?_?\d?)+&?)+)?/gi;
 
-  if (url) {
-    const stripedURL = urlPattern.exec(url);
+	if (url) {
+		const stripedURL = urlPattern.exec(url);
 
-    return {
-      ...stripedURL?.groups,
-    };
-  }
+		return {
+			...stripedURL?.groups,
+		};
+	}
 
-  return {};
+	return {};
 }
 
 export default stripURL;

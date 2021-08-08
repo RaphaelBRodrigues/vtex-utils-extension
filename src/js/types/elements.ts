@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export enum StoreInfoKeys {
   accountName = 'Nome da Conta',
   account = 'Nome da Conta',

@@ -46,9 +46,21 @@ module.exports = {
 				max: 3
 			}
 		],
-		'no-non-null-assertion': ['off'],
-		'explicit-module-boundary-types': ['off'],
-		'no-undef': ['off'],
+		'no-mixed-spaces-and-tabs':['off'],
+		'@typescript-eslint/no-var-requires': ['error'],
+		'@typescript-eslint/ban-types': ['off'],
+		'@typescript-eslint/explicit-module-boundary-types': ['off'],
+		'@typescript-eslint/no-explicit-any': ['off'],
+		'@typescript-eslint/no-non-null-assertion': ['off'],
+ 		'no-undef': ['off'],
 		'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
 	},
+	'overrides': [
+		{
+			'files': ['__tests__/**/*.ts'],
+			'rules': {
+				'@typescript-eslint/no-var-requires': ['off']
+			}
+		}
+	]
 };

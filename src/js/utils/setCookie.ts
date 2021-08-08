@@ -7,12 +7,12 @@ import { Cookie } from '@Types';
  * @description Set a cookie on client browser
  */
 function setCookie({ url, name, value, expirationDate = null }: Cookie) {
-  chrome.cookies.set({
-    url,
-    name,
-    value,
-    expirationDate: expirationDate ?? new Date().getTime() / 1000 + 300000,
-  });
+	chrome.cookies.set({
+		url,
+		name,
+		value,
+		expirationDate: expirationDate ?? new Date().getTime() / 1000 + 300000,
+	});
 }
 
 export default setCookie;

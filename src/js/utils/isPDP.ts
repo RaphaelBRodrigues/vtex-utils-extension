@@ -2,17 +2,14 @@ import currentTab from './currentTab';
 import stripURL from './stripURL';
 
 async function isPDP() {
-  let isProductPage = false;
+	const isProductPage = await new Promise((resolve) => {
+		currentTab(({ url }) => {
+			const { params } = stripURL(url);
+ 			resolve(!!params?.match(/\/p$/)?.[0]);
+		});
+	});
 
-  await new Promise((resolve) => {
-    currentTab(({ url }) => {
-      const { params } = stripURL(url);
-      isProductPage = !!params?.match(/\/p$/)?.[0];
-      resolve(() => { });
-    });
-  });
-
-  return isProductPage;
+	return isProductPage;
 }
 
 export default isPDP;

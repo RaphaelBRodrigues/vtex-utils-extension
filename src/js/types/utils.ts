@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export type Nullish = undefined | null;
 
 export type StripedURL = {

@@ -4,7 +4,7 @@
   "description": "Chrome extension with VTEX utils",
   "scripts": {
     "clean": "rimraf dist/* || rm -rf dist/*",
-    "lint": "eslint src/js/**/*ts  --fix",
+    "lint": "eslint src/js/**/*ts __tests__/**/*.ts  --fix",
     "start": "npm run clean && webpack serve --open --mode=development || npx tururu",
     "prebuild": "npm run test",
     "build": "npm run clean && webpack --mode production",

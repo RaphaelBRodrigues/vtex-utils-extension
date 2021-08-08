@@ -5,16 +5,16 @@ import { ChromeCurrentTabCallback } from '@Types';
  */
 
 function currentTab(callback: ChromeCurrentTabCallback): void {
-  chrome.tabs.query(
-    { active: true, currentWindow: true },
-    ([tab]: chrome.tabs.Tab[]) => {
-      if (!tab?.id) {
-        currentTab(callback);
-        return;
-      }
-      callback(tab);
-    },
-  );
+	chrome.tabs.query(
+		{ active: true, currentWindow: true },
+		([tab]: chrome.tabs.Tab[]) => {
+			if (!tab?.id) {
+				currentTab(callback);
+				return;
+			}
+			callback(tab);
+		},
+	);
 }
 
 export default currentTab;

@@ -1,19 +1,17 @@
-import dispatchVtexInfo from "./dispatch/dispatchVtexInfo"
+import dispatchVtexInfo from './dispatch/dispatchVtexInfo';
 
 async function isVTEX() {
-  let isVTEX = true;
+	const isVTEX = await new Promise((resolve) => {
+		dispatchVtexInfo();
+		chrome.runtime.onMessage.addListener(({ action }) => {
+			if (action === 'isNotVTEX') {
+				resolve(false);
+			}
+			resolve(true);
+		});
+	});
 
-  await new Promise((resolve) => {
-    dispatchVtexInfo()
-    chrome.runtime.onMessage.addListener(({ action }) => {
-      if (action === "isNotVTEX") {
-        isVTEX = false;
-      }
-      resolve(() => { });
-    })
-  })
-
-  return isVTEX;
+	return isVTEX;
 }
 
 export default isVTEX;

@@ -1,16 +1,16 @@
-import CacheSelector from '../__cache-selector';
+// import CacheSelector from '../__cache-selector';
 
-const { } = {
-  ...CacheSelector.vtexAPI,
-};
+// const { } = {
+// 	...CacheSelector.vtexAPI,
+// };
 
-function showEndpoints() {
-}
+// function showEndpoints() {
+// }
 
 
 
-function init() {
-  showEndpoints();
-}
+// function init() {
+// 	showEndpoints();
+// }
 
-export default init;
+// export default init;

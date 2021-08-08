@@ -1,7 +1,7 @@
 import Events from './_events';
 
 function init() {
-  Events();
+	Events();
 }
 
 export default init;
