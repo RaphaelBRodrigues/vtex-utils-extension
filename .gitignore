@@ -6,3 +6,4 @@ dist
 ssh
 dist.rar
 *.sw*
+coverage
