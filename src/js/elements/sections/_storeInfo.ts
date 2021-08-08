@@ -1,11 +1,15 @@
-import { cleanNode, getVtexInfo } from '@Utils';
-import { StoreInfoKeys, StoreInfo } from '@Types';
+import {
+	cleanNode, getVtexInfo
+} from '@Utils';
+import {
+	StoreInfoKeys, StoreInfo
+} from '@Types';
 import CacheSelector from '../__cache-selector';
 import { StoreKeysToShow } from '@Constants';
 
-const { $list, $links } = {
-	...CacheSelector.storeInfo,
-};
+const {
+	$list, $links
+} = { ...CacheSelector.storeInfo, };
 
 
 async function setStoreData() {
@@ -16,9 +20,7 @@ async function setStoreData() {
 
 			const $div = document.createElement('div');
 
-			const $span = Object.assign(document.createElement('span'), {
-				innerText: StoreInfoKeys[key],
-			});
+			const $span = Object.assign(document.createElement('span'), { innerText: StoreInfoKeys[key], });
 
 			const $input = Object.assign(document.createElement('input'), {
 				value: vtexInfo![key],
@@ -35,7 +37,9 @@ async function setStoreData() {
 	});
 }
 
-function setLinks({ accountName, account }: StoreInfo) {
+function setLinks({
+	accountName, account
+}: StoreInfo) {
 	const URLs = {
 		admin: `https://${accountName || account}.myvtex.com/admin`,
 		stable: `https://${accountName || account}.vtexcommercestable.com.br`,

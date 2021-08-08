@@ -6,9 +6,7 @@ function runOnTab(callback: Callback) {
 		if (!tab?.id) return;
 
 		chrome.scripting.executeScript({
-			target: {
-				tabId: tab.id,
-			},
+			target: { tabId: tab.id, },
 			function: callback,
 		});
 	});

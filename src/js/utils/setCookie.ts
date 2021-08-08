@@ -6,7 +6,9 @@ import { Cookie } from '@Types';
  * @param {String} value - The value of the cookit
  * @description Set a cookie on client browser
  */
-function setCookie({ url, name, value, expirationDate = null }: Cookie) {
+function setCookie({
+	url, name, value, expirationDate = null
+}: Cookie) {
 	chrome.cookies.set({
 		url,
 		name,

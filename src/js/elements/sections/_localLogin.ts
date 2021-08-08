@@ -1,9 +1,11 @@
 import CacheSelector from '../__cache-selector';
-import { setCookie, currentTab, stripURL } from '@Utils';
+import {
+	setCookie, currentTab, stripURL
+} from '@Utils';
 
-const { $input, $button } = {
-	...CacheSelector.localLogin,
-};
+const {
+	$input, $button
+} = { ...CacheSelector.localLogin };
 
 function bindLoginButton() {
 	$button?.addEventListener('click', () => {

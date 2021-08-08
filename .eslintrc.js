@@ -42,13 +42,16 @@ module.exports = {
 		],
 		'no-multiple-empty-lines': [
 			'error',
-			{
-				max: 3
-			}
+			{ max: 3 }
 		],
-		'no-mixed-spaces-and-tabs':['off'],
+		'no-mixed-spaces-and-tabs': ['off'],
+		'key-spacing': ['error', { 'afterColon': true }],
 		'@typescript-eslint/no-var-requires': ['error'],
 		'@typescript-eslint/ban-types': ['off'],
+		'object-property-newline': ['error', { allowAllPropertiesOnSameLine: false }],
+		'object-curly-newline': ['error', { 'minProperties': 2 }],
+		'object-curly-spacing': [1, 'always'],
+		'comma-spacing': ['error', { 'after': true }],
 		'@typescript-eslint/explicit-module-boundary-types': ['off'],
 		'@typescript-eslint/no-explicit-any': ['off'],
 		'@typescript-eslint/no-non-null-assertion': ['off'],
@@ -58,9 +61,7 @@ module.exports = {
 	'overrides': [
 		{
 			'files': ['__tests__/**/*.ts'],
-			'rules': {
-				'@typescript-eslint/no-var-requires': ['off']
-			}
+			'rules': { '@typescript-eslint/no-var-requires': ['off'] }
 		}
 	]
 };

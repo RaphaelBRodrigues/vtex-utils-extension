@@ -1,6 +1,6 @@
 {
   "name": "vtex_utils_extension",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Chrome extension with VTEX utils",
   "scripts": {
     "clean": "rimraf dist/* || rm -rf dist/*",

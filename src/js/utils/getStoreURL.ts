@@ -7,7 +7,9 @@ import currentTab from './currentTab';
 async function getStoreURL() {
 	const storeURL = await new Promise((resolve) => {
 		currentTab(({ url }) => {
-			const { protocol = '', domain = '' } = stripURL(url);
+			const {
+				protocol = '', domain = ''
+			} = stripURL(url);
 
 			resolve(`${protocol}://${domain}`);
 		});

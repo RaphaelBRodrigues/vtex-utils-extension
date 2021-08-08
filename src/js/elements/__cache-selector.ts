@@ -1,16 +1,12 @@
 const CacheSelector = {
-	header: {
-		$menuButton: document.querySelector('.x-header__right--menu-button'),
-	},
+	header: { $menuButton: document.querySelector('.x-header__right--menu-button'), },
 	menu: {
 		$menu: document.querySelector<HTMLDivElement>('.x-nav'),
 		$menuItems: document.querySelectorAll(
 			'.x-nav__menu-item:not([data-disabled])',
 		),
 	},
-	initial: {
-		$buttons: document.querySelectorAll('.x-main__initial button'),
-	},
+	initial: { $buttons: document.querySelectorAll('.x-main__initial button'), },
 	localLogin: {
 		$input: <HTMLInputElement>(
       document.querySelector('.x-main__local-login input')
@@ -73,9 +69,7 @@ const CacheSelector = {
 			'.x-main__product--download a[data-type="json"]',
 		),
 	},
-	vtexAPI: {
-		$list: document.querySelector('.x-main__vtex-api--list'),
-	},
+	vtexAPI: { $list: document.querySelector('.x-main__vtex-api--list'), },
 };
 
 export default CacheSelector;

@@ -1,11 +1,13 @@
 import { ProductKeysToShow } from '@Constants';
 import { ProductKeys } from '@Types';
-import { cleanNode, createCSV, getProductData } from '@Utils';
+import {
+	cleanNode, createCSV, getProductData
+} from '@Utils';
 import CacheSelector from '../__cache-selector';
 
-const { $list, $jsonLink, $csvLink } = {
-	...CacheSelector.product,
-};
+const {
+	$list, $jsonLink, $csvLink
+} = { ...CacheSelector.product, };
 
 async function setProductData() {
 	getProductData((product) => {
@@ -15,9 +17,7 @@ async function setProductData() {
 
 			const $div = document.createElement('div');
 
-			const $span = Object.assign(document.createElement('span'), {
-				innerText: ProductKeys[key],
-			});
+			const $span = Object.assign(document.createElement('span'), { innerText: ProductKeys[key], });
 
 			const $input = Object.assign(document.createElement('input'), {
 				value: product![key],

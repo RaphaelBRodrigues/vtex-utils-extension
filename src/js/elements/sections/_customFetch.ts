@@ -1,5 +1,7 @@
 import CacheSelector from '../__cache-selector';
-import { createCSV, stripURL } from '@Utils';
+import {
+	createCSV, stripURL
+} from '@Utils';
 
 const {
 	$button,
@@ -11,9 +13,7 @@ const {
 	$bodyLabel,
 	$jsonLink,
 	$csvLink,
-} = {
-	...CacheSelector.customFetch,
-};
+} = { ...CacheSelector.customFetch, };
 
 function submitRequest() {
 	$button?.addEventListener('click', (async (e) => {
@@ -21,15 +21,15 @@ function submitRequest() {
       (<HTMLButtonElement>e?.target).getAttribute('data-method') || 'GET';
 		const endpoint = $endpointInput.value;
 
-		const { protocol = '', domain, params, query = '' } = stripURL(endpoint);
+		const {
+			protocol = '', domain, params, query = ''
+		} = stripURL(endpoint);
 
 		const url = domain
 			? `${protocol}://${domain}${params}${query}`
 			: endpoint;
 
-		const options: RequestInit = {
-			method,
-		};
+		const options: RequestInit = { method, };
 
 		if (!['GET', 'DELETE'].includes(method)) options.body = $bodyInput.value;
 
@@ -59,9 +59,7 @@ function renderResult(
 	open = true,
 ) {
 	responseList.forEach((response) => {
-		const $details = Object.assign(document.createElement('details'), {
-			open,
-		});
+		const $details = Object.assign(document.createElement('details'), { open, });
 		const $summary = document.createElement('summary');
 
 		if (responseList.length !== 0 && $elementList) {
@@ -75,11 +73,9 @@ function renderResult(
 					const result = Array.isArray(value) ? value : [value];
 					renderResult(result, $details, key, false);
 				} else {
-					const $key = Object.assign(document.createElement('div'), {
-						innerHTML: `<span>${key}</span>: <input disabled value="${
-							(<any>response)[key]
-						}" />`,
-					});
+					const $key = Object.assign(document.createElement('div'), { innerHTML: `<span>${key}</span>: <input disabled value="${
+						(<any>response)[key]
+					}" />`, });
 					$details.append($key);
 				}
 			});

@@ -1,4 +1,6 @@
-import { Nullish, StripedURL } from '@Types';
+import {
+	Nullish, StripedURL
+} from '@Types';
 
 /**
  *
@@ -12,9 +14,7 @@ function stripURL(url: string | Nullish): StripedURL {
 	if (url) {
 		const stripedURL = urlPattern.exec(url);
 
-		return {
-			...stripedURL?.groups,
-		};
+		return { ...stripedURL?.groups, };
 	}
 
 	return {};

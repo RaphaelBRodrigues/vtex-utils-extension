@@ -9,9 +9,7 @@ export const currentTabMockReturn: chrome.tabs.Tab = {
 	'id': 283,
 	'incognito': false,
 	'index': 14,
-	'mutedInfo': {
-		'muted': false
-	},
+	'mutedInfo': { 'muted': false },
 	'openerTabId': 280,
 	'pinned': false,
 	'selected': true,

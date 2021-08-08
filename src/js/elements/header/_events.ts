@@ -1,6 +1,8 @@
 import CacheSelector from '../__cache-selector';
 
-const { $menuButton, $menu } = {
+const {
+	$menuButton, $menu
+} = {
 	...CacheSelector.header,
 	...CacheSelector.menu,
 };

@@ -10,7 +10,6 @@ async function isVTEX() {
 			resolve(true);
 		});
 	});
-
 	return isVTEX;
 }
 

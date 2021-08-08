@@ -8,6 +8,4 @@ function init() {
 	Sections();
 }
 
-export default {
-	init,
-};
+export default { init, };

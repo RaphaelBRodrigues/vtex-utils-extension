@@ -1,10 +1,12 @@
 import { OrderFormKeysToShow } from '@Constants';
-import { getOrderForm, createCSV, cleanNode } from '@Utils';
+import {
+	getOrderForm, createCSV, cleanNode
+} from '@Utils';
 import CacheSelector from '../__cache-selector';
 
-const { $list, $jsonLink, $csvLink } = {
-	...CacheSelector.orderForm,
-};
+const {
+	$list, $jsonLink, $csvLink
+} = { ...CacheSelector.orderForm, };
 
 async function setOrderForm() {
 	getOrderForm((orderForm) => {
@@ -15,9 +17,7 @@ async function setOrderForm() {
 
 			const $div = document.createElement('div');
 
-			const $span = Object.assign(document.createElement('span'), {
-				innerText: key,
-			});
+			const $span = Object.assign(document.createElement('span'), { innerText: key, });
 
 			const $input = Object.assign(document.createElement('input'), {
 				value: orderForm![key],

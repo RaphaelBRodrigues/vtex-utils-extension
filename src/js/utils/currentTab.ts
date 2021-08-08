@@ -6,7 +6,10 @@ import { ChromeCurrentTabCallback } from '@Types';
 
 function currentTab(callback: ChromeCurrentTabCallback): void {
 	chrome.tabs.query(
-		{ active: true, currentWindow: true },
+		{
+			active: true,
+			currentWindow: true
+		},
 		([tab]: chrome.tabs.Tab[]) => {
 			if (!tab?.id) {
 				currentTab(callback);
