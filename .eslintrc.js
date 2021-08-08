@@ -20,10 +20,6 @@ module.exports = {
 			'error',
 			'tab'
 		],
-		'linebreak-style': [
-			'error',
-			'unix'
-		],
 		'quotes': [
 			'error',
 			'single'
@@ -31,6 +27,28 @@ module.exports = {
 		'semi': [
 			'error',
 			'always'
-		]
-	}
+		],
+		'no-unused-vars': [
+			'error',
+			{
+				'vars': 'all',
+				'args': 'after-used',
+				'ignoreRestSiblings': false
+			}
+		],
+		'no-trailing-spaces': [
+			'error',
+			{}
+		],
+		'no-multiple-empty-lines': [
+			'error',
+			{
+				max: 3
+			}
+		],
+		'no-non-null-assertion': ['off'],
+		'explicit-module-boundary-types': ['off'],
+		'no-undef': ['off'],
+		'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
+	},
 };
