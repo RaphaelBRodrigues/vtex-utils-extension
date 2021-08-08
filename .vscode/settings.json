@@ -5,14 +5,21 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
+    "**/.babelrc": true,
+    "**/LICENSE": true,
     "**/dist/*hot-update*": true,
     "**/.vscode": true,
     "**/yarn*": true,
     "**/.husky": true,
     "**/node_modules*": true,
-    "**/*.lock*": true,
+    "**/*lock*": true,
     "**/*lint*": true,
     "**/ssh": true,
-    "**/*.rar": true
+    "**/*.rar": true,
+    "**/*config*": true,
+    "**/_locales": true,
+    "**/dist": true,
+    "**/*setup*": true,
+    "**/docs": true,
   }
 }

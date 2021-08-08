@@ -1,4 +1,4 @@
-import stripURL from '../../src/js/utils/stripURL';
+import { stripURL } from '../src/js/utils/';
 
 describe('Strip URL', () => {
   it('should return an object', () => {

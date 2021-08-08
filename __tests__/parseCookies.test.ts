@@ -1,4 +1,4 @@
-import parseCookies from '../../src/js/utils/parseCookies';
+import parseCookies from '../src/js/utils/parseCookies';
 
 describe('Parse Cookies', () => {
   it("should return a empty object", () => {

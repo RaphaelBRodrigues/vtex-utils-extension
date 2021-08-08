@@ -25,7 +25,7 @@ This is the list of the softwares that are necessaries to run this project
 * [npm](https://www.npmjs.com/)
 * [node](https://nodejs.org/en/) (v14.15.1)
 
-You can use [nvm](https://github.com/nvm-sh/nvm) to switch you node version to 14.15.1 
+You can use [nvm](https://github.com/nvm-sh/nvm) to switch your node version to 14.15.1 
  
 ## Installation
 Run the following steps in your terminal:

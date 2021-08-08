@@ -7,9 +7,8 @@ async function isPDP() {
   await new Promise((resolve) => {
     currentTab(({ url }) => {
       const { params } = stripURL(url);
-
       isProductPage = !!params?.match(/\/p$/)?.[0];
-      resolve(() => {});
+      resolve(() => { });
     });
   });
 
