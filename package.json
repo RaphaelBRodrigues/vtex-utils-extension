@@ -4,6 +4,7 @@
   "description": "Chrome extension with VTEX utils",
   "scripts": {
     "clean": "rimraf dist/* || rm -rf dist/*",
+    "lint": "eslint src/js/**/*ts  --fix",
     "start": "npm run clean && webpack serve --open --mode=development || npx tururu",
     "prebuild": "npm run test",
     "build": "npm run clean && webpack --mode production",
@@ -59,6 +60,9 @@
     "@commitlint/config-conventional": "^12.1.4",
     "@types/jest": "^26.0.24",
     "@types/node": "^16.4.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "eslint": "^7.32.0",
     "html-webpack-plugin": "^5.3.2",
     "husky": "^6.0.0",
     "jest": "^27.0.6",
