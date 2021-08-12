@@ -9,6 +9,7 @@ a {
 }
 
 header {
+  top: 0;
   display: flex;
   padding: 0rem 2rem;
   background-color: #142032;
@@ -108,18 +109,31 @@ a {
 }
 
 @media screen and (max-width: 768px) {
+  header {
+    display: flex;
+    justify-content: center;
+  }
   main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    top: 0%;
+    left: 0;
   }
 
   main p {
+    margin-bottom: 2rem;
     width: 100%;
   }
 
-  main section:nth-child(2) {
-    width: 60%;
+  main a {
+    background-color: green;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  main section {
+    width: 90%;
   }
 }
