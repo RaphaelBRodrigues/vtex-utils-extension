@@ -1,16 +1,25 @@
-function createCSV(object: Object[]) {
-	const csvHeader = Object.keys(object[0]).join(',');
-	const csvBody = object
-		.map((item) => {
-			return Object.values(item)
-				.map((value) => {
-					return JSON.stringify(value);
-				})
-				.join(',');
+
+function createCSV(content: Object[]) {
+	const objectKeys = [...new Set(content.map((item) => {
+		return Object.keys(item);
+	}).flat(1))];
+
+	const csvHeader = objectKeys.join(',');
+
+	const	csvBody = content.map((item: Object) => {
+		return objectKeys.map((key) => {
+			const column = item[key as keyof Object] ??  '__NULL__';
+
+			return  ['array', 'object']
+				.includes(typeof column)
+				? JSON.stringify(column)
+				: column;
 		})
+			.join(',');
+	})
 		.join('\n');
 
-	return `${csvHeader}\n${csvBody}`;
+ 	return `${csvHeader}\n${csvBody}`;
 }
 
 export default createCSV;
