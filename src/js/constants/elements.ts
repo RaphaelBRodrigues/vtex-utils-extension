@@ -32,4 +32,5 @@ export const ProductKeysToShow: ProductKeysT[] = [
 	'productName',
 	'productReference',
 	'categoryId',
+	'productClusterIds'
 ];

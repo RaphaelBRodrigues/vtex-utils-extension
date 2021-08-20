@@ -3,7 +3,7 @@ import { runOnTab } from '@Utils';
 chrome.runtime.onMessage.addListener(({ action }) => {
 	if (action === 'isNotVTEX') {
 		updatingIcon(false);
-	} else if (action === 'isVTEX') {
+	} else {
 		updatingIcon(true);
 	}
 });
@@ -22,6 +22,7 @@ function isVTEX() {
 
 
 function updatingIcon(isVTEX: boolean) {
+
 	if (isVTEX) {
 		chrome.action.setIcon({ path: {
 			16: 'images/vtex-16x16.png',

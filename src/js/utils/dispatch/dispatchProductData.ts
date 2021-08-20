@@ -25,10 +25,12 @@ function dispatchProductData() {
 		);
 		const [product] = await resp.json();
 
-
 		chrome.runtime.sendMessage({
 			action: 'getProductData',
-			product: product,
+			product: {
+				...product,
+				productClusterIds: Object.keys(product.productClusters).join(', ')
+			},
 		});
 	});
 }

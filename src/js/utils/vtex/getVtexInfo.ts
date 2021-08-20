@@ -9,7 +9,6 @@ function getVtexInfo(callback: Callback<StoreInfo>) {
 			action, vtexInfo
 		}: { action: string; vtexInfo: StoreInfo }) => {
 			if (action === 'getVtexInfo') {
-				console.log({ vtexInfo });
 				callback(vtexInfo);
 			}
 		},

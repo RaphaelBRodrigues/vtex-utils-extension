@@ -3,9 +3,10 @@ import {
 	activeSection, isPDP, isVTEX
 } from '@Utils';
 const {
-	$buttons, $menuItems
+	$buttons, $menuItems, $menu, $menuButton
 } = {
 	...CacheSelector.initial,
+	...CacheSelector.header,
 	...CacheSelector.menu,
 };
 
@@ -18,6 +19,9 @@ function bindButtons() {
 			[...$menuItems].find(($menuItem) => {
 				return $menuItem.getAttribute('data-content') === selectedSection;
 			})?.classList.add('is--active');
+
+			$menu?.classList.remove('is--active');
+			$menuButton?.classList.remove('is--active');
 
 			activeSection(selectedSection);
 		});

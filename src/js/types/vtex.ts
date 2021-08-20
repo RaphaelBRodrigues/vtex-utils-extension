@@ -39,4 +39,5 @@ export type ProductData = {
   productId?: string;
   productReference?: string;
   categoryId?: number;
+  productClusterIds?: string;
 };

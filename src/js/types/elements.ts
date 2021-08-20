@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
 export enum StoreInfoKeys {
-  accountName = 'Nome da conta',
-  account = 'Nome da conta',
-  storeName = 'Nome da loja',
-  url = 'URL da Página',
-  productBrandName = 'Nome da marca',
-  googleTagManagerContainerId = 'ID do GTM',
+  accountName = 'Account Name',
+  account = 'Account Name',
+  storeName = 'Store Name',
+  url = 'Page URL',
+  productBrandName = 'Brand Name',
+  googleTagManagerContainerId = 'Tag Manager Container ID',
   sellerId = 'Seller ID',
-  plataformType = 'Versão',
-  settings = 'Configuração',
+  plataformType = 'Plataform Type',
+  settings = 'Settings',
   workspace = 'Workspace',
 }
 
@@ -118,14 +118,16 @@ export type OrderFormKeysT =
   | 'itemsOrdination';
 
 export enum ProductKeys {
-  productId = 'Id do Produto',
-  productName = 'Nome do Produto',
-  productReference = 'Código de Referência do Produto',
-  categoryId = 'Id da Categoria',
+  productId = 'Product ID',
+  productName = 'Product Name',
+  productReference = 'Reference Code',
+  categoryId = 'Category ID',
+  productClusterIds = 'Product Cluster IDs',
 }
 
 export type ProductKeysT =
   | 'productId'
   | 'productName'
   | 'productReference'
+  | 'productClusterIds'
   | 'categoryId';

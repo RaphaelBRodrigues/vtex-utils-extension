@@ -2,6 +2,18 @@ body {
   font-family: Calibri;
 }
 
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: $white;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: $pink;
+}
+
 .x-app {
   background-color: $white;
   width: 400px;
@@ -99,17 +111,7 @@ body {
   }
 
 
-  &::-webkit-scrollbar {
-    width: 5px;
-  }
 
-  &::-webkit-scrollbar-track {
-    background: $white;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: $pink;
-  }
 
   section {
     display: none;
