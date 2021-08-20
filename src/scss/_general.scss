@@ -119,3 +119,23 @@ body {
     }
   }
 }
+
+.x-input__wrapper {
+  display: flex;
+  width: 100%;
+  position: relative;
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    right: 0;
+    bottom: 0;
+    width: 25%;
+    height: 75%;
+    position: absolute;
+    font-weight: 400;
+    font-size: 12px;
+  }
+}

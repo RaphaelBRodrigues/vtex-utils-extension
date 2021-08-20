@@ -1,5 +1,6 @@
 import CacheSelector from '../__cache-selector';
 import {
+	copyToClipboard,
 	createCSV, stripURL
 } from '@Utils';
 
@@ -69,16 +70,35 @@ function renderResult(
 				const value = (<any>response)[key];
 				const isObject = typeof value === 'object';
 
+
+				const $copyButton = Object.assign(document.createElement('button'), {
+					innerText: 'Copy',
+					onclick: ({ target }: any) => {
+						const $currentInput = target.parentElement.querySelector('input');
+
+						copyToClipboard($currentInput);
+
+						target.innerHTML = 'Copied';
+
+						setTimeout(() => {
+							target.innerHTML = 'Copy';
+						}, 2500);
+					}
+				});
+
 				if (isObject) {
 					const result = Array.isArray(value) ? value : [value];
 					renderResult(result, $details, key, false);
 				} else {
-					const $key = Object.assign(document.createElement('div'), { innerHTML: `<span>${key}</span>: <input disabled value="${
+					const $key = Object.assign(document.createElement('div'), { innerHTML: `<span>${key}</span>: <div class="x-input__wrapper"> <input  readonly disabled value="${
 						(<any>response)[key]
-					}" />`, });
+					}" /></div>`, });
+					$key.querySelector('div')?.append($copyButton);
 					$details.append($key);
 				}
 			});
+
+
 
 			$details.append($summary);
 			$elementList.append($details);

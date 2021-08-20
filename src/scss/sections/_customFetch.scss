@@ -24,7 +24,7 @@
 
   &--result {
     margin-top: 25px;
-    width: 75%;
+    width: 90%;
 
     summary {
       margin: 15px 0;
@@ -34,6 +34,16 @@
 
       >div {
         margin: 15px 0;
+
+        >div {
+          display: flex;
+
+          button {
+            width: 25%;
+            font-weight: 400;
+            font-size: 12px;
+          }
+        }
       }
     }
 

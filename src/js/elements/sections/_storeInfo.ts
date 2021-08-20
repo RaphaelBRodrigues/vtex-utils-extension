@@ -1,5 +1,5 @@
 import {
-	cleanNode, getDeeplyProp, getVtexInfo
+	cleanNode, copyToClipboard, getDeeplyProp, getVtexInfo
 } from '@Utils';
 import {
 	StoreInfoKeys, StoreInfo, StoreKeysPath
@@ -43,13 +43,34 @@ function createInputs(innerText: string, value: any) {
 
 	const $span = Object.assign(document.createElement('span'), { innerText });
 
+	const $inputWrapper = Object.assign(document.createElement('div'), { className: 'x-input__wrapper' });
+
 	const $input = Object.assign(document.createElement('input'), {
 		value,
 		disabled: true,
+		readonly: true,
 	});
 
+	const $copyButton = Object.assign(document.createElement('button'), {
+		innerText: 'Copy',
+		onclick: ({ target }: any) => {
+			const $currentInput = target.parentElement.querySelector('input');
+
+			copyToClipboard($currentInput);
+
+			target.innerHTML = 'Copied';
+
+			setTimeout(() => {
+				target.innerHTML = 'Copy';
+			}, 2500);
+		}
+	});
+
+	$inputWrapper.append($input);
+	$inputWrapper.append($copyButton);
+
 	$div.append($span);
-	$div.append($input);
+	$div.append($inputWrapper);
 
 	$list?.append($div);
 }
