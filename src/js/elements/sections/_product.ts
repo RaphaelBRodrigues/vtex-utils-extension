@@ -1,7 +1,7 @@
 import { ProductKeysToShow } from '@Constants';
 import { ProductKeys } from '@Types';
 import {
-	cleanNode, createCSV, getProductData
+	cleanNode, createCopyButton, createCSV, getProductData
 } from '@Utils';
 import CacheSelector from '../__cache-selector';
 
@@ -17,6 +17,8 @@ async function setProductData() {
 
 			const $div = document.createElement('div');
 
+			const $inputWrapper = Object.assign(document.createElement('div'), { className: 'x-input__wrapper' });
+
 			const $span = Object.assign(document.createElement('span'), { innerText: ProductKeys[key], });
 
 			const $input = Object.assign(document.createElement('input'), {
@@ -24,8 +26,12 @@ async function setProductData() {
 				disabled: true,
 			});
 
+
+			$inputWrapper.append($input);
+			$inputWrapper.append(createCopyButton());
+
 			$div.append($span);
-			$div.append($input);
+			$div.append($inputWrapper);
 
 			$list?.append($div);
 		});

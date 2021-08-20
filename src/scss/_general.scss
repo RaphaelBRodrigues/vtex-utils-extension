@@ -137,5 +137,23 @@ body {
     position: absolute;
     font-weight: 400;
     font-size: 12px;
+
+    &:hover {
+      opacity: 1;
+      background-color: #D86c8c;
+    }
+  }
+}
+
+a {
+  background-color: $pink;
+  color: white;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  border-radius: 5px;
+
+  &:hover {
+    opacity: 0.7;
+    transition-duration: 0.3s;
   }
 }

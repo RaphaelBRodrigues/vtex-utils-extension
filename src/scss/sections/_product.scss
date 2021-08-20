@@ -8,7 +8,7 @@
   padding: 25px 0;
 
   &--result {
-    width: 80%;
+    width: 90%;
 
     >div {
       margin: 15px 0;
@@ -22,7 +22,7 @@
     text-align: center;
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 5px 0;
+    gap: 5px 5px;
 
   }
 }

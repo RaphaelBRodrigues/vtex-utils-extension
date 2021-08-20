@@ -1,6 +1,6 @@
 import { OrderFormKeysToShow } from '@Constants';
 import {
-	getOrderForm, createCSV, cleanNode, copyToClipboard
+	getOrderForm, createCSV, cleanNode, createCopyButton
 } from '@Utils';
 import CacheSelector from '../__cache-selector';
 
@@ -21,29 +21,13 @@ async function setOrderForm() {
 
 			const $inputWrapper = Object.assign(document.createElement('div'), { className: 'x-input__wrapper' });
 
-			const $copyButton = Object.assign(document.createElement('button'), {
-				innerText: 'Copy',
-				onclick: ({ target }: any) => {
-					const $currentInput = target.parentElement.querySelector('input');
-
-					copyToClipboard($currentInput);
-
-					target.innerHTML = 'Copied';
-
-					setTimeout(() => {
-						target.innerHTML = 'Copy';
-					}, 2500);
-				}
-			});
-
-
 			const $input = Object.assign(document.createElement('input'), {
 				value: orderForm![key],
 				disabled: true,
 			});
 
 			$inputWrapper.append($input);
-			$inputWrapper.append($copyButton);
+			$inputWrapper.append(createCopyButton());
 
 			$div.append($span);
 			$div.append($inputWrapper);

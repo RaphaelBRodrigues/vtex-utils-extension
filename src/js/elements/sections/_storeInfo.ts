@@ -1,5 +1,6 @@
 import {
-	cleanNode, copyToClipboard, getDeeplyProp, getVtexInfo
+	createCopyButton,
+	cleanNode, getDeeplyProp, getVtexInfo
 } from '@Utils';
 import {
 	StoreInfoKeys, StoreInfo, StoreKeysPath
@@ -51,23 +52,9 @@ function createInputs(innerText: string, value: any) {
 		readonly: true,
 	});
 
-	const $copyButton = Object.assign(document.createElement('button'), {
-		innerText: 'Copy',
-		onclick: ({ target }: any) => {
-			const $currentInput = target.parentElement.querySelector('input');
-
-			copyToClipboard($currentInput);
-
-			target.innerHTML = 'Copied';
-
-			setTimeout(() => {
-				target.innerHTML = 'Copy';
-			}, 2500);
-		}
-	});
 
 	$inputWrapper.append($input);
-	$inputWrapper.append($copyButton);
+	$inputWrapper.append(createCopyButton());
 
 	$div.append($span);
 	$div.append($inputWrapper);
