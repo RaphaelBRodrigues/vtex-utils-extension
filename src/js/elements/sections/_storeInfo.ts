@@ -1,8 +1,8 @@
 import {
-	cleanNode, getVtexInfo
+	cleanNode, getDeeplyProp, getVtexInfo
 } from '@Utils';
 import {
-	StoreInfoKeys, StoreInfo
+	StoreInfoKeys, StoreInfo, StoreKeysPath
 } from '@Types';
 import CacheSelector from '../__cache-selector';
 import { StoreKeysToShow } from '@Constants';
@@ -14,27 +14,44 @@ const {
 
 async function setStoreData() {
 	getVtexInfo((vtexInfo) => {
-		cleanNode($list);
-		StoreKeysToShow.forEach((key) => {
-			if (!vtexInfo![key]) return;
+   	cleanNode($list);
+ 		StoreKeysToShow.forEach((key) => {
+			 if (!vtexInfo![key]) return;
 
-			const $div = document.createElement('div');
 
-			const $span = Object.assign(document.createElement('span'), { innerText: StoreInfoKeys[key], });
+			 if(typeof vtexInfo![key] === 'object' ) {
+				 Object.values(StoreKeysPath).forEach((keyPath) => {
+					 const [value, label] = getDeeplyProp(vtexInfo![key], keyPath);
+					const innerText = StoreInfoKeys[label as keyof object];
+					 createInputs(innerText, value);
+				});
+				return;
+			}
 
-			const $input = Object.assign(document.createElement('input'), {
-				value: vtexInfo![key],
-				disabled: true,
-			});
+			const innerText = StoreInfoKeys[key];
+			const value = vtexInfo![key];
 
-			$div.append($span);
-			$div.append($input);
-
-			$list?.append($div);
+			createInputs(innerText, value);
 		});
 
 		if (vtexInfo) setLinks(vtexInfo);
 	});
+}
+
+function createInputs(innerText: string, value: any) {
+	const $div = document.createElement('div');
+
+	const $span = Object.assign(document.createElement('span'), { innerText });
+
+	const $input = Object.assign(document.createElement('input'), {
+		value,
+		disabled: true,
+	});
+
+	$div.append($span);
+	$div.append($input);
+
+	$list?.append($div);
 }
 
 function setLinks({

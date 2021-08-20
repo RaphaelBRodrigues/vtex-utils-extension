@@ -2,10 +2,15 @@ import {
 	ProductKeysT, OrderFormKeysT, StoreInfoKeysT
 } from '@Types';
 
+
 export const StoreKeysToShow: StoreInfoKeysT[] = [
 	'accountName',
 	'account',
 	'url',
+	'storeName',
+	'settings',
+	'accountName',
+	'googleTagManagerContainerId',
 	'productBrandName',
 	'sellerId',
 	'plataformType',

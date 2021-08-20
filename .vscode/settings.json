@@ -21,5 +21,6 @@
     "**/dist": true,
     "**/*setup*": true,
     "**/docs": true,
-  }
+  },
+  "discord.enabled": true
 }

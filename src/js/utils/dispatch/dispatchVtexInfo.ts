@@ -10,11 +10,13 @@ function dispatchVtexInfo() {
 			return;
 		}
 
-		const plataformType = [...$links].find(($link) =>
-			$link.href.match(/\/pwa\/manifest.json/),
+		const plataformType = [...$links].some(($link) =>
+			$link.href.match(/(\/pwa\/manifest.json)/g) || html.match(/vtex-store-components/),
 		)
 			? 'IO'
 			: 'CMS';
+
+
 
 		const matchData =
       plataformType === 'IO'
@@ -25,16 +27,18 @@ function dispatchVtexInfo() {
 
 		if (!content?.vtexInfo) return;
 
-		const vtexInfo = JSON.parse(content.vtexInfo);
+		const vtexInfo = JSON.parse(content?.vtexInfo);
+		const googleTagManagerContainerId = html.match(/GTM-(\d|\w)+/)![0];
 
 
-		chrome.runtime.sendMessage({
+ 		chrome.runtime.sendMessage({
 			action: 'getVtexInfo',
 			vtexInfo: {
 				...vtexInfo,
 				plataformType,
 				cookies: document.cookie,
 				url: window.location.href,
+				googleTagManagerContainerId
 			},
 		});
 	});

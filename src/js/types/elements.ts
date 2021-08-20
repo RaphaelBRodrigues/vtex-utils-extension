@@ -1,13 +1,21 @@
 /* eslint-disable no-unused-vars */
 export enum StoreInfoKeys {
-  accountName = 'Nome da Conta',
-  account = 'Nome da Conta',
+  accountName = 'Nome da conta',
+  account = 'Nome da conta',
+  storeName = 'Nome da loja',
   url = 'URL da Página',
   productBrandName = 'Nome da marca',
+  googleTagManagerContainerId = 'ID do GTM',
   sellerId = 'Seller ID',
   plataformType = 'Versão',
+  settings = 'Configuração',
   workspace = 'Workspace',
 }
+
+export enum StoreKeysPath {
+	storeName = '(settings){vtex.store}{storeName}'
+}
+
 
 export type StoreInfoKeysT =
   | 'accountName'
@@ -16,13 +24,23 @@ export type StoreInfoKeysT =
   | 'productBrandName'
   | 'plataformType'
   | 'workspace'
+  | 'googleTagManagerContainerId'
+  | 'storeName'
+  | 'settings'
   | 'sellerId';
 
 export type StoreInfo = {
   accountName: string;
   account: string;
   url: string;
+  settings: {
+    'vtex.store': {
+      storeName: string
+    }
+  };
+  storeName: string;
   productBrandName: string;
+  googleTagManagerContainerId: string;
   sellerId: string;
   plataformType: string;
   workspace: string;
