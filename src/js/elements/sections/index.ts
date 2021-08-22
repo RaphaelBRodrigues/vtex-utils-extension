@@ -13,6 +13,7 @@ function init() {
 	StoreInfo();
 	OrderForm();
 	Product();
+
 	// VtexAPI();
 }
 
