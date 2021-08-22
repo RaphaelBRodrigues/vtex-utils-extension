@@ -9,7 +9,6 @@ export const StoreKeysToShow: StoreInfoKeysT[] = [
 	'url',
 	'storeName',
 	'settings',
-	'accountName',
 	'googleTagManagerContainerId',
 	'productBrandName',
 	'sellerId',

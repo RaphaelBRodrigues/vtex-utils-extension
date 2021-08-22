@@ -13,11 +13,14 @@ function dispatchVtexInfo() {
 			};
 		}, {});
 
-		if (!html.match(/io.vtex.com.br/)) {
+		if (!html.match(/(io.vtex.com.br|vtexassets)/)) {
 			chrome.runtime.sendMessage({ action: 'isNotVTEX' });
 			return;
 		}
 
+		const plataformType = html.match(/gatsby/gi) ? 'SFJ' : cookies?.VtexWorkspace ? 'IO' : 'CMS';
+
+		const googleTagManagerContainerId = html.match(/GTM-(\d|\w)+/)![0];
 
 
 		if(window.location.href.includes('checkout')) {
@@ -28,17 +31,17 @@ function dispatchVtexInfo() {
 				return !!$item.outerHTML.match(/vtex.accountName/);
 			});
 
-			const plataformType = cookies?.VtexWorkspace ? 'IO' : 'CMS';
+
 
 			const vtexInfo: any = {
-				googleTagManagerContainerId: $vtexInfoScript?.innerHTML.match(/GTM-(\d|\w)+/)![0],
 				account: $vtexInfoScript?.innerHTML.match(/(?<=vtex.accountName = ")(\w|\d)+/g)![0],
+				googleTagManagerContainerId,
 				cookies,
 				url: window.location.href,
-				plataformType
+				plataformType: plataformType === 'IO' ? 'IO or SFJ' : 'CMS'
 			};
 
-			if(plataformType === 'IO') vtexInfo.workspace = decodeURIComponent(cookies?.VtexWorkspace);
+			if(['SJF', 'IO'].includes(plataformType)) vtexInfo.workspace = decodeURIComponent(cookies?.VtexWorkspace);
 
 
 			chrome.runtime.sendMessage({
@@ -46,35 +49,44 @@ function dispatchVtexInfo() {
 				vtexInfo
 			});
  		} else {
+			 if(plataformType === 'SFJ') {
+				 const accountName = html.match(/(?<=https:\/\/)(\w|\d)+(?=\.vtexassets)/i)?.[0];
 
-			const plataformType = $links.some(($link) =>
-				$link.href.match(/(\/pwa\/manifest.json)/g) || html.match(/vtex-store-components/),
-			)
-				? 'IO'
-				: 'CMS';
+				 chrome.runtime.sendMessage({
+					action: 'getVtexInfo',
+					vtexInfo: {
+						cookies,
+						accountName,
+						url: window.location.href,
+						googleTagManagerContainerId,
+						plataformType: 'SFJ'
+					},
+				});
+			} else {
 
-			const matchVtexInfo =
-      plataformType === 'IO'
+
+				const matchVtexInfo =
+				plataformType === 'IO'
       	? /__RUNTIME__ ?= ?(?<vtexInfo>{.+)/gi
-      	: /vtex.events.addData(?<=)\((?<vtexInfo>\{.+\})/gi;
+					: /vtex.events.addData(?<=)\((?<vtexInfo>\{.+\})/gi;
 
-			const content = matchVtexInfo.exec(html)?.groups;
+				const content = matchVtexInfo.exec(html)?.groups;
 
-			if (!content?.vtexInfo) return;
+				if (!content?.vtexInfo) return;
 
-			const vtexInfo = JSON.parse(content?.vtexInfo);
-			const googleTagManagerContainerId = html.match(/GTM-(\d|\w)+/)![0];
+				const vtexInfo = JSON.parse(content?.vtexInfo);
 
- 		chrome.runtime.sendMessage({
-				action: 'getVtexInfo',
-				vtexInfo: {
-					...vtexInfo,
-					plataformType,
-					cookies,
-					url: window.location.href,
-					googleTagManagerContainerId
-				},
-			});
+				chrome.runtime.sendMessage({
+					action: 'getVtexInfo',
+					vtexInfo: {
+						...vtexInfo,
+						plataformType,
+						cookies,
+						url: window.location.href,
+						googleTagManagerContainerId
+					},
+				});
+			}
 		}
 	});
 }
