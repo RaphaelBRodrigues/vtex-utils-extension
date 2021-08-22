@@ -5,7 +5,7 @@
 
 ## Some Features:
 * Local Login: Set the cookie VtexIdclientAutCookie that is used to authenticate the user in the plataform
-* Store Info: You can check some info about the store, like the account name, the version of the store(IO or CMS), the current workspace (IO), etc...
+* Store Info: You can check some info about the store, like the account name, the version of the store(IO, CMS or SFJ), the current workspace (IO), etc...
 * HTTP Request: You can make custom requests using some http methods (GET, POST, PUT, PATCH, DELETE), and save the response as .json or .csv
 * Product: You can check the current product info and save all as .json or .csv
 * Orderform: You can check some Orderform info and save all as .json or .csv
@@ -100,3 +100,5 @@ Contributions are super welcome, to do it you must fork this repository and then
 ##### [Repository](https://github.com/RaphaelBRodrigues/vtex_utils_extension)
 
 ##### [Google store](https://chrome.google.com/webstore/detail/vtex-utils/pbeccppphodgankmbikfdlodceghmmgo)
+
+##### [Homepage](https://raphaelbrodrigues.github.io/vtex_utils_extension/)
