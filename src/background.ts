@@ -1,3 +1,3 @@
-import '@Background/updatingIcon';
+import '@Background';
 
 

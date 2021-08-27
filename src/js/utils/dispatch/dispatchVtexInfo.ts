@@ -3,7 +3,6 @@ import runOnTab from '../runOnTab';
 function dispatchVtexInfo() {
 	runOnTab(() => {
 		const html = document.documentElement.outerHTML;
-		const $links = [...document.querySelectorAll('link')];
 		const cookies: any = document.cookie.split(';').reduce((obj, item) => {
 			const [key, value] = item.split('=');
 
@@ -17,11 +16,32 @@ function dispatchVtexInfo() {
 			chrome.runtime.sendMessage({ action: 'isNotVTEX' });
 			return;
 		}
+		const isDevEnviroment = !!window.location.href.match(/--/g);
 
-		const plataformType = html.match(/gatsby/gi) ? 'SFJ' : cookies?.VtexWorkspace ? 'IO' : 'CMS';
+		let plataformType = 'CMS';
+		const SFJCondition = html.match(/gatsby/gi);
 
-		const googleTagManagerContainerId = html.match(/GTM-(\d|\w)+/)![0];
+		if(isDevEnviroment) {
+			plataformType = SFJCondition ? 'SJF' : 'IO';
+		} else {
+			plataformType =
+			SFJCondition
+				? 'SFJ'
+				: cookies?.VtexWorkspace
+					? 'IO'
+					: plataformType;
 
+		}
+
+
+		const googleTagManagerContainerId = isDevEnviroment ? 'GTM is not supported on developement workspaces' : html.match(/GTM-(\d|\w)+/)![0];
+
+		const vtexCommonInfoInfo = {
+			googleTagManagerContainerId,
+			cookies,
+			url: window.location.href,
+			plataformType
+		};
 
 		if(window.location.href.includes('checkout')) {
 			const $scripts = [...document.querySelectorAll('script')];
@@ -34,12 +54,11 @@ function dispatchVtexInfo() {
 
 
 			const vtexInfo: any = {
+				...vtexCommonInfoInfo,
 				account: $vtexInfoScript?.innerHTML.match(/(?<=vtex.accountName = ")(\w|\d)+/g)![0],
-				googleTagManagerContainerId,
-				cookies,
-				url: window.location.href,
 				plataformType: plataformType === 'IO' ? 'IO or SFJ' : 'CMS'
 			};
+
 
 			if(['SJF', 'IO'].includes(plataformType)) vtexInfo.workspace = decodeURIComponent(cookies?.VtexWorkspace);
 
@@ -55,16 +74,12 @@ function dispatchVtexInfo() {
 				 chrome.runtime.sendMessage({
 					action: 'getVtexInfo',
 					vtexInfo: {
-						cookies,
+						...vtexCommonInfoInfo,
 						accountName,
-						url: window.location.href,
-						googleTagManagerContainerId,
 						plataformType: 'SFJ'
 					},
 				});
 			} else {
-
-
 				const matchVtexInfo =
 				plataformType === 'IO'
       	? /__RUNTIME__ ?= ?(?<vtexInfo>{.+)/gi
@@ -74,16 +89,11 @@ function dispatchVtexInfo() {
 
 				if (!content?.vtexInfo) return;
 
-				const vtexInfo = JSON.parse(content?.vtexInfo);
-
 				chrome.runtime.sendMessage({
 					action: 'getVtexInfo',
 					vtexInfo: {
-						...vtexInfo,
-						plataformType,
-						cookies,
-						url: window.location.href,
-						googleTagManagerContainerId
+						...JSON.parse(content?.vtexInfo),
+						...vtexCommonInfoInfo,
 					},
 				});
 			}

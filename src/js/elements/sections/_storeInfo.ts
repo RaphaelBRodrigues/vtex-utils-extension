@@ -17,14 +17,12 @@ async function setStoreData() {
 	getVtexInfo((vtexInfo) => {
    	cleanNode($list);
  		StoreKeysToShow.forEach((key) => {
-			 if (!vtexInfo![key]) return;
-
-
-			 if(typeof vtexInfo![key] === 'object' ) {
+			if (!vtexInfo![key]) return;
+			if(typeof vtexInfo![key] === 'object' ) {
 				 Object.values(StoreKeysPath).forEach((keyPath) => {
-					 const [value, label] = getDeeplyProp(vtexInfo![key], keyPath);
+					const [value, label] = getDeeplyProp(vtexInfo![key], keyPath);
 					const innerText = StoreInfoKeys[label as keyof object];
-					 createInputs(innerText, value);
+					value && createInputs(innerText, value);
 				});
 				return;
 			}
