@@ -1,6 +1,6 @@
 {
   "name": "vtex_utils_extension",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Chrome extension with VTEX utils",
   "scripts": {
     "clean": "rimraf dist/* || rm -rf dist/*",
@@ -26,9 +26,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/RaphaelBRodrigues/vtex_utils_extension.git"
+    "url": "https://github.com/RaphaelBRodrigues/vtex-utils-extension.git"
   },
-  "homepage": "https://raphaelbrodrigues.github.io/vtex_utils_extension",
+  "homepage": "https://raphaelbrodrigues.github.io/vtex-utils-extension",
   "license": "GPL-3.0",
   "dependencies": {
     "@babel/core": "^7.14.3",

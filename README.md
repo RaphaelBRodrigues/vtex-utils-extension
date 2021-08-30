@@ -1,7 +1,7 @@
 
-# VTEX Utils
+# Vhelpx
 
-[VTEX Utils](http://vtex.raphaelbr.dev/) is a browser extension with some helpers that will make easier the life of those who work with the [VTEX](https://vtex.com/) ecosystem.
+[Vhelpx](http://vtex.raphaelbr.dev/) is a browser extension with some helpers that will make easier the life of those who work with the [VTEX](https://vtex.com/) ecosystem.
 
 ## Some Features:
 * Local Login: Set the cookie VtexIdclientAutCookie that is used to authenticate the user in the plataform
@@ -32,7 +32,7 @@ Run the following steps in your terminal:
 
 * Clone the repository
 ```sh
-  git clone https://github.com/RaphaelBRodrigues/vtex_utils_extension.git
+  git clone https://github.com/RaphaelBRodrigues/vtex-utils-extension.git
 ```
 
 * Go to the project folder
@@ -97,8 +97,8 @@ Contributions are super welcome, to do it you must fork this repository and then
 ### Links
 
 
-##### [Repository](https://github.com/RaphaelBRodrigues/vtex_utils_extension)
+##### [Repository](https://github.com/RaphaelBRodrigues/vtex-utils-extension)
 
 ##### [Google store](https://chrome.google.com/webstore/detail/vtex-utils/pbeccppphodgankmbikfdlodceghmmgo)
 
-##### [Homepage](https://raphaelbrodrigues.github.io/vtex_utils_extension/)
+##### [Homepage](https://raphaelbrodrigues.github.io/vtex-utils-extension/)
