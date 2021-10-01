@@ -6,9 +6,9 @@ function dispatchProductData() {
 
 		if(productTextLink?.match(/\/p$/)?.[0]) {
 			const resp = await fetch(
-				`/api/catalog_system/pub/products/search/${productTextLink}`,
+				`/api/catalog_system/pub/products/search${productTextLink}`,
 			);
-
+			
 			const [product] = await resp.json();
 
 			chrome.runtime.sendMessage({
