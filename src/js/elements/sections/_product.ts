@@ -12,6 +12,7 @@ const {
 async function setProductData() {
 	getProductData((product) => {
 		cleanNode($list);
+
 		ProductKeysToShow.forEach((key) => {
 			if (typeof product?.[key] === 'object' || !product![key]) return;
 

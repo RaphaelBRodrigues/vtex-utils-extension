@@ -1,17 +1,16 @@
 import { OrderFormKeysToShow } from '@Constants';
 import {
-	getOrderForm, createCSV, cleanNode, createCopyButton
+	getOrderForm, createCSV, cleanNode, createCopyButton, copyToClipboard
 } from '@Utils';
 import CacheSelector from '../__cache-selector';
 
 const {
-	$list, $jsonLink, $csvLink
-} = { ...CacheSelector.orderForm, };
+	$list, $jsonLink, $csvLink, $copyLink, $content
+} = { ...CacheSelector.orderForm };
 
 async function setOrderForm() {
 	getOrderForm((orderForm) => {
 		cleanNode($list);
-
 		OrderFormKeysToShow.forEach((key) => {
 			if (typeof orderForm?.[key] === 'object') return;
 
@@ -35,6 +34,7 @@ async function setOrderForm() {
 			$list?.append($div);
 		});
 
+		if ($content) $content.value = JSON.stringify(orderForm);
 		if (orderForm) setDownloadLinks([orderForm]);
 	});
 }
@@ -54,6 +54,12 @@ function setDownloadLinks(orderForm: Object[]) {
 
 	$jsonLink?.classList.add('is--active');
 	$csvLink?.classList.add('is--active');
+
+	if($content) {
+		$copyLink?.addEventListener('click', () => {
+			copyToClipboard($content);
+		})
+	}
 }
 
 function init() {

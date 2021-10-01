@@ -34,7 +34,7 @@ function dispatchVtexInfo() {
 		}
 
 
-		const googleTagManagerContainerId = isDevEnviroment ? 'GTM is not supported on developement workspaces' : html.match(/GTM-(\d|\w)+/)![0];
+		const googleTagManagerContainerId = html.match(/GTM-(\d|\w)+/)![0];
 
 		const vtexCommonInfoInfo = {
 			googleTagManagerContainerId,

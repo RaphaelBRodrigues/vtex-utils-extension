@@ -15,9 +15,20 @@
     }
   }
 
-  &--download {
+  &--links {
+    display: grid;
     width: 90%;
     flex: 1;
     text-align: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px 5px;
+  }
+
+  &--raw-content {
+    opacity: 0;
+    position: absolute;
+    cursor: none;
+    z-index: -99;
+    transform: scale(0);
   }
 }

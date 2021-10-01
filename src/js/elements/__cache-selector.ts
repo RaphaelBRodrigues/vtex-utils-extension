@@ -46,15 +46,22 @@ const CacheSelector = {
 		),
 	},
 	orderForm: {
+		$content: document.querySelector<HTMLInputElement>('.x-main__orderForm--raw-content'),
 		$list: document.querySelector('.x-main__orderForm--items'),
 		$links: document.querySelectorAll(
-			'.x-main__orderForm--download a[data-type]',
+			'.x-main__orderForm--links a[data-type]',
 		),
 		$csvLink: document.querySelector(
-			'.x-main__orderForm--download a[data-type="csv"]',
+			'.x-main__orderForm--links a[data-type="csv"]',
+		),
+		$consoleLink: document.querySelector(
+			'.x-main__orderForm--links a[data-type="console"]',
+		),
+		$copyLink: document.querySelector(
+			'.x-main__orderForm--links a[data-type="copy"]',
 		),
 		$jsonLink: document.querySelector(
-			'.x-main__orderForm--download a[data-type="json"]',
+			'.x-main__orderForm--links a[data-type="json"]',
 		),
 	},
 	product: {

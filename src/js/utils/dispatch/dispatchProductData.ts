@@ -4,7 +4,7 @@ function dispatchProductData() {
 	runOnTab(async () => {
 		const productTextLink = window.location.pathname;
 
-		if(productTextLink?.match(/\/p$/)?.[0]) {
+		if(!!productTextLink?.match(/\/p$/)?.[0]) {
 			const resp = await fetch(
 				`/api/catalog_system/pub/products/search${productTextLink}`,
 			);
