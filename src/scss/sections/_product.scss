@@ -24,5 +24,17 @@
 
     gap: 5px 5px;
 
+    a:last-child {
+      width: 100%;
+      grid-column: 1/3;
+    }
+  }
+
+  &--raw-content {
+    opacity: 0;
+    position: absolute;
+    cursor: none;
+    z-index: -99;
+    transform: scale(0);
   }
 }

@@ -62,7 +62,7 @@ function setDownloadLinks(orderForm: Object[]) {
 			$el.innerText = "Copied";
 			copyToClipboard($content);
 			setTimeout(() => {
-				$el.innerText = "Copy to clipboard";
+				$el.innerText = "COPY TO CLIPBOARD";
 			}, 2500)
 		})
 	}

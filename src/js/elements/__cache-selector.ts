@@ -65,6 +65,7 @@ const CacheSelector = {
 		),
 	},
 	product: {
+		$content: document.querySelector<HTMLInputElement>('.x-main__product--raw-content'),
 		$list: document.querySelector('.x-main__product--result'),
 		$links: document.querySelectorAll(
 			'.x-main__orderForm--download a[data-type]',
@@ -75,6 +76,9 @@ const CacheSelector = {
 		$jsonLink: document.querySelector(
 			'.x-main__product--download a[data-type="json"]',
 		),
+		$copyLink: document.querySelector(
+			'.x-main__product--download a[data-type="copy"]',
+		)
 	},
 	vtexAPI: { $list: document.querySelector('.x-main__vtex-api--list'), },
 };

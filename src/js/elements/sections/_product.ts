@@ -1,12 +1,12 @@
 import { ProductKeysToShow } from '@Constants';
 import { ProductKeys } from '@Types';
 import {
-	createClickListener, cleanNode, createCopyButton, createCSV, getProductData
+	createClickListener, cleanNode, createCopyButton, createCSV, getProductData, copyToClipboard
 } from '@Utils';
 import CacheSelector from '../__cache-selector';
 
 const {
-	$list, $jsonLink, $csvLink
+	$list, $jsonLink, $csvLink, $copyLink, $content
 } = { ...CacheSelector.product, };
 
 async function setProductData() {
@@ -38,6 +38,7 @@ async function setProductData() {
 		});
 
 		if (product) setDownloadLinks([product]);
+		if ($content) $content.value = JSON.stringify(product);
 	});
 }
 
@@ -56,6 +57,18 @@ function setDownloadLinks(product: Object[]) {
 
 	$jsonLink?.classList.add('is--active');
 	$csvLink?.classList.add('is--active');
+
+	if($content) {
+		$copyLink?.addEventListener('click', (e) => {
+			const $el = (<HTMLLinkElement>e?.target) ;
+			
+			$el.innerText = "Copied";
+			copyToClipboard($content);
+			setTimeout(() => {
+				$el.innerText = "COPY TO CLIPBOARD";
+			}, 2500)
+		})
+	}
 }
 
 function recreateProductContent() {
