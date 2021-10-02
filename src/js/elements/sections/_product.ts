@@ -1,7 +1,7 @@
 import { ProductKeysToShow } from '@Constants';
 import { ProductKeys } from '@Types';
 import {
-	cleanNode, createCopyButton, createCSV, getProductData
+	createClickListener, cleanNode, createCopyButton, createCSV, getProductData
 } from '@Utils';
 import CacheSelector from '../__cache-selector';
 
@@ -58,8 +58,18 @@ function setDownloadLinks(product: Object[]) {
 	$csvLink?.classList.add('is--active');
 }
 
+function recreateProductContent() {
+	const selectors = [
+		"button[data-content='product']",
+		".x-nav__menu-item[data-content='product']"
+	].join(",");
+
+	createClickListener(selectors, setProductData);
+}
+ 
 function init() {
 	setProductData();
+	recreateProductContent();
 }
 
 export default init;

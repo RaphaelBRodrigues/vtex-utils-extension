@@ -56,8 +56,14 @@ function setDownloadLinks(orderForm: Object[]) {
 	$csvLink?.classList.add('is--active');
 
 	if($content) {
-		$copyLink?.addEventListener('click', () => {
+		$copyLink?.addEventListener('click', (e) => {
+			const $el = (<HTMLLinkElement>e?.target) ;
+			
+			$el.innerText = "Copied";
 			copyToClipboard($content);
+			setTimeout(() => {
+				$el.innerText = "Copy to clipboard";
+			}, 2500)
 		})
 	}
 }

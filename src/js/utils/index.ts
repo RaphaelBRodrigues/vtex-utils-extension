@@ -13,5 +13,6 @@ export { default as getProductData } from './vtex/getProductData';
 export { default as parseCookies } from './parseCookies';
 export { default as cleanNode } from './cleanNode';
 export { default as isVTEX } from './isVTEX';
+export { default as createClickListener } from './createClickListener';
 export { default as getDeeplyProp } from './getDeeplyProp';
 export * from './copyToClipboard';
