@@ -38,7 +38,7 @@ async function setProductData() {
 		});
 
 		if (product) setDownloadLinks([product]);
-		if ($content) $content.value = JSON.stringify(product);
+		if ($content) $content.value = JSON.stringify(product, null, '\t');
 	});
 }
 

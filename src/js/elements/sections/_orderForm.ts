@@ -34,7 +34,7 @@ async function setOrderForm() {
 			$list?.append($div);
 		});
 
-		if ($content) $content.value = JSON.stringify(orderForm);
+		if ($content) $content.value = JSON.stringify(orderForm, null, '\t');
 		if (orderForm) setDownloadLinks([orderForm]);
 	});
 }
