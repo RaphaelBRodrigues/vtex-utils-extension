@@ -160,3 +160,28 @@ a {
     transition-duration: 0.3s;
   }
 }
+
+.spinningLoader{
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: 3px solid transparent;
+  border-top-color: $pink;
+  animation: spinLoading 2s infinite;
+  margin: 0 auto;
+  display: none;
+  
+  &.active {
+    display: block;
+  }
+}
+
+@keyframes spinLoading {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -8,7 +8,6 @@ function getProductData(callback: Callback<ProductData>) {
 		({
 			action, product
 		}: { action: string; product: ProductData }) => {
-
 			if (action == 'getProductData') {
 				callback(product);
 			}

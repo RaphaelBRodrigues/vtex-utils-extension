@@ -1,8 +1,16 @@
 import { ProductKeysToShow } from '@Constants';
 import { ProductKeys } from '@Types';
 import {
-	createClickListener, cleanNode, createCopyButton, createCSV, getProductData, copyToClipboard
+	createClickListener,
+	cleanNode,
+	createCopyButton,
+	createCSV,
+	getProductData,
+	copyToClipboard,
+	toggleLoader,
+	dispatchProductData
 } from '@Utils';
+
 import CacheSelector from '../__cache-selector';
 
 const {
@@ -10,9 +18,12 @@ const {
 } = { ...CacheSelector.product, };
 
 async function setProductData() {
+	const loaderSelector = ".x-main__product--loading";
+	let setProductAgain = true;
+	
 	getProductData((product) => {
 		cleanNode($list);
-		console.log(product)
+
 		ProductKeysToShow.forEach((key) => {
 			if (typeof product?.[key] === 'object' || !product![key]) return;
 
@@ -37,9 +48,21 @@ async function setProductData() {
 			$list?.append($div);
 		});
 
-		if (product) setDownloadLinks([product]);
-		if ($content) $content.value = JSON.stringify(product, null, '\t');
+		if (product?.productId) {
+			toggleLoader(loaderSelector);
+			setDownloadLinks([product]);
+			setProductAgain = false;
+			
+			if ($content) $content.value = JSON.stringify(product, null, '\t');
+		} 
 	});
+
+	setTimeout(() => {
+		if (setProductAgain) {
+			dispatchProductData();
+			setProductData();
+		}
+	}, 10000);
 }
 
 function setDownloadLinks(product: Object[]) {

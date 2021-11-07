@@ -15,4 +15,7 @@ export { default as cleanNode } from './cleanNode';
 export { default as isVTEX } from './isVTEX';
 export { default as createClickListener } from './createClickListener';
 export { default as getDeeplyProp } from './getDeeplyProp';
+export { default as toggleLoader } from './toggleLoader';
+
 export * from './copyToClipboard';
+export * from './dispatch';
