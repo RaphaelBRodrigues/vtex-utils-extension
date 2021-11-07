@@ -1,7 +1,7 @@
 {
   "name": "vtex_utils_extension",
-  "version": "1.3.1",
-  "description": "Chrome extension with VTEX utils",
+  "version": "1.3.2",
+  "description": "A Browser extension with VTEX utils",
   "scripts": {
     "clean": "rimraf dist/* || rm -rf dist/*",
     "lint": "eslint src/js/**/*ts __tests__/**/*.ts  --fix",

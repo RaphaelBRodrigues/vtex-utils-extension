@@ -37,4 +37,26 @@ describe('Strip URL', () => {
 
 		expect(length).toBe(0);
 	});
+
+	it('should return a object with all keys filled correct', () => {
+		const {
+			domain,
+			params,
+			protocol,
+			query
+		} = stripURL('https://raphaeldev--bighiper.myvtex.com/banana-prata-aprox-150g-7568200000006/p?utm_source=test');
+
+		const expectedResults = {
+			domain: 'raphaeldev--bighiper.myvtex.com',
+			params: '/banana-prata-aprox-150g-7568200000006/p',
+			protocol: 'https',
+			query: '?utm_source=test',
+		}
+
+		expect(domain).toBe(expectedResults['domain']);
+		expect(params).toBe(expectedResults['params']);
+		expect(protocol).toBe(expectedResults['protocol']);
+		expect(query).toBe(expectedResults['query']);
+		
+	});
 });
