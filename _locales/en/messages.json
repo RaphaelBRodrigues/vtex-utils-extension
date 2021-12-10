@@ -1,7 +1,7 @@
 {
   "appName": {
-    "message": "VHelpx",
-    "description": "VHelpx"
+    "message": "VHelpx - VTEX Utils",
+    "description": "VHelpx - VTEX Utils"
   },
   "appDesc": {
     "message": "VHelpx is a browser extension with some helpers that will make easier the life of those who work with the VTEX ecosystem.",
