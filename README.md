@@ -1,6 +1,9 @@
 
 # Vhelpx
 
+![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/pbeccppphodgankmbikfdlodceghmmgo.svg?userss)
+![Chrome Web Store Users](https://img.shields.io/chrome-web-store/stars/pbeccppphodgankmbikfdlodceghmmgo.svg)
+
 [VHelpx](http://vtex.raphaelbr.dev/) is a browser extension with some helpers that will make easier the life of those who work with the [VTEX](https://vtex.com/) ecosystem.
 
 ## Some Features:
