@@ -1,6 +1,7 @@
 
-# Vhelpx
+# VHelpx
 
+![LLcence](https://img.shields.io/badge/license-MIT-blue)
 ![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/pbeccppphodgankmbikfdlodceghmmgo.svg?userss)
 ![Chrome Web Store Users](https://img.shields.io/chrome-web-store/stars/pbeccppphodgankmbikfdlodceghmmgo.svg)
 
@@ -99,9 +100,8 @@ Contributions are super welcome, to do it you must fork this repository and then
 
 ### Links
 
-
-##### [Repository](https://github.com/RaphaelBRodrigues/vtex-utils-extension)
-
-##### [Google store](https://chrome.google.com/webstore/detail/vtex-utils/pbeccppphodgankmbikfdlodceghmmgo)
+##### [Chrome Web Store](https://chrome.google.com/webstore/detail/vhelpx-vtex-utils/pbeccppphodgankmbikfdlodceghmmgo)
 
 ##### [Homepage](https://raphaelbrodrigues.github.io/vtex-utils-extension/)
+
+##### [Repository](https://github.com/RaphaelBRodrigues/vtex-utils-extension)
