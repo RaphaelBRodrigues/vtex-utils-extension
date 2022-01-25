@@ -1,7 +1,7 @@
 
 # VHelpx
 
-![LLcence](https://img.shields.io/badge/license-MIT-blue)
+![LLcence](https://img.shields.io/badge/license-GNU-blue)
 ![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/pbeccppphodgankmbikfdlodceghmmgo.svg?userss)
 ![Chrome Web Store Users](https://img.shields.io/chrome-web-store/stars/pbeccppphodgankmbikfdlodceghmmgo.svg)
 
