@@ -34,14 +34,14 @@ function dispatchVtexInfo() {
 		}
 
 
-		const googleTagManagerContainerId = html.match(/GTM-(\d|\w)+/)![0];
+		const googleTagManagerContainerId = html.match(/GTM-(\d|\w)+/)?.[0];
 
 		const vtexCommonInfoInfo = {
 			googleTagManagerContainerId,
-			cookies,
 			url: window.location.href,
+			cookies,
 			plataformType
-		};
+		};	 
 
 		if(window.location.href.includes('checkout')) {
 			const $scripts = [...document.querySelectorAll('script')];
