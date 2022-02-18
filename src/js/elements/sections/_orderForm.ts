@@ -57,8 +57,6 @@ async function setOrderForm() {
 function setDownloadLinks(orderForm: Object[]) {
 	const csvContent = createCSV(orderForm);
 
-	console.log("45", orderForm);
-
 	const csvURL =
 		"data:text/csv;charset=utf-8," + encodeURIComponent(csvContent);
 
@@ -67,7 +65,6 @@ function setDownloadLinks(orderForm: Object[]) {
 		encodeURIComponent(JSON.stringify(orderForm, null, "\t"));
 
 	getVtexInfo((vtexInfo) => {
-		console.log(orderForm, vtexInfo);
 		if (!!vtexInfo) {
 			const { accountName, account } = vtexInfo;
 

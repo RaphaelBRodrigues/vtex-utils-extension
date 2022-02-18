@@ -1,6 +1,6 @@
 {
   "name": "vtex_utils_extension",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "A Browser extension with VTEX utils",
   "scripts": {
     "clean": "rimraf dist/* || rm -rf dist/*",

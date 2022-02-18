@@ -15,11 +15,11 @@ const {
 
 async function setStoreData() {
 	getVtexInfo((vtexInfo) => {
-   	cleanNode($list);
- 		StoreKeysToShow.forEach((key) => {
+		cleanNode($list);
+		StoreKeysToShow.forEach((key) => {
 			if (!vtexInfo![key]) return;
-			if(typeof vtexInfo![key] === 'object' ) {
-				 Object.values(StoreKeysPath).forEach((keyPath) => {
+			if (typeof vtexInfo![key] === 'object') {
+				Object.values(StoreKeysPath).forEach((keyPath) => {
 					const [value, label] = getDeeplyProp(vtexInfo![key], keyPath);
 					const innerText = StoreInfoKeys[label as keyof object];
 					value && createInputs(innerText, value);
@@ -65,13 +65,12 @@ function setLinks({
 }: StoreInfo) {
 	const URLs = {
 		admin: `https://${accountName || account}.myvtex.com/admin`,
-		stable: `https://${accountName || account}.vtexcommercestable.com.br`,
-		beta: `https://${accountName || account}.vtexcommercebeta.com.br`,
+		masterdata: `https://${accountName || account}.vtexcrm.com.br`
 	};
 	[...$links].forEach(($link) => {
-		const linkType = <'admin' | 'stable' | 'beta'>(
-      $link.getAttribute('data-type')
-    );
+		const linkType = <'admin' | 'masterdata'>(
+			$link.getAttribute('data-type')
+		);
 		$link.setAttribute('href', URLs[linkType]);
 	});
 }
