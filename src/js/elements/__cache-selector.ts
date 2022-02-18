@@ -70,8 +70,8 @@ const CacheSelector = {
 		$links: document.querySelectorAll(
 			'.x-main__orderForm--download a[data-type]',
 		),
-		$csvLink: document.querySelector(
-			'.x-main__product--download a[data-type="csv"]',
+		$editProductLink: document.querySelector(
+			'.x-main__product--download a[data-type="edit"]',
 		),
 		$jsonLink: document.querySelector(
 			'.x-main__product--download a[data-type="json"]',

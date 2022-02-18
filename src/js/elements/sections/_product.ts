@@ -4,17 +4,17 @@ import {
 	createClickListener,
 	cleanNode,
 	createCopyButton,
-	createCSV,
 	getProductData,
 	copyToClipboard,
 	toggleLoader,
-	dispatchProductData
+	dispatchProductData,
+	getVtexInfo
 } from '@Utils';
 
 import CacheSelector from '../__cache-selector';
 
 const {
-	$list, $jsonLink, $csvLink, $copyLink, $content
+	$list, $jsonLink, $editProductLink, $copyLink, $content
 } = { ...CacheSelector.product, };
 
 async function setProductData() {
@@ -50,7 +50,7 @@ async function setProductData() {
 
 		if (product?.productId) {
 			toggleLoader(loaderSelector);
-			setDownloadLinks([product]);
+			createAndSetLinks([product]);
 			setProductAgain = false;
 			
 			if ($content) $content.value = JSON.stringify(product, null, '\t');
@@ -65,21 +65,27 @@ async function setProductData() {
 	}, 10000);
 }
 
-function setDownloadLinks(product: Object[]) {
-	const csvContent = createCSV(product);
+function createAndSetLinks([product]: Object[]) {
+	const productId = (<any>product).productId;
 
-	const csvURL =
-    'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
+	getVtexInfo((vtexInfo) => {
+		if (!!vtexInfo) {
+			const { accountName, account } = vtexInfo;
+
+			const editProductURL = `https://${accountName || account}.myvtex.com/admin/Site/ProdutoForm.aspx?id=${productId}`;
+
+			$editProductLink?.setAttribute('href', editProductURL);
+		}
+	});
 
 	const jsonURL =
     'data:text/json;charset=utf-8,' +
     encodeURIComponent(JSON.stringify(product, null, '\t'));
 
 	$jsonLink?.setAttribute('href', jsonURL);
-	$csvLink?.setAttribute('href', csvURL);
 
 	$jsonLink?.classList.add('is--active');
-	$csvLink?.classList.add('is--active');
+	$editProductLink?.classList.add('is--active');
 
 	if($content) {
 		$copyLink?.addEventListener('click', (e) => {
