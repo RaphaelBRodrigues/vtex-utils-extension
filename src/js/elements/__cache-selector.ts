@@ -9,8 +9,8 @@ const CacheSelector = {
 	initial: { $buttons: document.querySelectorAll('.x-main__initial button'), },
 	localLogin: {
 		$input: <HTMLInputElement>(
-      document.querySelector('.x-main__local-login input')
-    ),
+			document.querySelector('.x-main__local-login input')
+		),
 		$button: document.querySelector('.x-main__local-login button'),
 	},
 	customFetch: {
@@ -21,14 +21,14 @@ const CacheSelector = {
 			'.x-main__custom-fetch > label',
 		)[1],
 		$endpointInput: <HTMLInputElement>(
-      document.querySelector('.x-main__custom-fetch input[name="endpoint"]')
-    ),
+			document.querySelector('.x-main__custom-fetch input[name="endpoint"]')
+		),
 		$bodyInput: <HTMLTextAreaElement>(
-      document.querySelector('.x-main__custom-fetch textarea[name="body"]')
-    ),
+			document.querySelector('.x-main__custom-fetch textarea[name="body"]')
+		),
 		$queryInput: <HTMLInputElement>(
-      document.querySelector('.x-main__custom-fetch input[name="query"]')
-    ),
+			document.querySelector('.x-main__custom-fetch input[name="query"]')
+		),
 		$error: document.querySelector('.x-main__custom-fetch--error'),
 		$result: document.querySelector('.x-main__custom-fetch--result'),
 		$button: document.querySelector('.x-main__custom-fetch button'),
@@ -47,6 +47,7 @@ const CacheSelector = {
 	},
 	orderForm: {
 		$content: document.querySelector<HTMLInputElement>('.x-main__orderForm--raw-content'),
+		$addToCartURL: document.querySelector<HTMLInputElement>('.x-main__orderForm--addToCartURL'),
 		$list: document.querySelector('.x-main__orderForm--items'),
 		$links: document.querySelectorAll(
 			'.x-main__orderForm--links a[data-type]',
@@ -57,8 +58,11 @@ const CacheSelector = {
 		$consoleLink: document.querySelector(
 			'.x-main__orderForm--links a[data-type="console"]',
 		),
-		$copyLink: document.querySelector(
+		$copyJsonLink: document.querySelector(
 			'.x-main__orderForm--links a[data-type="copy"]',
+		),
+		$copyAddToCartLink: document.querySelector(
+			'.x-main__orderForm--links a[data-type="addToCart"]',
 		),
 		$jsonLink: document.querySelector(
 			'.x-main__orderForm--links a[data-type="json"]',
