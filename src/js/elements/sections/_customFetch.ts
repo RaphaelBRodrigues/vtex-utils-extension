@@ -87,7 +87,7 @@ function renderResult(
 			$details.append($summary);
 			$elementList.append($details);
 		} else {
-			console.log(response);
+			console.warn(response);
 		}
 	});
 }
