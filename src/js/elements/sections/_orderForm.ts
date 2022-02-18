@@ -50,11 +50,11 @@ async function setOrderForm() {
 		});
 
 		if ($content) $content.value = JSON.stringify(orderForm, null, "\t");
-		if (orderForm) setDownloadLinks([orderForm]);
+		if (orderForm) createAndSetLinks([orderForm]);
 	});
 }
 
-function setDownloadLinks(orderForm: Object[]) {
+function createAndSetLinks(orderForm: Object[]) {
 	const csvContent = createCSV(orderForm);
 
 	const csvURL =

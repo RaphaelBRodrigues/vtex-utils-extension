@@ -4,8 +4,6 @@ import {
 import dispatchOrderForm from '../dispatch/dispatchOrderForm';
 
 function getOrderForm(callback: Callback<OrderForm>) {
-	dispatchOrderForm();
-
 	chrome.runtime.onMessage.addListener(
 		({
 			action, orderForm
@@ -15,6 +13,8 @@ function getOrderForm(callback: Callback<OrderForm>) {
 			}
 		},
 	);
+
+	dispatchOrderForm();
 }
 
 export default getOrderForm;

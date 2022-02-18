@@ -13,6 +13,7 @@ function getVtexInfo(callback: Callback<StoreInfo>) {
 			}
 		},
 	);
+
 	dispatchVtexInfo();
 }
 

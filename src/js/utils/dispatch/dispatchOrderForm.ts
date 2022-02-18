@@ -2,7 +2,7 @@ import runOnTab from '../runOnTab';
 
 function dispatchOrderForm() {
 	runOnTab(async () => {
-		if (!document.documentElement.outerHTML.match(/io.vtex.com.br/)) {
+		if (!document.documentElement.innerHTML.match(/io.vtex.com.br/)) {
 			chrome.runtime.sendMessage({ action: 'isNotVTEX' });
 			return;
 		}
