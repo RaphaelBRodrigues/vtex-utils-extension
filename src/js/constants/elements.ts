@@ -3,7 +3,7 @@ import {
 } from '@Types';
 
 
-export const StoreKeysToShow: StoreInfoKeysT[] = [
+export const STORE_KEYS_TO_SHOW: StoreInfoKeysT[] = [
 	'accountName',
 	'account',
 	'url',
@@ -16,7 +16,20 @@ export const StoreKeysToShow: StoreInfoKeysT[] = [
 	'workspace',
 ];
 
-export const OrderFormKeysToShow: OrderFormKeysT[] = [
+export const PAGE_KEYS_TO_SHOW: StoreInfoKeysT[] = [
+	'accountName',
+	'account',
+	'url',
+	'storeName',
+	'settings',
+	'googleTagManagerContainerId',
+	'productBrandName',
+	'sellerId',
+	'plataformType',
+	'workspace',
+];
+
+export const ORDER_FORM_KEYS_TO_SHOW: OrderFormKeysT[] = [
 	'orderFormId',
 	'value',
 	'salesChannel',
@@ -26,7 +39,7 @@ export const OrderFormKeysToShow: OrderFormKeysT[] = [
 	'userProfileId',
 ];
 
-export const ProductKeysToShow: ProductKeysT[] = [
+export const PRODUCT_KEYS_TO_SHOW: ProductKeysT[] = [
 	'productId',
 	'productName',
 	'productReference',

@@ -36,12 +36,12 @@ async function availableButtons() {
 
 
 	if (await isVTEX()) {
-  		if (await isPDP()) {
-			 $productButton?.removeAttribute('disabled');
-			 $productButton?.removeAttribute('title');
+		if (await isPDP()) {
+			$productButton?.removeAttribute('disabled');
+			$productButton?.removeAttribute('title');
 
-			 $productItem?.removeAttribute('data-disabled');
-			 $productItem?.removeAttribute('title');
+			$productItem?.removeAttribute('data-disabled');
+			$productItem?.removeAttribute('title');
 		} else {
 			$productButton?.setAttribute('disabled', 'true');
 			$productButton?.setAttribute('title', 'Disponível apenas na PDP');
@@ -52,7 +52,7 @@ async function availableButtons() {
 	} else {
 		[...$menuItems]
 			.filter($item => $item.getAttribute('data-content') !== 'custom_fetch')
-			.forEach($item =>{
+			.forEach($item => {
 				$item.setAttribute('title', 'Disponível apenas em VTEX Stores');
 				$item.setAttribute('data-disabled', 'true');
 			});
@@ -67,8 +67,12 @@ async function availableButtons() {
 }
 
 function init() {
-	bindButtons();
-	availableButtons();
+	try {
+		bindButtons();
+		availableButtons();
+	} catch (err) {
+		console.error(err)
+	}
 }
 
 export default init;

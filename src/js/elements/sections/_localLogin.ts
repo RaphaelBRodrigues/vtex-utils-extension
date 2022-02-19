@@ -30,7 +30,11 @@ function login(token: string) {
 }
 
 function init() {
-	bindLoginButton();
+	try {
+		bindLoginButton();
+	} catch (err) {
+		console.error(err)
+	}
 }
 
 export default init;

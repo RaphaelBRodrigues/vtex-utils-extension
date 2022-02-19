@@ -4,7 +4,7 @@ import CustomFetch from './_customFetch';
 import StoreInfo from './_storeInfo';
 import OrderForm from './_orderForm';
 import Product from './_product';
-// import VtexAPI from './_vtexAPI';
+import PageInfo from './_pageInfo';
 
 function init() {
 	Initial();
@@ -13,8 +13,7 @@ function init() {
 	StoreInfo();
 	OrderForm();
 	Product();
-
-	// VtexAPI();
+	PageInfo();
 }
 
 export default init;

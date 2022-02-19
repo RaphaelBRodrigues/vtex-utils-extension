@@ -1,4 +1,4 @@
-import { ProductKeysToShow } from '@Constants';
+import { PRODUCT_KEYS_TO_SHOW } from '@Constants';
 import { ProductKeys } from '@Types';
 import {
 	createClickListener,
@@ -24,7 +24,7 @@ async function setProductData() {
 	getProductData((product) => {
 		cleanNode($list);
 
-		ProductKeysToShow.forEach((key) => {
+		PRODUCT_KEYS_TO_SHOW.forEach((key) => {
 			if (typeof product?.[key] === 'object' || !product![key]) return;
 
 			const $div = document.createElement('div');
@@ -110,8 +110,12 @@ function recreateProductContent() {
 }
 
 function init() {
-	setProductData();
-	recreateProductContent();
+	try {
+		setProductData();
+		recreateProductContent();
+	} catch (err) {
+		console.error(err)
+	}
 }
 
 export default init;

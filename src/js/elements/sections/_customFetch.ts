@@ -19,7 +19,7 @@ const {
 function submitRequest() {
 	$button?.addEventListener('click', (async (e) => {
 		const method =
-      (<HTMLButtonElement>e?.target).getAttribute('data-method') || 'GET';
+			(<HTMLButtonElement>e?.target).getAttribute('data-method') || 'GET';
 		const endpoint = $endpointInput.value;
 
 		const {
@@ -74,15 +74,14 @@ function renderResult(
 					const result = Array.isArray(value) ? value : [value];
 					renderResult(result, $details, key, false);
 				} else {
-					const $key = Object.assign(document.createElement('div'), { innerHTML: `<span>${key}</span>: <div class="x-input__wrapper"> <input  readonly disabled value="${
-						(<any>response)[key]
-					}" /></div>`, });
+					const $key = Object.assign(document.createElement('div'), {
+						innerHTML: `<span>${key}</span>: <div class="x-input__wrapper"> <input  readonly disabled value="${(<any>response)[key]
+							}" /></div>`,
+					});
 					$key.querySelector('div')?.append(createCopyButton());
 					$details.append($key);
 				}
 			});
-
-
 
 			$details.append($summary);
 			$elementList.append($details);
@@ -94,14 +93,14 @@ function renderResult(
 
 function setDownloadButtons(result: Object[]) {
 	const jsonURL =
-    'data:text/json;charset=utf-8,' +
-    encodeURIComponent(JSON.stringify(result, null, '\t'));
+		'data:text/json;charset=utf-8,' +
+		encodeURIComponent(JSON.stringify(result, null, '\t'));
 
 	if (typeof result[0] === 'object') {
 		const csvContent = createCSV(result);
 
 		const csvURL =
-      'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
+			'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
 
 		$csvLink?.setAttribute('href', csvURL);
 	}
@@ -116,8 +115,9 @@ function changeMethod() {
 	[...$methodsRadios].forEach(($methodRadio) => {
 		$methodRadio.addEventListener('click', ((e) => {
 			const method = (<HTMLInputElement>e.target).value;
+			const METHODS = ['POST', 'PUT', 'PATCH'];
 
-			const showBodyTextArea = ['POST', 'PUT', 'PATCH'].includes(method);
+			const showBodyTextArea = METHODS.includes(method);
 
 			if (showBodyTextArea) {
 				$bodyLabel.classList.add('is--active');
@@ -130,8 +130,12 @@ function changeMethod() {
 	});
 }
 function init() {
-	submitRequest();
-	changeMethod();
+	try {
+		submitRequest();
+		changeMethod();
+	} catch (err) {
+		console.error(err)
+	}
 }
 
 export default init;

@@ -45,6 +45,12 @@ const CacheSelector = {
 			'.x-main__store-info--links a[data-type]',
 		),
 	},
+	pageInfo: {
+		$list: document.querySelector('.x-main__page-info--list'),
+		$links: document.querySelectorAll(
+			'.x-main__page-info--links a[data-type]',
+		),
+	},
 	orderForm: {
 		$content: document.querySelector<HTMLInputElement>('.x-main__orderForm--raw-content'),
 		$addToCartURL: document.querySelector<HTMLInputElement>('.x-main__orderForm--addToCartURL'),

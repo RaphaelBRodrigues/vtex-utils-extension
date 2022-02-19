@@ -1,4 +1,4 @@
-import { OrderFormKeysToShow } from "@Constants";
+import { ORDER_FORM_KEYS_TO_SHOW } from "@Constants";
 import {
 	getOrderForm,
 	createCSV,
@@ -22,7 +22,7 @@ const {
 async function setOrderForm() {
 	getOrderForm((orderForm) => {
 		cleanNode($list);
-		OrderFormKeysToShow.forEach((key) => {
+		ORDER_FORM_KEYS_TO_SHOW.forEach((key) => {
 			if (typeof orderForm?.[key] === "object") return;
 
 			const $div = document.createElement("div");
@@ -112,7 +112,11 @@ function createAndSetLinks(orderForm: Object[]) {
 }
 
 function init() {
-	setOrderForm();
+	try {
+		setOrderForm();
+	} catch (err) {
+		console.error(err)
+	}
 }
 
 export default init;

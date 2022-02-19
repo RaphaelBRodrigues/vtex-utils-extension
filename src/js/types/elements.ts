@@ -13,7 +13,7 @@ export enum StoreInfoKeys {
 }
 
 export enum StoreKeysPath {
-	storeName = '(settings){vtex.store}{storeName}'
+  storeName = '(settings){vtex.store}{storeName}'
 }
 
 
@@ -29,7 +29,53 @@ export type StoreInfoKeysT =
   | 'settings'
   | 'sellerId';
 
+export enum PageInfoKeys {
+  accountName = 'Account Name',
+  account = 'Account Name',
+  storeName = 'Store Name',
+  url = 'Page URL',
+  productBrandName = 'Brand Name',
+  googleTagManagerContainerId = 'Tag Manager Container ID',
+  sellerId = 'Seller ID',
+  plataformType = 'Plataform Type',
+  settings = 'Settings',
+  workspace = 'Workspace',
+}
+
+export enum PageKeysPath {
+  storeName = '(settings){vtex.store}{storeName}'
+}
+
+export type PageInfoKeysT =
+  | 'accountName'
+  | 'account'
+  | 'url'
+  | 'productBrandName'
+  | 'plataformType'
+  | 'workspace'
+  | 'googleTagManagerContainerId'
+  | 'storeName'
+  | 'settings'
+  | 'sellerId';
+
 export type StoreInfo = {
+  accountName: string;
+  account: string;
+  url: string;
+  settings: {
+    'vtex.store': {
+      storeName: string
+    }
+  };
+  storeName: string;
+  productBrandName: string;
+  googleTagManagerContainerId: string;
+  sellerId: string;
+  plataformType: string;
+  workspace: string;
+};
+
+export type PageInfo = {
   accountName: string;
   account: string;
   url: string;
