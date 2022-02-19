@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "VHelpx - VTEX Utils",
-    "description": "VHelpx - VTEX Utils"
+    "message": "VTEX Utils - VHelpx",
+    "description": "VTEX Utils - VHelpx"
   },
   "appDesc": {
-    "message": "A extensão VHelpx possui vários helpers que irão facilitar a vida dos usuário que trabalham com o ecossistema VTEX",
-    "description": "A extensão VHelpx possui vários helpers que irão facilitar a vida dos usuário que trabalham com o ecossistema VTEX"
+    "message": "A extensão VHelpx possui diversas funcionalidades que irão facilitar a vida dos usuários que trabalham com o ecossistema VTEX",
+    "description": "A extensão VHelpx possui diversas funcionalidades que irão facilitar a vida dos usuários que trabalham com o ecossistema VTEX"
   }
 }

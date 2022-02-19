@@ -13,6 +13,7 @@ function getProductData(callback: Callback<ProductData>) {
 			}
 		},
 	);
+
 	dispatchProductData();
 }
 

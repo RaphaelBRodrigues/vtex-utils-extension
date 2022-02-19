@@ -8,12 +8,17 @@
 [VHelpx](http://vtex.raphaelbr.dev/) is a browser extension with some helpers that will make easier the life of those who work with the [VTEX](https://vtex.com/) ecosystem.
 
 ## Some Features:
-* Local Login: Set the cookie VtexIdclientAutCookie that is used to authenticate the user in the plataform
-* Store Info: You can check some info about the store, like the account name, the version of the store(IO, CMS or SFJ), the current workspace (IO), etc...
+* Local Login: Set the cookie VtexIdclientAutCookie that is used to authenticate the user in the plataform.
+
+* Store Info: You can check some info about the store, such as the account name, the version of the store(IO, CMS or SFJ), the current workspace (IO), etc...
+
 * HTTP Request: You can make custom requests using some http methods (GET, POST, PUT, PATCH, DELETE), and save the response as .json or .csv
-* Product: You can check the current product info and save all as .json or .csv
-* Orderform: You can check some Orderform info and save all as .json or .csv
-* Public APIs (WIP): You will be able to get the data of some VTEX APIs only clicking in the one you want, and will be able do download it as a .json or .csv
+
+* Product: You can check the current product info and save all as .json, copy to the clipboard or use the shortcut to edit the product on the admin.
+
+* Orderform: You can preview some fields from orderForm, copy or download the full response, and generate a addToCart URL based on the current items.
+
+* Page Info (WIP): You will be able to preview some info about the current page, like search context, the block that is being used...
 
 ## Stack
 * [TypeScript](https://www.typescriptlang.org/)

@@ -20,7 +20,7 @@ const {
 async function setProductData() {
 	const loaderSelector = ".x-main__product--loading";
 	let setProductAgain = true;
-	
+
 	getProductData((product) => {
 		cleanNode($list);
 
@@ -52,9 +52,9 @@ async function setProductData() {
 			toggleLoader(loaderSelector);
 			createAndSetLinks([product]);
 			setProductAgain = false;
-			
+
 			if ($content) $content.value = JSON.stringify(product, null, '\t');
-		} 
+		}
 	});
 
 	setTimeout(() => {
@@ -79,18 +79,18 @@ function createAndSetLinks([product]: Object[]) {
 	});
 
 	const jsonURL =
-    'data:text/json;charset=utf-8,' +
-    encodeURIComponent(JSON.stringify(product, null, '\t'));
+		'data:text/json;charset=utf-8,' +
+		encodeURIComponent(JSON.stringify(product, null, '\t'));
 
 	$jsonLink?.setAttribute('href', jsonURL);
 
 	$jsonLink?.classList.add('is--active');
 	$editProductLink?.classList.add('is--active');
 
-	if($content) {
+	if ($content) {
 		$copyLink?.addEventListener('click', (e) => {
-			const $el = (<HTMLLinkElement>e?.target) ;
-			
+			const $el = (<HTMLLinkElement>e?.target);
+
 			$el.innerText = "Copied";
 			copyToClipboard($content);
 			setTimeout(() => {
@@ -108,7 +108,7 @@ function recreateProductContent() {
 
 	createClickListener(selectors, setProductData);
 }
- 
+
 function init() {
 	setProductData();
 	recreateProductContent();
