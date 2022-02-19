@@ -93,18 +93,18 @@ export type PageInfo = {
 } & StoreInfo;
 
 export enum OrderFormKeys {
-  orderFormId = '',
-  salesChannel = '',
-  loggedIn = '',
-  isCheckedIn = '',
-  storeId = '',
+  orderFormId = 'OrderForm Id',
+  salesChannel = 'Sales Channel',
+  loggedIn = 'Logged In',
+  isCheckedIn = 'Is Checked In',
+  storeId = 'Store Id',
+  userProfileId = 'UserProfile Id',
+  value = 'Value',
   checkedInPickupPointId = '',
   allowManualPrice = '',
   canEditData = '',
-  userProfileId = '',
   userType = '',
   ignoreProfileData = '',
-  value = '',
   messages = '',
   items = '',
   selectableGifts = '',
@@ -130,6 +130,7 @@ export enum OrderFormKeys {
 
 export type OrderFormKeysT =
   | 'orderFormId'
+  | 'userProfileId'
   | 'salesChannel'
   | 'loggedIn'
   | 'isCheckedIn'
@@ -137,7 +138,6 @@ export type OrderFormKeysT =
   | 'checkedInPickupPointId'
   | 'allowManualPrice'
   | 'canEditData'
-  | 'userProfileId'
   | 'userType'
   | 'ignoreProfileData'
   | 'value'

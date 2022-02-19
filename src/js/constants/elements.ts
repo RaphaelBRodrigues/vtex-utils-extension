@@ -30,12 +30,12 @@ export const PAGE_KEYS_TO_SHOW: PageInfoKeysT[] = [
 
 export const ORDER_FORM_KEYS_TO_SHOW: OrderFormKeysT[] = [
 	'orderFormId',
+	'userProfileId',
 	'value',
 	'salesChannel',
 	'loggedIn',
 	'isCheckedIn',
 	'storeId',
-	'userProfileId',
 ];
 
 export const PRODUCT_KEYS_TO_SHOW: ProductKeysT[] = [

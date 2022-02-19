@@ -1,5 +1,5 @@
 import { ORDER_FORM_KEYS_TO_SHOW } from "@Constants";
-import { StoreInfo } from "@Types";
+import { OrderFormKeys, StoreInfo } from "@Types";
 import {
 	getOrderForm,
 	createCSV,
@@ -24,12 +24,13 @@ async function setOrderForm() {
 	getOrderForm((orderForm) => {
 		cleanNode($list);
 		ORDER_FORM_KEYS_TO_SHOW.forEach((key) => {
+			console.log(ORDER_FORM_KEYS_TO_SHOW)
 			if (typeof orderForm?.[key] === "object") return;
 
 			const $div = document.createElement("div");
 
 			const $span = Object.assign(document.createElement("span"), {
-				innerText: key,
+				innerText: OrderFormKeys[key] || key,
 			});
 
 			const $inputWrapper = Object.assign(document.createElement("div"), {

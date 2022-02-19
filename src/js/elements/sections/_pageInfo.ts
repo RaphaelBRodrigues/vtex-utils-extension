@@ -23,7 +23,7 @@ async function setPageData() {
 
 					if (pageKeyPath) {
 						const [value, label] = getDeeplyProp(vtexInfo, pageKeyPath);
-						console.log("26", value, label)
+
 						const innerText = PageInfoKeys[label as keyof object];
 						value && createInputs(innerText, value);
 					}
