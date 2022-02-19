@@ -1,4 +1,5 @@
 import { ORDER_FORM_KEYS_TO_SHOW } from "@Constants";
+import { StoreInfo } from "@Types";
 import {
 	getOrderForm,
 	createCSV,
@@ -64,7 +65,7 @@ function createAndSetLinks(orderForm: Object[]) {
 		"data:text/json;charset=utf-8," +
 		encodeURIComponent(JSON.stringify(orderForm, null, "\t"));
 
-	getVtexInfo((vtexInfo) => {
+	getVtexInfo<StoreInfo>((vtexInfo) => {
 		if (!!vtexInfo) {
 			const { accountName, account } = vtexInfo;
 

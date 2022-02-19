@@ -1,5 +1,5 @@
 import {
-	ProductKeysT, OrderFormKeysT, StoreInfoKeysT
+	ProductKeysT, OrderFormKeysT, StoreInfoKeysT, PageInfoKeysT
 } from '@Types';
 
 
@@ -13,20 +13,12 @@ export const STORE_KEYS_TO_SHOW: StoreInfoKeysT[] = [
 	'productBrandName',
 	'sellerId',
 	'plataformType',
-	'workspace',
+	'workspace'
 ];
 
-export const PAGE_KEYS_TO_SHOW: StoreInfoKeysT[] = [
-	'accountName',
-	'account',
-	'url',
-	'storeName',
-	'settings',
-	'googleTagManagerContainerId',
-	'productBrandName',
-	'sellerId',
-	'plataformType',
-	'workspace',
+export const PAGE_KEYS_TO_SHOW: PageInfoKeysT[] = [
+	'domain',
+	'id'
 ];
 
 export const ORDER_FORM_KEYS_TO_SHOW: OrderFormKeysT[] = [

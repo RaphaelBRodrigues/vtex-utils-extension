@@ -1,5 +1,11 @@
 .x-footer {
-  background-color: $black;
   height: 20px;
+  width: 100%;
   display: none;
+
+  a {
+    background-color: $black;
+    width: 100%;
+    border-radius: 0;
+  }
 }

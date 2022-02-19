@@ -21,15 +21,15 @@ function dispatchVtexInfo() {
 		let plataformType = 'CMS';
 		const SFJCondition = html.match(/gatsby/gi);
 
-		if(isDevEnviroment) {
+		if (isDevEnviroment) {
 			plataformType = SFJCondition ? 'SJF' : 'IO';
 		} else {
 			plataformType =
-			SFJCondition
-				? 'SFJ'
-				: cookies?.VtexWorkspace
-					? 'IO'
-					: plataformType;
+				SFJCondition
+					? 'SFJ'
+					: cookies?.VtexWorkspace
+						? 'IO'
+						: plataformType;
 
 		}
 
@@ -41,9 +41,9 @@ function dispatchVtexInfo() {
 			url: window.location.href,
 			cookies,
 			plataformType
-		};	 
+		};
 
-		if(window.location.href.includes('checkout')) {
+		if (window.location.href.includes('checkout')) {
 			const $scripts = [...document.querySelectorAll('script')];
 
 			const $vtexInfoScript = $scripts.find(($item) => {
@@ -60,18 +60,18 @@ function dispatchVtexInfo() {
 			};
 
 
-			if(['SJF', 'IO'].includes(plataformType)) vtexInfo.workspace = decodeURIComponent(cookies?.VtexWorkspace);
+			if (['SJF', 'IO'].includes(plataformType)) vtexInfo.workspace = decodeURIComponent(cookies?.VtexWorkspace);
 
 
 			chrome.runtime.sendMessage({
 				action: 'getVtexInfo',
 				vtexInfo
 			});
- 		} else {
-			 if(plataformType === 'SFJ') {
-				 const accountName = html.match(/(?<=https:\/\/)(\w|\d)+(?=\.vtexassets)/i)?.[0];
+		} else {
+			if (plataformType === 'SFJ') {
+				const accountName = html.match(/(?<=https:\/\/)(\w|\d)+(?=\.vtexassets)/i)?.[0];
 
-				 chrome.runtime.sendMessage({
+				chrome.runtime.sendMessage({
 					action: 'getVtexInfo',
 					vtexInfo: {
 						...vtexCommonInfoInfo,
@@ -81,9 +81,9 @@ function dispatchVtexInfo() {
 				});
 			} else {
 				const matchVtexInfo =
-				plataformType === 'IO'
-      	? /__RUNTIME__ ?= ?(?<vtexInfo>{.+)/gi
-					: /vtex.events.addData(?<=)\((?<vtexInfo>\{.+\})/gi;
+					plataformType === 'IO'
+						? /__RUNTIME__ ?= ?(?<vtexInfo>{.+)/gi
+						: /vtex.events.addData(?<=)\((?<vtexInfo>\{.+\})/gi;
 
 				const content = matchVtexInfo.exec(html)?.groups;
 

@@ -1,5 +1,5 @@
 import { PRODUCT_KEYS_TO_SHOW } from '@Constants';
-import { ProductKeys } from '@Types';
+import { ProductKeys, StoreInfo } from '@Types';
 import {
 	createClickListener,
 	cleanNode,
@@ -68,7 +68,7 @@ async function setProductData() {
 function createAndSetLinks([product]: Object[]) {
 	const productId = (<any>product).productId;
 
-	getVtexInfo((vtexInfo) => {
+	getVtexInfo<StoreInfo>((vtexInfo) => {
 		if (!!vtexInfo) {
 			const { accountName, account } = vtexInfo;
 

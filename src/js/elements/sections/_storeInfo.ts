@@ -14,7 +14,7 @@ const {
 
 
 async function setStoreData() {
-	getVtexInfo((vtexInfo) => {
+	getVtexInfo<StoreInfo>((vtexInfo) => {
 		cleanNode($list);
 		STORE_KEYS_TO_SHOW.forEach((key) => {
 			if (!vtexInfo![key]) return;

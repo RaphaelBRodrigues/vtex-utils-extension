@@ -1,9 +1,9 @@
 import {
 	createCopyButton,
-	cleanNode, getDeeplyProp, getVtexInfo
+	cleanNode, getDeeplyProp, getVtexInfo, stripURL, toggleLoader
 } from '@Utils';
 import {
-	PageInfoKeys, PageInfo, PageKeysPath
+	PageInfoKeys, PageInfo, PAGE_KEYS_PATH
 } from '@Types';
 import CacheSelector from '../__cache-selector';
 import { PAGE_KEYS_TO_SHOW } from '@Constants';
@@ -14,26 +14,24 @@ const {
 
 
 async function setPageData() {
-	getVtexInfo((vtexInfo) => {
+	getVtexInfo<PageInfo>((vtexInfo) => {
 		cleanNode($list);
+
 		PAGE_KEYS_TO_SHOW.forEach((key) => {
-			if (!vtexInfo![key]) return;
-			if (typeof vtexInfo![key] === 'object') {
-				Object.values(PageKeysPath).forEach((keyPath) => {
-					const [value, label] = getDeeplyProp(vtexInfo![key], keyPath);
-					const innerText = PageInfoKeys[label as keyof object];
-					value && createInputs(innerText, value);
-				});
-				return;
+			const pageKeyPath = PAGE_KEYS_PATH[key];
+			if (pageKeyPath && vtexInfo) {
+				const [value, label] = getDeeplyProp(vtexInfo!, pageKeyPath);
+				const innerText = PageInfoKeys[label as keyof object];
+				value && createInputs(innerText, value);
 			}
-
-			const innerText = PageInfoKeys[key];
-			const value = vtexInfo![key];
-
-			createInputs(innerText, value);
 		});
 
-		if (vtexInfo) setLinks(vtexInfo);
+		if (vtexInfo) {
+			const loaderSelector = ".x-main__page-info--loading";
+
+			toggleLoader(loaderSelector);
+			createAndSetLinks(vtexInfo);
+		}
 	});
 }
 
@@ -60,15 +58,18 @@ function createInputs(innerText: string, value: any) {
 	$list?.append($div);
 }
 
-function setLinks({
-	accountName, account
-}: PageInfo) {
+function createAndSetLinks(pageInfo: PageInfo) {
+	const { accountName, account, url, route } = pageInfo;
+	const { id } = route;
+	const { params, query } = stripURL(url);
+
 	const URLs = {
-		admin: `https://${accountName || account}.myvtex.com/admin`,
-		masterdata: `https://${accountName || account}.vtexcrm.com.br`
+		pages: `https://${accountName || account}.myvtex.com/admin/cms/pages/${id}`,
+		siteEditor: `https://${accountName || account}.myvtex.com/admin/cms/site-editor${params}${query}`
 	};
+
 	[...$links].forEach(($link) => {
-		const linkType = <'admin' | 'masterdata'>(
+		const linkType = <keyof typeof URLs>(
 			$link.getAttribute('data-type')
 		);
 		$link.setAttribute('href', URLs[linkType]);
