@@ -18,7 +18,10 @@ export const STORE_KEYS_TO_SHOW: StoreInfoKeysT[] = [
 
 export const PAGE_KEYS_TO_SHOW: PageInfoKeysT[] = [
 	'domain',
-	'id'
+	'id',
+	'categoryName',
+	'pageCategory',
+	'pageDepartament'
 ];
 
 export const ORDER_FORM_KEYS_TO_SHOW: OrderFormKeysT[] = [

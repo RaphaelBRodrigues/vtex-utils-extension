@@ -16,16 +16,24 @@ const {
 async function setPageData() {
 	getVtexInfo<PageInfo>((vtexInfo) => {
 		cleanNode($list);
+		if (vtexInfo) {
+			PAGE_KEYS_TO_SHOW.forEach((key) => {
+				if (key in PAGE_KEYS_PATH) {
+					const pageKeyPath = (<any>PAGE_KEYS_PATH)[key];
 
-		PAGE_KEYS_TO_SHOW.forEach((key) => {
-			const pageKeyPath = PAGE_KEYS_PATH[key];
-			if (pageKeyPath && vtexInfo) {
-				const [value, label] = getDeeplyProp(vtexInfo!, pageKeyPath);
-				const innerText = PageInfoKeys[label as keyof object];
-				value && createInputs(innerText, value);
-			}
-		});
+					if (pageKeyPath) {
+						const [value, label] = getDeeplyProp(vtexInfo, pageKeyPath);
+						const innerText = PageInfoKeys[label as keyof object];
+						value && createInputs(innerText, value);
+					}
+				} else {
+					if (key in vtexInfo) {
+						createInputs(PageInfoKeys[key], (<any>vtexInfo)[key]);
+					}
+				}
+			});
 
+		}
 		if (vtexInfo) {
 			const loaderSelector = ".x-main__page-info--loading";
 
@@ -60,20 +68,28 @@ function createInputs(innerText: string, value: any) {
 
 function createAndSetLinks(pageInfo: PageInfo) {
 	const { accountName, account, url, route } = pageInfo;
-	const { id } = route;
 	const { params, query } = stripURL(url);
 
-	const URLs = {
-		pages: `https://${accountName || account}.myvtex.com/admin/cms/pages/${id}`,
-		siteEditor: `https://${accountName || account}.myvtex.com/admin/cms/site-editor${params}${query}`
-	};
+	if (route) {
+		const { id } = route;
 
-	[...$links].forEach(($link) => {
-		const linkType = <keyof typeof URLs>(
-			$link.getAttribute('data-type')
-		);
-		$link.setAttribute('href', URLs[linkType]);
-	});
+		const URLs = {
+			pages: `https://${accountName || account}.myvtex.com/admin/cms/pages/${id}`,
+			siteEditor: `https://${accountName || account}.myvtex.com/admin/cms/site-editor${params}${query}`
+		};
+
+		[...$links].forEach(($link) => {
+			const linkType = <keyof typeof URLs>(
+				$link.getAttribute('data-type')
+			);
+			$link.setAttribute('href', URLs[linkType]);
+		});
+	} else {
+		[...$links].forEach(($link) => {
+			$link.classList.add("disabled");
+		})
+	}
+
 }
 
 function init() {

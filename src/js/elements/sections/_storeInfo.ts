@@ -3,7 +3,7 @@ import {
 	cleanNode, getDeeplyProp, getVtexInfo
 } from '@Utils';
 import {
-	StoreInfoKeys, StoreInfo, StoreKeysPath
+	StoreInfoKeys, StoreInfo, STORE_KEYS_PATH
 } from '@Types';
 import CacheSelector from '../__cache-selector';
 import { STORE_KEYS_TO_SHOW } from '@Constants';
@@ -19,7 +19,7 @@ async function setStoreData() {
 		STORE_KEYS_TO_SHOW.forEach((key) => {
 			if (!vtexInfo![key]) return;
 			if (typeof vtexInfo![key] === 'object') {
-				Object.values(StoreKeysPath).forEach((keyPath) => {
+				Object.values(STORE_KEYS_PATH).forEach((keyPath) => {
 					const [value, label] = getDeeplyProp(vtexInfo![key], keyPath);
 					const innerText = StoreInfoKeys[label as keyof object];
 					value && createInputs(innerText, value);

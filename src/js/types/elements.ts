@@ -12,10 +12,9 @@ export enum StoreInfoKeys {
   workspace = 'Workspace',
 }
 
-export enum StoreKeysPath {
+export enum STORE_KEYS_PATH {
   storeName = '(settings){vtex.store}{storeName}'
 }
-
 
 export type StoreInfoKeysT =
   | 'accountName'
@@ -32,6 +31,10 @@ export type StoreInfoKeysT =
 export enum PageInfoKeys {
   domain = 'Domain',
   id = 'Block',
+  route = 'Route',
+  pageCategory = 'Page Type',
+  pageDepartament = 'Category',
+  categoryName = "Category Name"
 }
 
 export enum PAGE_KEYS_PATH {
@@ -41,7 +44,11 @@ export enum PAGE_KEYS_PATH {
 
 export type PageInfoKeysT =
   | 'domain'
-  | 'id';
+  | 'id'
+  | 'route'
+  | 'pageCategory'
+  | 'pageDepartament'
+  | 'categoryName';
 
 export type StoreInfo = {
   accountName: string;
@@ -61,10 +68,13 @@ export type StoreInfo = {
 };
 
 export type PageInfo = {
-  route: {
+  route?: {
     domain: string,
     id: string
-  }
+  };
+  pageCategory?: string;
+  pageDepartament?: string;
+  categoryName?: string;
 } & StoreInfo;
 
 export enum OrderFormKeys {
