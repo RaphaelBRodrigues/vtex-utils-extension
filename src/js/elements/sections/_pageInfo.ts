@@ -23,6 +23,7 @@ async function setPageData() {
 
 					if (pageKeyPath) {
 						const [value, label] = getDeeplyProp(vtexInfo, pageKeyPath);
+						console.log("26", value, label)
 						const innerText = PageInfoKeys[label as keyof object];
 						value && createInputs(innerText, value);
 					}
@@ -68,7 +69,7 @@ function createInputs(innerText: string, value: any) {
 
 function createAndSetLinks(pageInfo: PageInfo) {
 	const { accountName, account, url, route } = pageInfo;
-	const { params, query } = stripURL(url);
+	const { params = "", query = "" } = stripURL(url);
 
 	if (route) {
 		const { id } = route;

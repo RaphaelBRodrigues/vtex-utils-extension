@@ -7,7 +7,7 @@ function getDeeplyProp(object: Object, path: string) {
 			return obj?.[key as keyof Object];
 		}, object);
 
-		return [prop, propArray?.slice(1)];
+		return [prop, propArray?.at(-1)];
 
 	} catch (err) {
 		console.error(err);

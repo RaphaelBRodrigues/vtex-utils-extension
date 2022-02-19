@@ -31,6 +31,10 @@ export type StoreInfoKeysT =
 export enum PageInfoKeys {
   domain = 'Domain',
   id = 'Block',
+  department = 'Department',
+  category = 'Category',
+  subcategory = 'Subcategory',
+  categoryId = 'Category Id',
   route = 'Route',
   pageCategory = 'Page Type',
   pageDepartament = 'Category',
@@ -39,7 +43,10 @@ export enum PageInfoKeys {
 
 export enum PAGE_KEYS_PATH {
   domain = '{route}{domain}',
-  id = '{route}{id}'
+  id = '{route}{id}',
+  department = '{route}{params}{department}',
+  category = '{route}{params}{category}',
+  subcategory = '{route}{params}{subcategory}',
 }
 
 export type PageInfoKeysT =
@@ -48,7 +55,11 @@ export type PageInfoKeysT =
   | 'route'
   | 'pageCategory'
   | 'pageDepartament'
-  | 'categoryName';
+  | 'categoryName'
+  | 'categoryId'
+  | 'department'
+  | 'category'
+  | 'subcategory';
 
 export type StoreInfo = {
   accountName: string;
@@ -75,6 +86,10 @@ export type PageInfo = {
   pageCategory?: string;
   pageDepartament?: string;
   categoryName?: string;
+  department?: string;
+  category?: string;
+  subcategory?: string;
+  categoryId?: string;
 } & StoreInfo;
 
 export enum OrderFormKeys {

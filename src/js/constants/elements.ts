@@ -21,7 +21,11 @@ export const PAGE_KEYS_TO_SHOW: PageInfoKeysT[] = [
 	'id',
 	'categoryName',
 	'pageCategory',
-	'pageDepartament'
+	'pageDepartament',
+	'department',
+	'category',
+	'categoryId',
+	'subcategory'
 ];
 
 export const ORDER_FORM_KEYS_TO_SHOW: OrderFormKeysT[] = [
