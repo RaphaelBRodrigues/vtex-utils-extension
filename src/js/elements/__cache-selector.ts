@@ -74,6 +74,10 @@ const CacheSelector = {
 			'.x-main__orderForm--links a[data-type="json"]',
 		),
 	},
+	healthCheck: {
+		$error_status: document.querySelector('.x-health-check__status--error'),
+		$regular_status: document.querySelector('.x-health-check__status--regular'),
+	},
 	product: {
 		$content: document.querySelector<HTMLInputElement>('.x-main__product--raw-content'),
 		$list: document.querySelector('.x-main__product--result'),

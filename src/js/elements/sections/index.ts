@@ -5,6 +5,7 @@ import StoreInfo from './_storeInfo';
 import OrderForm from './_orderForm';
 import Product from './_product';
 import PageInfo from './_pageInfo';
+import HealthCheck from './_healthCheck';
 
 function init() {
 	Initial();
@@ -14,6 +15,7 @@ function init() {
 	OrderForm();
 	Product();
 	PageInfo();
+	HealthCheck();
 }
 
 export default init;
