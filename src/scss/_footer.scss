@@ -1,11 +1,30 @@
 .x-footer {
-  height: 20px;
   width: 100%;
-  display: none;
+  background-color: $black;
+  position: absolute;
+  padding: 5px 5px 5px 5px;
+  bottom: 0px;
+  display: flex;
 
-  a {
-    background-color: $black;
+  small {
+    color: gray;
+    display: block;
+    white-space: nowrap;
+    width: fit-content;
+    font-size: 10px;
+  }
+
+  div {
     width: 100%;
-    border-radius: 0;
+    display: flex;
+    justify-content: space-evenly;
+
+    a {
+      font-size: 10px;
+      color: white;
+      display: block;
+      border-radius: 0;
+      text-decoration: underline;
+    }
   }
 }

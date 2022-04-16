@@ -16,6 +16,7 @@ body {
 
 .x-app {
   background-color: $white;
+  // background-color: $black;
   width: 400px;
   position: relative;
   overflow-x: hidden;
@@ -45,6 +46,7 @@ body {
     border-radius: 5px;
     padding: 15px 25px;
     border: 0;
+    box-shadow: 1px 2px 6px $pink;
     cursor: pointer;
 
     transition-duration: 0.4s;
@@ -148,16 +150,24 @@ body {
 }
 
 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a[download],
+a[data-type] {
   background-color: $pink;
   color: white;
   padding: 0.5rem 1rem;
   box-sizing: border-box;
   border-radius: 5px;
   cursor: pointer;
+  box-shadow: 1px 2px 6px $pink;
+  transition-duration: 0.3s;
+
 
   &:hover {
     opacity: 0.7;
-    transition-duration: 0.3s;
   }
 
   &[data-type].disabled {
