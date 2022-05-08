@@ -5,9 +5,9 @@
   "scripts": {
     "clean": "rimraf dist/* || rm -rf dist/*",
     "lint": "eslint src/js/**/*ts __tests__/**/*.ts  --fix",
-    "start": "npm run clean && webpack serve --open --mode=development || npx tururu",
+    "start": "npm run clean && webpack serve --open --mode=development || npx tomou-na-jabiraca",
     "prebuild": "npm run test",
-    "build": "npm run clean && webpack --mode production",
+    "build": "npm run clean && webpack --mode production || npx tomou-na-jabiraca",
     "postinstall": "husky install",
     "test": "jest --config ./jest.config.ts",
     "test:watch": "jest --config  ./jest.config.ts --watch"
