@@ -1,11 +1,11 @@
 
-# VHelpx
+# VHelpx - VTEX Utils
 
 ![Licence](https://img.shields.io/badge/license-GNU-blue)
 ![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/pbeccppphodgankmbikfdlodceghmmgo.svg)
 ![Chrome Web Store Users](https://img.shields.io/chrome-web-store/stars/pbeccppphodgankmbikfdlodceghmmgo.svg)
 
-[VHelpx](http://vtex.raphaelbr.dev/) is a browser extension with some helpers that will make easier the life of those who work with the [VTEX](https://vtex.com/) ecosystem.
+[VHelpx](https://chrome.google.com/webstore/detail/vhelpx-vtex-utils/pbeccppphodgankmbikfdlodceghmmgo) is a browser extension with some helpers that will make easier the life of those who work with the [VTEX](https://vtex.com/) ecosystem.
 
 ## Some Features:
 * Local Login: Set the cookie VtexIdclientAutCookie that is used to authenticate the user in the plataform.
@@ -18,7 +18,7 @@
 
 * Orderform: You can preview some fields from orderForm, copy or download the full response, and generate a addToCart URL based on the current items.
 
-* Page Info (WIP): You will be able to preview some info about the current page, like search context, the block that is being used...
+* Page Info: You will be able to preview some info about the current page, like search context, the block that is being used...
 
 ## Stack
 * [TypeScript](https://www.typescriptlang.org/)
