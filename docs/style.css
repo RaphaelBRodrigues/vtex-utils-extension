@@ -26,10 +26,12 @@ header img {
 header h2 {
   margin-left: 1rem;
   font-size: 1rem;
+  flex-wrap: nowrap;
 }
 
 header a {
   color: white;
+  width: 100%;
   border: 0;
   display: flex;
   justify-content: center;
@@ -49,7 +51,8 @@ main {
 
 main p {
   color: #142032;
-  width: 80%;
+  width: 34rem;
+  font-size: 1em;
 }
 
 main section {
