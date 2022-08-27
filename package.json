@@ -1,8 +1,9 @@
 {
   "name": "vtex_utils_extension",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "A Browser extension with VTEX utils",
   "scripts": {
+    "start:mozilla": "web-ext run --source-dir ./dist",
     "clean": "rimraf dist/* || rm -rf dist/*",
     "lint": "eslint src/js/**/*ts __tests__/**/*.ts  --fix",
     "start": "npm run clean && webpack serve --open --mode=development || npx tomou-na-jabiraca",
@@ -47,6 +48,7 @@
     "sass-loader": "^12.0.0",
     "style-loader": "^2.0.0",
     "ts-loader": "^9.2.3",
+    "web-ext": "^7.2.0",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
@@ -74,6 +76,6 @@
     "[module-name]": false
   },
   "engines": {
-    "node": "14.15.1"
+    "node": ">=14.15.1"
   }
 }
